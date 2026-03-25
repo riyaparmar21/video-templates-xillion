@@ -1,0 +1,186 @@
+{
+  "palette": {
+    "primary": "#FFD700",
+    "secondary": "#1E90FF",
+    "background": "#0A0A0A",
+    "text": "#FFFFFF",
+    "accent": "#FF6B35"
+  },
+  "typography": {
+    "heading": "Montserrat",
+    "body": "Inter",
+    "mono": "JetBrains Mono"
+  },
+  "duration": 20,
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "audio": {
+    "src": "",
+    "reactive": false
+  },
+  "camera": {
+    "kenBurns": true,
+    "kenBurnsScale": 1.06,
+    "punchZoom": true,
+    "punchInterval": 4,
+    "punchScale": 1.025
+  },
+  "scenes": [
+    {
+      "template": "KineticCaptions",
+      "duration": 5.38,
+      "params": {
+        "groups": [
+          {
+            "lines": [
+              {
+                "words": [
+                  {
+                    "text": "73%",
+                    "style": "emphasis-gold big"
+                  },
+                  {
+                    "text": "of",
+                    "style": "normal"
+                  },
+                  {
+                    "text": "consumers",
+                    "style": "normal"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "lines": [
+              {
+                "words": [
+                  {
+                    "text": "prefer",
+                    "style": "filler"
+                  },
+                  {
+                    "text": "brands",
+                    "style": "normal"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "lines": [
+              {
+                "words": [
+                  {
+                    "text": "that",
+                    "style": "normal"
+                  },
+                  {
+                    "text": "personalize",
+                    "style": "accent-blue"
+                  },
+                  {
+                    "text": "their",
+                    "style": "normal"
+                  },
+                  {
+                    "text": "experience",
+                    "style": "big-blue"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "transition": "crossfade",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "BlurTextScroller",
+      "duration": 4.3,
+      "params": {
+        "words": [
+          "AI-driven",
+          "personalization",
+          "40% increase",
+          "in revenue",
+          "transformative"
+        ],
+        "fontSize": 48,
+        "textColor": "#FFFFFF",
+        "bgColor": "#0A0A0A",
+        "progressiveBlur": true
+      },
+      "transition": "crossfade",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "StackHiring",
+      "duration": 6.45,
+      "params": {
+        "brandName": "Personalize AI",
+        "titleText": "Core Pillars",
+        "roles": [
+          "Real-Time Data Collection",
+          "Machine Learning Models That Adapt",
+          "Seamless Integration"
+        ],
+        "ctaLine1": "Unlock the potential of AI personalization.",
+        "ctaLine2": "Start transforming your business today.",
+        "ctaButton": "Learn More",
+        "bgColor": "#1E90FF",
+        "textColor": "#FFFFFF"
+      },
+      "transition": "wipe_left",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "KineticCaptions",
+      "duration": 5.37,
+      "params": {
+        "groups": [
+          {
+            "lines": [
+              {
+                "words": [
+                  {
+                    "text": "Visit",
+                    "style": "normal"
+                  },
+                  {
+                    "text": "personalize.ai",
+                    "style": "emphasis-blue big"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "lines": [
+              {
+                "words": [
+                  {
+                    "text": "to",
+                    "style": "normal"
+                  },
+                  {
+                    "text": "start",
+                    "style": "normal"
+                  },
+                  {
+                    "text": "today",
+                    "style": "accent-blue"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "transition": "zoom_out",
+      "transitionDuration": 0.5
+    }
+  ]
+}

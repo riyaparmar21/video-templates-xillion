@@ -1,0 +1,215 @@
+{
+  "fintech": {
+    "app-cards": {
+      "path": "assets/fintech/app-cards.png",
+      "type": "image",
+      "size": 3460,
+      "modified": 1774009083135.7832
+    },
+    "app-dashboard": {
+      "path": "assets/fintech/app-dashboard.png",
+      "type": "image",
+      "size": 437496,
+      "modified": 1774009083170.7578
+    },
+    "logo": {
+      "path": "assets/fintech/logo.webp",
+      "type": "image",
+      "size": 9356,
+      "modified": 1774009083175.2617
+    }
+  },
+  "fintech_nova": {
+    "app-cards-large": {
+      "path": "assets/fintech_nova/app-cards-large.png",
+      "type": "image",
+      "size": 120949,
+      "modified": 1774080053015.2402
+    },
+    "app-cards": {
+      "path": "assets/fintech_nova/app-cards.png",
+      "type": "image",
+      "size": 3460,
+      "modified": 1773929672343.1016
+    },
+    "app-dashboard-dark": {
+      "path": "assets/fintech_nova/app-dashboard-dark.png",
+      "type": "image",
+      "size": 306769,
+      "modified": 1774080021040.046
+    },
+    "app-dashboard": {
+      "path": "assets/fintech_nova/app-dashboard.png",
+      "type": "image",
+      "size": 437496,
+      "modified": 1774079119021.022
+    },
+    "logo-dark": {
+      "path": "assets/fintech_nova/logo-dark.png",
+      "type": "image",
+      "size": 23223,
+      "modified": 1774079136899.661
+    },
+    "logo-transparent": {
+      "path": "assets/fintech_nova/logo-transparent.png",
+      "type": "image",
+      "size": 26161,
+      "modified": 1774079119698.7456
+    },
+    "logo": {
+      "path": "assets/fintech_nova/logo.webp",
+      "type": "image",
+      "size": 9356,
+      "modified": 1773930307064.7056
+    }
+  },
+  "fitness_volt": {
+    "app-dashboard": {
+      "path": "assets/fitness_volt/app-dashboard.png",
+      "type": "image",
+      "size": 66837,
+      "modified": 1774023997910.2493
+    },
+    "app-screenshot-2": {
+      "path": "assets/fitness_volt/app-screenshot-2.avif",
+      "type": "image",
+      "size": 32172,
+      "modified": 1774098281134.7837
+    },
+    "app-screenshot-3": {
+      "path": "assets/fitness_volt/app-screenshot-3.jpeg",
+      "type": "image",
+      "size": 10163,
+      "modified": 1774098281137.9204
+    },
+    "app-screenshot": {
+      "path": "assets/fitness_volt/app-screenshot.jpg",
+      "type": "image",
+      "size": 28956,
+      "modified": 1774098281130.3975
+    },
+    "logo-yellow": {
+      "path": "assets/fitness_volt/logo-yellow.jpg",
+      "type": "image",
+      "size": 12010,
+      "modified": 1774078903239.8108
+    },
+    "logo": {
+      "path": "assets/fitness_volt/logo.png",
+      "type": "image",
+      "size": 7382,
+      "modified": 1774023997911.249
+    },
+    "product-hero": {
+      "path": "assets/fitness_volt/product-hero.png",
+      "type": "image",
+      "size": 96448,
+      "modified": 1774023997913.249
+    },
+    "runner-action": {
+      "path": "assets/fitness_volt/runner-action.png",
+      "type": "image",
+      "size": 17464,
+      "modified": 1774023997913.249
+    },
+    "runner": {
+      "path": "assets/fitness_volt/runner.jpg",
+      "type": "image",
+      "size": 84333,
+      "modified": 1774078903235.405
+    },
+    "shoe-hero": {
+      "path": "assets/fitness_volt/shoe-hero.avif",
+      "type": "image",
+      "size": 5867,
+      "modified": 1774098281142.2285
+    },
+    "shoe-tech": {
+      "path": "assets/fitness_volt/shoe-tech.png",
+      "type": "image",
+      "size": 88872,
+      "modified": 1774023997914.249
+    }
+  },
+  "saas_test": {
+    "dashboard": {
+      "path": "assets/saas_test/dashboard.png",
+      "type": "image",
+      "size": 225061,
+      "modified": 1774025439521.4478
+    },
+    "kanban": {
+      "path": "assets/saas_test/kanban.webp",
+      "type": "image",
+      "size": 117284,
+      "modified": 1774025439530.4014
+    },
+    "logo": {
+      "path": "assets/saas_test/logo.jpeg",
+      "type": "image",
+      "size": 5859,
+      "modified": 1774025439532.6401
+    }
+  },
+  "saas_v2": {
+    "dashboard": {
+      "path": "assets/saas_v2/dashboard.png",
+      "type": "image",
+      "size": 225061,
+      "modified": 1773929236301.6208
+    },
+    "kanban": {
+      "path": "assets/saas_v2/kanban.jpeg",
+      "type": "image",
+      "size": 5764,
+      "modified": 1773929260220.473
+    },
+    "logo": {
+      "path": "assets/saas_v2/logo.jpeg",
+      "type": "image",
+      "size": 5859,
+      "modified": 1773929280335.808
+    }
+  },
+  "saas_v3": {
+    "dashboard": {
+      "path": "assets/saas_v3/dashboard.png",
+      "type": "image",
+      "size": 225061,
+      "modified": 1773929236301.6208
+    },
+    "kanban": {
+      "path": "assets/saas_v3/kanban.webp",
+      "type": "image",
+      "size": 117284,
+      "modified": 1773986452580.7234
+    },
+    "logo": {
+      "path": "assets/saas_v3/logo.jpeg",
+      "type": "image",
+      "size": 5859,
+      "modified": 1773929280335.808
+    }
+  },
+  "video_spec": {
+    "app-cards": {
+      "path": "assets/video_spec/app-cards.png",
+      "type": "image",
+      "size": 3460,
+      "modified": 1774009083135.7832
+    },
+    "app-dashboard": {
+      "path": "assets/video_spec/app-dashboard.png",
+      "type": "image",
+      "size": 437496,
+      "modified": 1774009083170.7578
+    },
+    "logo": {
+      "path": "assets/video_spec/logo.webp",
+      "type": "image",
+      "size": 9356,
+      "modified": 1774009083175.2617
+    }
+  },
+  "_latest": "fitness_volt"
+}

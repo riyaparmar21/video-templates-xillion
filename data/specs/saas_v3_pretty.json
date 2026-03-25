@@ -1,0 +1,155 @@
+{
+  "palette": {
+    "primary": "#FFD700",
+    "secondary": "#1E90FF",
+    "background": "#0A0A0A",
+    "text": "#FFFFFF",
+    "accent": "#FF6B35"
+  },
+  "typography": {
+    "heading": "Montserrat",
+    "body": "Inter",
+    "mono": "JetBrains Mono"
+  },
+  "duration": 25,
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "audio": {
+    "src": "",
+    "reactive": false
+  },
+  "camera": {
+    "kenBurns": true,
+    "kenBurnsScale": 1.06,
+    "punchZoom": true,
+    "punchInterval": 4,
+    "punchScale": 1.025
+  },
+  "scenes": [
+    {
+      "template": "KineticCaptions",
+      "duration": 5,
+      "params": {
+        "groups": [
+          {
+            "lines": [
+              {
+                "words": [
+                  {
+                    "text": "Meet",
+                    "style": "big-blue"
+                  }
+                ]
+              },
+              {
+                "words": [
+                  {
+                    "text": "Flowboard",
+                    "style": "emphasis-gold big"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "lines": [
+              {
+                "words": [
+                  {
+                    "text": "the project management tool",
+                    "style": "normal"
+                  }
+                ]
+              },
+              {
+                "words": [
+                  {
+                    "text": "your team actually wants to use.",
+                    "style": "normal"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "transition": "zoom_in",
+      "transitionDuration": 0.6
+    },
+    {
+      "template": "GenAiFeatures",
+      "duration": 7,
+      "params": {
+        "scene1": {
+          "textLines": [
+            "Drag, drop, done effortlessly with Flowboard."
+          ],
+          "image": "assets/saas_v3/kanban.jpeg"
+        },
+        "scene2": {
+          "image": "assets/saas_v3/dashboard.png",
+          "promptBox": "Streamlined workflows",
+          "buttons": [
+            "Start Now",
+            "Learn More"
+          ]
+        },
+        "scene3": {
+          "image": "assets/saas_v3/dashboard.png",
+          "morphDims": "Visual pipelines crafted in seconds"
+        },
+        "scene4": {
+          "logoText": "Flowboard",
+          "logoSuperscript": "Simplifying Project Management",
+          "logoImage": "assets/saas_v3/logo.jpeg"
+        },
+        "bgColor": "#0A0A0A"
+      },
+      "transition": "wipe_left",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "NumberCounterScene",
+      "duration": 6,
+      "params": {
+        "target": 94,
+        "prefix": "94%",
+        "suffix": "",
+        "label": "Over 12,000 Teams Trust Flowboard Worldwide",
+        "decimals": 0,
+        "fontSize": 64,
+        "particleCount": 40,
+        "glowColor": "#FFD700"
+      },
+      "transition": "slide_up",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "TextRevealWipe",
+      "duration": 5,
+      "params": {
+        "headline": "Try Flowboard Free for 30 Days",
+        "subtitle": "Start your productivity journey today!",
+        "wipeDirection": "center",
+        "wipeColor": "#FFD700",
+        "headlineSize": 56,
+        "subtitleSize": 36
+      },
+      "transition": "zoom_in",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "LogoStinger",
+      "duration": 2,
+      "params": {
+        "logo": "assets/saas_v3/logo.jpeg",
+        "tagline": "Flowboard \u2014 The Future of Project Management",
+        "style": "particles",
+        "logoSize": 180
+      },
+      "transition": "crossfade",
+      "transitionDuration": 0.5
+    }
+  ]
+}

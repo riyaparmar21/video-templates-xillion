@@ -1,0 +1,124 @@
+{
+  "source_dir": "/sessions/festive-funny-curie/mnt/video-templates/test_scripts/assets_fintech",
+  "asset_count": 3,
+  "category_summary": {
+    "logo": 1,
+    "product": 2
+  },
+  "by_category": {
+    "product": [
+      {
+        "path": "app-cards.png",
+        "filename": "app-cards.png",
+        "description": "app cards",
+        "category": "product",
+        "media_type": "image",
+        "ext": ".png",
+        "file_size": "3.4KB",
+        "dimensions": null,
+        "has_transparency": false,
+        "dominant_colors": [
+          "#FFFFFF",
+          "#4C4849",
+          "#040709",
+          "#767374",
+          "#AAA9A9"
+        ]
+      },
+      {
+        "path": "app-dashboard.png",
+        "filename": "app-dashboard.png",
+        "description": "app dashboard",
+        "category": "product",
+        "media_type": "image",
+        "ext": ".png",
+        "file_size": "427.2KB",
+        "dimensions": null,
+        "has_transparency": false,
+        "dominant_colors": [
+          "#FFFFFF",
+          "#19332C",
+          "#DEDEDE",
+          "#B2BBB8",
+          "#295B4E"
+        ]
+      }
+    ],
+    "logo": [
+      {
+        "path": "logo.webp",
+        "filename": "logo.webp",
+        "description": "logo",
+        "category": "logo",
+        "media_type": "image",
+        "ext": ".webp",
+        "file_size": "9.1KB",
+        "dimensions": null,
+        "has_transparency": false,
+        "dominant_colors": [
+          "#FFFFFF",
+          "#000000",
+          "#3873FF",
+          "#2E2E2E",
+          "#5F5F5F"
+        ]
+      }
+    ]
+  },
+  "assets": [
+    {
+      "path": "app-cards.png",
+      "filename": "app-cards.png",
+      "description": "app cards",
+      "category": "product",
+      "media_type": "image",
+      "ext": ".png",
+      "file_size": "3.4KB",
+      "dimensions": null,
+      "has_transparency": false,
+      "dominant_colors": [
+        "#FFFFFF",
+        "#4C4849",
+        "#040709",
+        "#767374",
+        "#AAA9A9"
+      ]
+    },
+    {
+      "path": "app-dashboard.png",
+      "filename": "app-dashboard.png",
+      "description": "app dashboard",
+      "category": "product",
+      "media_type": "image",
+      "ext": ".png",
+      "file_size": "427.2KB",
+      "dimensions": null,
+      "has_transparency": false,
+      "dominant_colors": [
+        "#FFFFFF",
+        "#19332C",
+        "#DEDEDE",
+        "#B2BBB8",
+        "#295B4E"
+      ]
+    },
+    {
+      "path": "logo.webp",
+      "filename": "logo.webp",
+      "description": "logo",
+      "category": "logo",
+      "media_type": "image",
+      "ext": ".webp",
+      "file_size": "9.1KB",
+      "dimensions": null,
+      "has_transparency": false,
+      "dominant_colors": [
+        "#FFFFFF",
+        "#000000",
+        "#3873FF",
+        "#2E2E2E",
+        "#5F5F5F"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,223 @@
+{
+  "palette": {
+    "primary": "#00FF80",
+    "secondary": "#00B4FF",
+    "background": "#0A0A0A",
+    "text": "#FFFFFF",
+    "accent": "#FF3D5A"
+  },
+  "typography": {
+    "heading": "Montserrat",
+    "body": "Inter",
+    "mono": "JetBrains Mono"
+  },
+  "duration": 60,
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "audio": {
+    "src": "",
+    "reactive": false
+  },
+  "camera": {
+    "kenBurns": true,
+    "kenBurnsScale": 1.06,
+    "punchZoom": true,
+    "punchInterval": 4,
+    "punchScale": 1.025
+  },
+  "scenes": [
+    {
+      "template": "KineticCaptions",
+      "duration": 5,
+      "params": {
+        "groups": [
+          {
+            "lines": [
+              {
+                "words": [
+                  { "text": "Your", "style": "normal" },
+                  { "text": "next", "style": "emphasis-blue" },
+                  { "text": "personal", "style": "big" },
+                  { "text": "best", "style": "big" }
+                ]
+              }
+            ]
+          },
+          {
+            "lines": [
+              {
+                "words": [
+                  { "text": "starts", "style": "normal" },
+                  { "text": "with", "style": "filler" },
+                  { "text": "what's", "style": "emphasis-gold" },
+                  { "text": "on", "style": "filler" },
+                  { "text": "your", "style": "normal" },
+                  { "text": "feet.", "style": "emphasis-gold" }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "transition": "zoom_in",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "GenAiFeatures",
+      "duration": 13,
+      "params": {
+        "scene1": {
+          "textLines": "Introducing the Volt X9",
+          "image": "assets/fitness_volt/product-hero.png"
+        },
+        "scene2": {
+          "image": "assets/fitness_volt/app-dashboard.png",
+          "promptBox": "37% lighter, 2x the energy return.",
+          "buttons": [
+            "Shop Now",
+            "Learn More"
+          ]
+        },
+        "scene3": {
+          "image": "assets/fitness_volt/runner-action.png",
+          "morphDims": {
+            "aspectRatio": "smooth transition",
+            "animationStyle": "zoom"
+          }
+        },
+        "scene4": {
+          "logoText": "Volt X9",
+          "logoSuperscript": " ",
+          "logoImage": "assets/fitness_volt/logo.png"
+        },
+        "bgColor": "#0A0A0A"
+      },
+      "transition": "crossfade",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "ParallaxImageReveal",
+      "duration": 8,
+      "params": {
+        "image": "assets/fitness_volt/runner-action.png",
+        "layerCount": 4,
+        "direction": "up",
+        "speed": "medium",
+        "zoom": "in",
+        "revealStyle": "fade",
+        "headline": "Built for runners",
+        "subtitle": "who don't believe in limits.",
+        "vignette": true,
+        "lightLeak": true
+      },
+      "transition": "wipe_left",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "ThreeDCardFlip",
+      "duration": 8,
+      "params": {
+        "cards": [
+          { "image": "assets/fitness_volt/product-hero.png", "label": "Lightweight Design" },
+          { "image": "assets/fitness_volt/shoe-tech.png", "label": "Energy Return" },
+          { "image": "assets/fitness_volt/runner-action.png", "label": "Performance" }
+        ],
+        "style": "fan",
+        "borderRadius": 16,
+        "cardWidthPercent": 70,
+        "reflection": true,
+        "shadow": true,
+        "headline": "The Volt X9",
+        "particles": true
+      },
+      "transition": "slide_up",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "NumberCounterScene",
+      "duration": 5,
+      "params": {
+        "target": 37,
+        "prefix": "",
+        "suffix": "% lighter",
+        "label": "Performance Redefined",
+        "decimals": 0,
+        "fontSize": 200,
+        "particleCount": 50,
+        "glowColor": "#00FF80"
+      },
+      "transition": "crossfade",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "StackHiring",
+      "duration": 9,
+      "params": {
+        "brandName": "Volt X9",
+        "titleText": "Built With",
+        "roles": [
+          "ReactFoam™ Midsole",
+          "Carbon Fiber Plate",
+          "FlexKnit Upper",
+          "Dynamic Traction Sole",
+          "Impact Gel Cushion",
+          "Aero Mesh Ventilation",
+          "Precision Lace System"
+        ],
+        "ctaLine1": "Available now",
+        "ctaLine2": "at volt.run",
+        "ctaButton": "Shop Now",
+        "bgColor": "#0A0A0A"
+      },
+      "transition": "wipe_left",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "BlurTextScroller",
+      "duration": 6,
+      "params": {
+        "words": [
+          "Lightweight",
+          "Responsive",
+          "Energy",
+          "Return",
+          "Carbon",
+          "Plate",
+          "ReactFoam",
+          "Precision",
+          "Speed",
+          "Endurance"
+        ]
+      },
+      "transition": "crossfade",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "TextRevealWipe",
+      "duration": 5,
+      "params": {
+        "headline": "Available now",
+        "subtitle": "at volt.run",
+        "wipeDirection": "left",
+        "wipeColor": "#00FF80",
+        "headlineSize": 72,
+        "subtitleSize": 48
+      },
+      "transition": "zoom_in",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "LogoStinger",
+      "duration": 3,
+      "params": {
+        "logo": "assets/fitness_volt/logo.png",
+        "tagline": "Run beyond limits",
+        "style": "particles",
+        "logoSize": 300
+      },
+      "transition": "none",
+      "transitionDuration": 0
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "durationMs": 12000,
+  "bgColor": "#ffffff",
+  "accentColor": "#D90004",
+  "textColor": "#D90004",
+  "dotColor": "#D90004",
+  "headlineFont": "Söhne, Helvetica Neue, Arial, sans-serif",
+  "headlineFontWeight": 700,
+  "headlineFontSize": 120,
+  "headlineLetterSpacing": -4,
+  "bodyFont": "Helvetica Neue, Arial, sans-serif",
+  "bodyFontSize": 16,
+  "copyrightText": "©2025 Jitter\nAll rights reserved.",
+  "lineHeight": 8,
+  "dotSize": 12,
+  "slides": [
+    {
+      "layout": "twoImagesCentered",
+      "headline": "Headline 01",
+      "images": [
+        "slideshow-social/01.png"
+      ],
+      "counter": "(001)",
+      "holdMs": 2800
+    },
+    {
+      "layout": "imageAboveTextBelow",
+      "headline": "Big text 01",
+      "images": [
+        "slideshow-social/03.png"
+      ],
+      "counter": "(002)",
+      "holdMs": 2200
+    },
+    {
+      "layout": "fullBleedImage",
+      "headline": "Big text 02",
+      "images": [
+        "slideshow-social/03.png"
+      ],
+      "counter": "(003)",
+      "holdMs": 2800
+    },
+    {
+      "layout": "gridLeftTextRight",
+      "headline": "Big text 03",
+      "images": [
+        "slideshow-social/04.png",
+        "slideshow-social/05.png",
+        "slideshow-social/06.png"
+      ],
+      "counter": "(004)",
+      "holdMs": 2100
+    },
+    {
+      "layout": "imageLargeLeftTextRight",
+      "headline": "Big text 04",
+      "images": [
+        "slideshow-social/07.png"
+      ],
+      "counter": "(005)",
+      "holdMs": 2100
+    }
+  ],
+  "transitionMs": 600
+}

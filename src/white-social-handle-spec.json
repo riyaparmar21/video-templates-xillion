@@ -1,0 +1,13 @@
+{
+  "fps": 30,
+  "width": 456,
+  "height": 160,
+  "durationMs": 4000,
+  "handleText": "jitter.video",
+  "iconImage": "",
+  "pillColor": "#ffffff",
+  "pillOpacity": 80,
+  "textColor": "#666666",
+  "pillRadius": 40,
+  "fontSize": 48
+}

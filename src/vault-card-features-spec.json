@@ -1,0 +1,57 @@
+{
+  "fps": 30,
+  "width": 1080,
+  "height": 1350,
+  "durationMs": 3750,
+  "bgGradientStart": "#ebedef",
+  "bgGradientEnd": "#c9c9cb",
+  "featureWords": [
+    "Cards",
+    "Investing",
+    "Transfers",
+    "Rewards",
+    "Credit",
+    "Invoices",
+    "Deposits",
+    "Analytics",
+    "Wallet",
+    "Payments",
+    "Reports",
+    "Savings",
+    "Budgeting",
+    "Statements",
+    "Loans",
+    "Cashback",
+    "Crypto",
+    "People",
+    "Forecasts",
+    "Digital"
+  ],
+  "subtitle": "Instant Digital Cards",
+  "poweredByBrand": "Acme",
+  "cards": [
+    {
+      "bgColor": "#0000c7",
+      "textColor": "#ffffff",
+      "brand": "Acme",
+      "cardNumber": "3346",
+      "network": "VISA"
+    },
+    {
+      "bgColor": "#c8e6ff",
+      "textColor": "#0000c7",
+      "brand": "Acme",
+      "cardNumber": "3346",
+      "network": "VISA"
+    },
+    {
+      "bgColor": "#1a1a1a",
+      "textColor": "#ffffff",
+      "brand": "Acme",
+      "cardNumber": "3346",
+      "network": "VISA"
+    }
+  ],
+  "wordFontSize": 160,
+  "wordLineHeight": 192
+}

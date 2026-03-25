@@ -1,0 +1,442 @@
+{
+  "source_dir": "/Users/riya/Desktop/xillion/video-templates/public/assets/fitness_volt",
+  "asset_count": 10,
+  "category_summary": {
+    "logo": 2,
+    "product": 5,
+    "screenshot": 2,
+    "uncategorized": 1
+  },
+  "by_category": {
+    "product": [
+      {
+        "path": "app-dashboard.png",
+        "filename": "app-dashboard.png",
+        "description": "app dashboard",
+        "category": "product",
+        "media_type": "image",
+        "ext": ".png",
+        "file_size": "65.3KB",
+        "dimensions": {
+          "width": 1080,
+          "height": 1920
+        },
+        "has_transparency": false,
+        "dominant_colors": [
+          "#0A0A0A",
+          "#FFFFFF",
+          "#16352A",
+          "#3F3F43",
+          "#646464"
+        ]
+      },
+      {
+        "path": "app-screenshot-3.jpeg",
+        "filename": "app-screenshot-3.jpeg",
+        "description": "app screenshot 3",
+        "category": "product",
+        "media_type": "image",
+        "ext": ".jpeg",
+        "file_size": "9.9KB",
+        "dimensions": {
+          "width": 300,
+          "height": 168
+        },
+        "has_transparency": false,
+        "dominant_colors": [
+          "#02315F",
+          "#FFFFFF",
+          "#0D0F0E",
+          "#CCD4DD",
+          "#C9B6A8"
+        ]
+      },
+      {
+        "path": "app-screenshot.jpg",
+        "filename": "app-screenshot.jpg",
+        "description": "app screenshot",
+        "category": "product",
+        "media_type": "image",
+        "ext": ".jpg",
+        "file_size": "28.3KB",
+        "dimensions": {
+          "width": 612,
+          "height": 471
+        },
+        "has_transparency": false,
+        "dominant_colors": [
+          "#29B3FE",
+          "#71BAFE",
+          "#294462",
+          "#438FFF",
+          "#0CDAFF"
+        ]
+      },
+      {
+        "path": "product-hero.png",
+        "filename": "product-hero.png",
+        "description": "product hero",
+        "category": "product",
+        "media_type": "image",
+        "ext": ".png",
+        "file_size": "94.2KB",
+        "dimensions": {
+          "width": 1080,
+          "height": 1080
+        },
+        "has_transparency": false,
+        "dominant_colors": [
+          "#0A0A0A",
+          "#00FF40",
+          "#004824",
+          "#1E1E1E",
+          "#FFFFFF"
+        ]
+      },
+      {
+        "path": "shoe-hero.png",
+        "filename": "shoe-hero.png",
+        "description": "shoe hero",
+        "category": "product",
+        "media_type": "image",
+        "ext": ".png",
+        "file_size": "71.1KB",
+        "dimensions": {
+          "width": 626,
+          "height": 418
+        },
+        "has_transparency": false,
+        "dominant_colors": [
+          "#101115",
+          "#21242D",
+          "#3B3A40",
+          "#57565B",
+          "#89888D"
+        ]
+      }
+    ],
+    "logo": [
+      {
+        "path": "logo-yellow.jpg",
+        "filename": "logo-yellow.jpg",
+        "description": "logo yellow",
+        "category": "logo",
+        "media_type": "image",
+        "ext": ".jpg",
+        "file_size": "11.7KB",
+        "dimensions": {
+          "width": 736,
+          "height": 552
+        },
+        "has_transparency": false,
+        "dominant_colors": [
+          "#FED500",
+          "#000000",
+          "#6B5C0A",
+          "#342D05",
+          "#E0BE0A"
+        ]
+      },
+      {
+        "path": "logo.png",
+        "filename": "logo.png",
+        "description": "logo",
+        "category": "logo",
+        "media_type": "image",
+        "ext": ".png",
+        "file_size": "7.2KB",
+        "dimensions": {
+          "width": 500,
+          "height": 500
+        },
+        "has_transparency": false,
+        "dominant_colors": [
+          "#000000",
+          "#FFFFFF",
+          "#05944D",
+          "#075B31",
+          "#00FF85"
+        ]
+      }
+    ],
+    "screenshot": [
+      {
+        "path": "runner-action.png",
+        "filename": "runner-action.png",
+        "description": "runner action",
+        "category": "screenshot",
+        "media_type": "image",
+        "ext": ".png",
+        "file_size": "17.1KB",
+        "dimensions": {
+          "width": 1080,
+          "height": 1920
+        },
+        "has_transparency": false,
+        "dominant_colors": [
+          "#0F0F14",
+          "#173F5A",
+          "#1D5980",
+          "#112938",
+          "#03BF69"
+        ]
+      },
+      {
+        "path": "runner.jpg",
+        "filename": "runner.jpg",
+        "description": "runner",
+        "category": "screenshot",
+        "media_type": "image",
+        "ext": ".jpg",
+        "file_size": "82.4KB",
+        "dimensions": {
+          "width": 1400,
+          "height": 787
+        },
+        "has_transparency": false,
+        "dominant_colors": [
+          "#000000",
+          "#507286",
+          "#737E69",
+          "#61442A",
+          "#9E6C2D"
+        ]
+      }
+    ],
+    "uncategorized": [
+      {
+        "path": "shoe-tech.png",
+        "filename": "shoe-tech.png",
+        "description": "shoe tech",
+        "category": "uncategorized",
+        "media_type": "image",
+        "ext": ".png",
+        "file_size": "86.8KB",
+        "dimensions": {
+          "width": 800,
+          "height": 600
+        },
+        "has_transparency": false,
+        "dominant_colors": [
+          "#0A0A0A",
+          "#00DD6E",
+          "#04733C",
+          "#08351F",
+          "#029D50"
+        ]
+      }
+    ]
+  },
+  "assets": [
+    {
+      "path": "app-dashboard.png",
+      "filename": "app-dashboard.png",
+      "description": "app dashboard",
+      "category": "product",
+      "media_type": "image",
+      "ext": ".png",
+      "file_size": "65.3KB",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "has_transparency": false,
+      "dominant_colors": [
+        "#0A0A0A",
+        "#FFFFFF",
+        "#16352A",
+        "#3F3F43",
+        "#646464"
+      ]
+    },
+    {
+      "path": "app-screenshot-3.jpeg",
+      "filename": "app-screenshot-3.jpeg",
+      "description": "app screenshot 3",
+      "category": "product",
+      "media_type": "image",
+      "ext": ".jpeg",
+      "file_size": "9.9KB",
+      "dimensions": {
+        "width": 300,
+        "height": 168
+      },
+      "has_transparency": false,
+      "dominant_colors": [
+        "#02315F",
+        "#FFFFFF",
+        "#0D0F0E",
+        "#CCD4DD",
+        "#C9B6A8"
+      ]
+    },
+    {
+      "path": "app-screenshot.jpg",
+      "filename": "app-screenshot.jpg",
+      "description": "app screenshot",
+      "category": "product",
+      "media_type": "image",
+      "ext": ".jpg",
+      "file_size": "28.3KB",
+      "dimensions": {
+        "width": 612,
+        "height": 471
+      },
+      "has_transparency": false,
+      "dominant_colors": [
+        "#29B3FE",
+        "#71BAFE",
+        "#294462",
+        "#438FFF",
+        "#0CDAFF"
+      ]
+    },
+    {
+      "path": "logo-yellow.jpg",
+      "filename": "logo-yellow.jpg",
+      "description": "logo yellow",
+      "category": "logo",
+      "media_type": "image",
+      "ext": ".jpg",
+      "file_size": "11.7KB",
+      "dimensions": {
+        "width": 736,
+        "height": 552
+      },
+      "has_transparency": false,
+      "dominant_colors": [
+        "#FED500",
+        "#000000",
+        "#6B5C0A",
+        "#342D05",
+        "#E0BE0A"
+      ]
+    },
+    {
+      "path": "logo.png",
+      "filename": "logo.png",
+      "description": "logo",
+      "category": "logo",
+      "media_type": "image",
+      "ext": ".png",
+      "file_size": "7.2KB",
+      "dimensions": {
+        "width": 500,
+        "height": 500
+      },
+      "has_transparency": false,
+      "dominant_colors": [
+        "#000000",
+        "#FFFFFF",
+        "#05944D",
+        "#075B31",
+        "#00FF85"
+      ]
+    },
+    {
+      "path": "product-hero.png",
+      "filename": "product-hero.png",
+      "description": "product hero",
+      "category": "product",
+      "media_type": "image",
+      "ext": ".png",
+      "file_size": "94.2KB",
+      "dimensions": {
+        "width": 1080,
+        "height": 1080
+      },
+      "has_transparency": false,
+      "dominant_colors": [
+        "#0A0A0A",
+        "#00FF40",
+        "#004824",
+        "#1E1E1E",
+        "#FFFFFF"
+      ]
+    },
+    {
+      "path": "runner-action.png",
+      "filename": "runner-action.png",
+      "description": "runner action",
+      "category": "screenshot",
+      "media_type": "image",
+      "ext": ".png",
+      "file_size": "17.1KB",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "has_transparency": false,
+      "dominant_colors": [
+        "#0F0F14",
+        "#173F5A",
+        "#1D5980",
+        "#112938",
+        "#03BF69"
+      ]
+    },
+    {
+      "path": "runner.jpg",
+      "filename": "runner.jpg",
+      "description": "runner",
+      "category": "screenshot",
+      "media_type": "image",
+      "ext": ".jpg",
+      "file_size": "82.4KB",
+      "dimensions": {
+        "width": 1400,
+        "height": 787
+      },
+      "has_transparency": false,
+      "dominant_colors": [
+        "#000000",
+        "#507286",
+        "#737E69",
+        "#61442A",
+        "#9E6C2D"
+      ]
+    },
+    {
+      "path": "shoe-hero.png",
+      "filename": "shoe-hero.png",
+      "description": "shoe hero",
+      "category": "product",
+      "media_type": "image",
+      "ext": ".png",
+      "file_size": "71.1KB",
+      "dimensions": {
+        "width": 626,
+        "height": 418
+      },
+      "has_transparency": false,
+      "dominant_colors": [
+        "#101115",
+        "#21242D",
+        "#3B3A40",
+        "#57565B",
+        "#89888D"
+      ]
+    },
+    {
+      "path": "shoe-tech.png",
+      "filename": "shoe-tech.png",
+      "description": "shoe tech",
+      "category": "uncategorized",
+      "media_type": "image",
+      "ext": ".png",
+      "file_size": "86.8KB",
+      "dimensions": {
+        "width": 800,
+        "height": 600
+      },
+      "has_transparency": false,
+      "dominant_colors": [
+        "#0A0A0A",
+        "#00DD6E",
+        "#04733C",
+        "#08351F",
+        "#029D50"
+      ]
+    }
+  ]
+}

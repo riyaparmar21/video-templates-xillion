@@ -1,0 +1,88 @@
+{
+  "palette": {
+    "primary": "#FFD700",
+    "secondary": "#1E90FF",
+    "background": "#0A0A0A",
+    "text": "#FFFFFF",
+    "accent": "#FF6B35"
+  },
+  "typography": {
+    "heading": "Montserrat",
+    "body": "Inter",
+    "mono": "JetBrains Mono"
+  },
+  "duration": 20,
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "audio": {
+    "src": "",
+    "reactive": false
+  },
+  "camera": {
+    "kenBurns": true,
+    "kenBurnsScale": 1.06,
+    "punchZoom": true,
+    "punchInterval": 3,
+    "punchScale": 1.03
+  },
+  "scenes": [
+    {
+      "template": "ImpactNumber",
+      "duration": 5.4,
+      "params": {
+        "number": "73%",
+        "label": "of consumers prefer personalization",
+        "sublabel": "Deliver tailored experiences to build loyalty",
+        "color": "#FFD700",
+        "entrance": "spring"
+      },
+      "transition": "crossfade",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "TextFocusZoom",
+      "duration": 4.32,
+      "params": {
+        "text": "40% increase in revenue with AI personalization approaches",
+        "color": "#FFD700",
+        "fontSize": 72,
+        "blurBackground": true,
+        "zoomScale": 1.2
+      },
+      "transition": "zoom_in",
+      "transitionDuration": 0.6
+    },
+    {
+      "template": "ListReveal",
+      "duration": 6.48,
+      "params": {
+        "title": "Core Pillars",
+        "items": [
+          "Real-time data collection drives actionable insights.",
+          "Machine learning models that adapt continuously to trends.",
+          "Seamless integration ensures smooth cross-platform operations.",
+          "Enhanced user interfaces improve client engagement."
+        ],
+        "style": "arrows",
+        "staggerDelay": 0.2,
+        "itemColor": "#1E90FF"
+      },
+      "transition": "wipe_right",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "CallToAction",
+      "duration": 5.4,
+      "params": {
+        "heading": "Start Personalizing Today",
+        "subheading": "Visit personalize.ai now and take the first step",
+        "buttonText": "Get Started Free",
+        "style": "bold",
+        "buttonColor": "#FFD700"
+      },
+      "transition": "slide_up",
+      "transitionDuration": 0.6
+    }
+  ]
+}

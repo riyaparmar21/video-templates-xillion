@@ -1,0 +1,127 @@
+{
+  "source_dir": "/Users/riya/Desktop/xillion/video-templates/public/assets/saas_test",
+  "asset_count": 3,
+  "category_summary": {
+    "logo": 1,
+    "screenshot": 1,
+    "uncategorized": 1
+  },
+  "by_category": {
+    "screenshot": [
+      {
+        "path": "dashboard.png",
+        "filename": "dashboard.png",
+        "description": "dashboard",
+        "category": "screenshot",
+        "media_type": "image",
+        "ext": ".png",
+        "file_size": "219.8KB",
+        "dimensions": null,
+        "has_transparency": false,
+        "dominant_colors": [
+          "#090B0D",
+          "#3F4042",
+          "#202122",
+          "#545557",
+          "#6B6B6C"
+        ]
+      }
+    ],
+    "uncategorized": [
+      {
+        "path": "kanban.webp",
+        "filename": "kanban.webp",
+        "description": "kanban",
+        "category": "uncategorized",
+        "media_type": "image",
+        "ext": ".webp",
+        "file_size": "114.5KB",
+        "dimensions": null,
+        "has_transparency": false,
+        "dominant_colors": [
+          "#F0F0F0",
+          "#86B8FF",
+          "#FFDD33",
+          "#F8A8FE",
+          "#DCDCDC"
+        ]
+      }
+    ],
+    "logo": [
+      {
+        "path": "logo.jpeg",
+        "filename": "logo.jpeg",
+        "description": "logo",
+        "category": "logo",
+        "media_type": "image",
+        "ext": ".jpeg",
+        "file_size": "5.7KB",
+        "dimensions": null,
+        "has_transparency": false,
+        "dominant_colors": [
+          "#FFFFFF",
+          "#012F51",
+          "#DCDFE4",
+          "#929197",
+          "#C9C8CE"
+        ]
+      }
+    ]
+  },
+  "assets": [
+    {
+      "path": "dashboard.png",
+      "filename": "dashboard.png",
+      "description": "dashboard",
+      "category": "screenshot",
+      "media_type": "image",
+      "ext": ".png",
+      "file_size": "219.8KB",
+      "dimensions": null,
+      "has_transparency": false,
+      "dominant_colors": [
+        "#090B0D",
+        "#3F4042",
+        "#202122",
+        "#545557",
+        "#6B6B6C"
+      ]
+    },
+    {
+      "path": "kanban.webp",
+      "filename": "kanban.webp",
+      "description": "kanban",
+      "category": "uncategorized",
+      "media_type": "image",
+      "ext": ".webp",
+      "file_size": "114.5KB",
+      "dimensions": null,
+      "has_transparency": false,
+      "dominant_colors": [
+        "#F0F0F0",
+        "#86B8FF",
+        "#FFDD33",
+        "#F8A8FE",
+        "#DCDCDC"
+      ]
+    },
+    {
+      "path": "logo.jpeg",
+      "filename": "logo.jpeg",
+      "description": "logo",
+      "category": "logo",
+      "media_type": "image",
+      "ext": ".jpeg",
+      "file_size": "5.7KB",
+      "dimensions": null,
+      "has_transparency": false,
+      "dominant_colors": [
+        "#FFFFFF",
+        "#012F51",
+        "#DCDFE4",
+        "#929197",
+        "#C9C8CE"
+      ]
+    }
+  ]
+}

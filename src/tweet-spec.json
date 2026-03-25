@@ -1,0 +1,18 @@
+{
+  "fps": 30,
+  "width": 1080,
+  "height": 1080,
+  "durationMs": 5000,
+  "displayName": "John Kappa",
+  "handle": "@johnkappa",
+  "tweetText": "This is the original component. Edit me to customize anything.",
+  "timestamp": "12:30 PM · Jun 21, 2021",
+  "source": "Twitter Web App",
+  "avatarSrc": null,
+  "verified": true,
+  "cardColor": "#ffffff",
+  "bgColor": "#ffffff",
+  "textColor": "#000000",
+  "secondaryColor": "#8e8e8e",
+  "accentColor": "#2aa3ef"
+}

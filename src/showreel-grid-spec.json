@@ -1,0 +1,14 @@
+{
+  "fps": 30,
+  "width": 1600,
+  "height": 1200,
+  "durationMs": 3000,
+  "bgColor": "#ecf2eb",
+  "screenFolder": "showreel-grid",
+  "cardRadius": 40,
+  "cardWidth": 375,
+  "cardHeight": 812,
+  "cardGap": 700,
+  "heroScale": 1.3,
+  "sideScale": 1.1
+}

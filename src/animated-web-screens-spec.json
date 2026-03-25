@@ -1,0 +1,64 @@
+{
+  "fps": 30,
+  "width": 1600,
+  "height": 1200,
+  "durationMs": 7000,
+  "bgColorStart": "#F0F9FF",
+  "bgColorEnd": "#17082C",
+  "screens": [
+    {
+      "id": "device01",
+      "src": "https://placehold.co/348x224/1a1a2e/3B9EFF?text=Screen+01"
+    },
+    {
+      "id": "device02",
+      "src": "https://placehold.co/348x224/1a1a2e/F5A623?text=Screen+02"
+    },
+    {
+      "id": "device03",
+      "src": "https://placehold.co/348x224/1a1a2e/3B9EFF?text=Screen+03"
+    },
+    {
+      "id": "device04",
+      "src": "https://placehold.co/348x224/1a1a2e/F5A623?text=Screen+04"
+    },
+    {
+      "id": "device05",
+      "src": "https://placehold.co/348x224/1a1a2e/FFFFFF?text=Center+01"
+    },
+    {
+      "id": "device06",
+      "src": "https://placehold.co/348x224/1a1a2e/3B9EFF?text=Screen+06"
+    },
+    {
+      "id": "device07",
+      "src": "https://placehold.co/348x224/1a1a2e/F5A623?text=Screen+07"
+    },
+    {
+      "id": "device08",
+      "src": "https://placehold.co/348x224/1a1a2e/3B9EFF?text=Screen+08"
+    },
+    {
+      "id": "device09",
+      "src": "https://placehold.co/348x224/1a1a2e/F5A623?text=Screen+09"
+    }
+  ],
+  "centerSlides": [
+    {
+      "id": "slide02",
+      "src": "https://placehold.co/348x224/2d1b69/FFFFFF?text=Slide+02"
+    },
+    {
+      "id": "slide03",
+      "src": "https://placehold.co/348x224/3d2b79/FFFFFF?text=Slide+03"
+    },
+    {
+      "id": "slide04",
+      "src": "https://placehold.co/348x224/4d3b89/FFFFFF?text=Slide+04"
+    },
+    {
+      "id": "slide05",
+      "src": "https://placehold.co/348x224/5d4b99/FFFFFF?text=Slide+05"
+    }
+  ]
+}

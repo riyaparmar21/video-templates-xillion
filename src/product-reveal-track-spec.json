@@ -1,0 +1,15 @@
+{
+  "fps": 30,
+  "width": 1080,
+  "height": 1350,
+  "durationMs": 6620,
+  "productImage": "product-reveal-track/product.jpg",
+  "bgImage": "product-reveal-track/bg-terrain.jpg",
+  "brandName": "acme",
+  "heroLabel": "CO2",
+  "dateText": "20\n25",
+  "craftedText": "designed & crafted\nin ITALY",
+  "bottomTagline": "RACING SHOES DESIGNED\n& ENGINEERED IN ITALY",
+  "darkBg": "#1a0000",
+  "laneCount": 6
+}

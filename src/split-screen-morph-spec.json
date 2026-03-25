@@ -1,0 +1,18 @@
+{
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "durationMs": 5000,
+  "durationFrames": 150,
+  "imageLeft": "color-blend-blocks/scene_portrait.png",
+  "imageRight": "color-blend-blocks/scene_sneaker.png",
+  "labelLeft": "Before",
+  "labelRight": "After",
+  "revealStyle": "slide",
+  "orientation": "vertical",
+  "dividerColor": "#FFFFFF",
+  "dividerWidth": 4,
+  "bgColor": "#0A0A0A",
+  "textColor": "#FFFFFF",
+  "accentColor": "#FF6B35"
+}

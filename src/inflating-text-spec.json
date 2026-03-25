@@ -1,0 +1,12 @@
+{
+  "fps": 30,
+  "width": 1080,
+  "height": 1080,
+  "durationMs": 2220,
+  "text": "MORPH",
+  "bgColor": "#121232",
+  "textColor": "#00BAFF",
+  "strokeColor": "#121232",
+  "strokeWidth": 2,
+  "letterGap": 4
+}

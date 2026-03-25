@@ -1,0 +1,1 @@
+export { TextRevealWipe } from "./TextRevealWipe";

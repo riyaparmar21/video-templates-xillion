@@ -1,0 +1,16 @@
+{
+  "fps": 30,
+  "width": 1080,
+  "height": 1080,
+  "durationMs": 3000,
+  "title": "Jitter Team",
+  "body": "Remix and make it shine! ☀️",
+  "timestamp": "now",
+  "iconSrc": null,
+  "bgColor": "transparent",
+  "notifColor": "#e6e6e6",
+  "notifOpacity": 90,
+  "textColor": "#000000",
+  "timestampColor": "#000000",
+  "cornerRadius": 56
+}

@@ -1,0 +1,49 @@
+# Dependencies
+node_modules/
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+
+# Environment
+.env
+
+# Pipeline working data (regenerable)
+cache/
+output/
+temp/
+data/stt/*.wav
+data/stt/*.tsv
+
+# Media files (store separately, not in repo)
+*.mov
+*.mp4
+*.webm
+
+# Large background video assets (download separately)
+assets/backgrounds/videos/
+
+# Generated artifacts
+src/latest-spec.json
+
+# Extracted video frames (regenerable via ffmpeg)
+public/video_frames/
+
+# Preview renders (regenerable)
+depth_captions_preview*
+depth_captions_final_frame*
+render_with_playwright*
+
+# Python venv
+venv/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+package-lock.json

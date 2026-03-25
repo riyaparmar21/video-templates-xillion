@@ -1,0 +1,79 @@
+{
+  "fps": 30,
+  "width": 1080,
+  "height": 1080,
+  "durationMs": 11000,
+  "bgColor": "#ebebeb",
+  "cards": [
+    {
+      "bgColor": "#0000c7",
+      "textColor": "#ffffff",
+      "brand": "Acme",
+      "cardNumber": "3346",
+      "network": "VISA"
+    },
+    {
+      "bgColor": "#f8f9fa",
+      "textColor": "#1a1a1a",
+      "brand": "Acme",
+      "cardNumber": "3346",
+      "network": ""
+    },
+    {
+      "bgColor": "#a8b0b8",
+      "textColor": "#6a7078",
+      "brand": "Acme",
+      "cardNumber": "",
+      "network": ""
+    },
+    {
+      "bgColor": "#1a1a1a",
+      "textColor": "#555555",
+      "type": "chart"
+    },
+    {
+      "bgColor": "#2d2d3f",
+      "textColor": "#8888aa",
+      "brand": "Acme",
+      "cardNumber": "",
+      "network": ""
+    },
+    {
+      "bgColor": "#c8e6ff",
+      "textColor": "#0000c7",
+      "brand": "Acme",
+      "cardNumber": "3346",
+      "network": "VISA"
+    },
+    {
+      "bgColor": "#ffffff",
+      "textColor": "#1a1a1a",
+      "brand": "Acme",
+      "cardNumber": "3346",
+      "network": ""
+    },
+    {
+      "bgColor": "#1a1a2e",
+      "textColor": "#4a4a6e",
+      "brand": "Acme",
+      "cardNumber": "",
+      "network": ""
+    },
+    {
+      "bgColor": "#b1b8be",
+      "textColor": "#6a7078",
+      "brand": "Acme",
+      "cardNumber": "3346",
+      "network": ""
+    }
+  ],
+  "gridCols": 5,
+  "gridRows": 5,
+  "cardWidth": 340,
+  "cardHeight": 212,
+  "cardRadius": 20,
+  "startAngle": -35,
+  "tagline": "Finances\nmade simple",
+  "taglineBrand": "Acme",
+  "taglineColor": "#1a1a1a"
+}

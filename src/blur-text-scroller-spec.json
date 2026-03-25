@@ -1,0 +1,33 @@
+{
+  "fps": 30,
+  "width": 1080,
+  "height": 1080,
+  "durationMs": 9000,
+  "words": [
+    "Motion",
+    "Emotion",
+    "Direction",
+    "Jitter",
+    "Versatile",
+    "Life",
+    "Journey",
+    "Blur Effect",
+    "Moments",
+    "Pulse",
+    "Essence",
+    "Memories"
+  ],
+  "bgColor": "#000000",
+  "textColor": "#FFFFFF",
+  "fontSize": 68,
+  "fontWeight": 800,
+  "letterSpacing": -3,
+  "angle": -18,
+  "lineHeight": 1.35,
+  "arrow": "→",
+  "visibleAbove": 3,
+  "visibleBelow": 3,
+  "maxBlur": 10,
+  "loop": true,
+  "msPerWord": 750
+}

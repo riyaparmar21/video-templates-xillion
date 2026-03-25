@@ -1,0 +1,21 @@
+{
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "durationMs": 11000,
+  "durationFrames": 330,
+  "images": [
+    { "image": "assets/fitness_volt/shoe-hero.png", "label": "Volt X9" },
+    { "image": "assets/fitness_volt/app-screenshot-2.avif", "label": "Performance" },
+    { "image": "assets/fitness_volt/product-hero.png", "label": "Technology" }
+  ],
+  "cubeSizePercent": 65,
+  "borderRadius": 16,
+  "holdSeconds": 0,
+  "rotateDuration": 20,
+  "tiltX": 0,
+  "headline": "Discover the Volt X9",
+  "bgColor": "#0A0A0A",
+  "textColor": "#FFFFFF",
+  "accentColor": "#029D50"
+}

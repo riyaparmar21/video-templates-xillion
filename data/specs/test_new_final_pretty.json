@@ -1,0 +1,148 @@
+{
+  "palette": {
+    "primary": "#FFD700",
+    "secondary": "#1E90FF",
+    "background": "#0A0A0A",
+    "text": "#FFFFFF",
+    "accent": "#FF6B35"
+  },
+  "typography": {
+    "heading": "Montserrat",
+    "body": "Inter",
+    "mono": "JetBrains Mono"
+  },
+  "duration": 20,
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "audio": {
+    "src": "",
+    "reactive": false
+  },
+  "camera": {
+    "kenBurns": true,
+    "kenBurnsScale": 1.06,
+    "punchZoom": true,
+    "punchInterval": 4,
+    "punchScale": 1.025
+  },
+  "scenes": [
+    {
+      "template": "KineticCaptions",
+      "duration": 5.38,
+      "params": {
+        "groups": [
+          {
+            "lines": [
+              {
+                "words": [
+                  {
+                    "text": "73%",
+                    "style": "emphasis-gold big"
+                  },
+                  {
+                    "text": "of",
+                    "style": "filler"
+                  },
+                  {
+                    "text": "consumers",
+                    "style": "normal"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "lines": [
+              {
+                "words": [
+                  {
+                    "text": "prefer",
+                    "style": "normal"
+                  },
+                  {
+                    "text": "brands",
+                    "style": "normal"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "lines": [
+              {
+                "words": [
+                  {
+                    "text": "that",
+                    "style": "filler"
+                  },
+                  {
+                    "text": "personalize",
+                    "style": "emphasis-blue"
+                  },
+                  {
+                    "text": "their",
+                    "style": "filler"
+                  },
+                  {
+                    "text": "experience.",
+                    "style": "normal"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "transition": "crossfade",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "NumberCounterScene",
+      "duration": 5.38,
+      "params": {
+        "target": 40,
+        "prefix": "",
+        "suffix": "%",
+        "label": "Revenue Increase",
+        "subLabel": "Achieved through targeted personalization.",
+        "decimals": 0,
+        "fontSize": 64,
+        "particleCount": 50,
+        "glowColor": "#FFD700"
+      },
+      "transition": "wipe_left",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "BlurTextScroller",
+      "duration": 7.52,
+      "params": {
+        "words": [
+          "real-time data collection",
+          "machine learning models that adapt",
+          "seamless integration"
+        ],
+        "fontSize": 48,
+        "textColor": "#FFFFFF",
+        "bgColor": "#0A0A0A"
+      },
+      "transition": "slide_up",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "TextRevealWipe",
+      "duration": 3.22,
+      "params": {
+        "headline": "Visit personalize.ai to start today.",
+        "subtitle": "Enhance your strategy now.",
+        "wipeDirection": "left",
+        "wipeColor": "#FFD700",
+        "headlineSize": 72,
+        "subtitleSize": 48
+      },
+      "transition": "zoom_out",
+      "transitionDuration": 0.5
+    }
+  ]
+}

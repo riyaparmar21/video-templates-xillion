@@ -1,0 +1,435 @@
+{
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "durationFrames": 471,
+  "videoSrc": null,
+  "groups": [
+    {
+      "id": 1,
+      "startFrame": 0,
+      "durationFrames": 26,
+      "lines": [
+        {
+          "words": [
+            {
+              "text": "Let's",
+              "style": "normal"
+            },
+            {
+              "text": "be",
+              "style": "filler"
+            }
+          ]
+        },
+        {
+          "words": [
+            {
+              "text": "real",
+              "style": "emphasis-gold"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "startFrame": 26,
+      "durationFrames": 26,
+      "lines": [
+        {
+          "words": [
+            {
+              "text": "If",
+              "style": "filler"
+            },
+            {
+              "text": "you're",
+              "style": "normal"
+            },
+            {
+              "text": "still",
+              "style": "normal"
+            },
+            {
+              "text": "doing",
+              "style": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "startFrame": 52,
+      "durationFrames": 26,
+      "lines": [
+        {
+          "words": [
+            {
+              "text": "everything",
+              "style": "normal"
+            },
+            {
+              "text": "from",
+              "style": "filler"
+            },
+            {
+              "text": "scratch",
+              "style": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "startFrame": 78,
+      "durationFrames": 26,
+      "lines": [
+        {
+          "words": [
+            {
+              "text": "in",
+              "style": "filler"
+            },
+            {
+              "text": "DaVinci",
+              "style": "emphasis-blue"
+            },
+            {
+              "text": "Resolve",
+              "style": "emphasis-blue"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "startFrame": 104,
+      "durationFrames": 34,
+      "lines": [
+        {
+          "words": [
+            {
+              "text": "here's",
+              "style": "normal"
+            },
+            {
+              "text": "why",
+              "style": "normal"
+            },
+            {
+              "text": "you",
+              "style": "normal"
+            }
+          ]
+        },
+        {
+          "words": [
+            {
+              "text": "need",
+              "style": "emphasis-gold"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "startFrame": 138,
+      "durationFrames": 16,
+      "lines": [
+        {
+          "words": [
+            {
+              "text": "PLUGINS",
+              "style": "big-blue"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "startFrame": 154,
+      "durationFrames": 24,
+      "lines": [
+        {
+          "words": [
+            {
+              "text": "and",
+              "style": "filler"
+            }
+          ]
+        },
+        {
+          "words": [
+            {
+              "text": "presets",
+              "style": "emphasis-blue"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "startFrame": 178,
+      "durationFrames": 34,
+      "lines": [
+        {
+          "words": [
+            {
+              "text": "Because",
+              "style": "filler"
+            },
+            {
+              "text": "the",
+              "style": "filler"
+            }
+          ]
+        },
+        {
+          "words": [
+            {
+              "text": "faster",
+              "style": "emphasis-gold"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "startFrame": 212,
+      "durationFrames": 24,
+      "lines": [
+        {
+          "words": [
+            {
+              "text": "you",
+              "style": "normal"
+            }
+          ]
+        },
+        {
+          "words": [
+            {
+              "text": "finish",
+              "style": "emphasis-gold"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "startFrame": 236,
+      "durationFrames": 24,
+      "lines": [
+        {
+          "words": [
+            {
+              "text": "the",
+              "style": "filler"
+            }
+          ]
+        },
+        {
+          "words": [
+            {
+              "text": "faster",
+              "style": "emphasis-gold"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "startFrame": 260,
+      "durationFrames": 24,
+      "lines": [
+        {
+          "words": [
+            {
+              "text": "you",
+              "style": "normal"
+            }
+          ]
+        },
+        {
+          "words": [
+            {
+              "text": "move",
+              "style": "emphasis-gold"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "startFrame": 284,
+      "durationFrames": 17,
+      "lines": [
+        {
+          "words": [
+            {
+              "text": "NEXT",
+              "style": "big"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "startFrame": 301,
+      "durationFrames": 34,
+      "lines": [
+        {
+          "words": [
+            {
+              "text": "to",
+              "style": "filler"
+            },
+            {
+              "text": "the",
+              "style": "filler"
+            }
+          ]
+        },
+        {
+          "words": [
+            {
+              "text": "next",
+              "style": "normal"
+            },
+            {
+              "text": "one",
+              "style": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "startFrame": 335,
+      "durationFrames": 24,
+      "lines": [
+        {
+          "words": [
+            {
+              "text": "These",
+              "style": "normal"
+            }
+          ]
+        },
+        {
+          "words": [
+            {
+              "text": "will",
+              "style": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "startFrame": 359,
+      "durationFrames": 24,
+      "lines": [
+        {
+          "words": [
+            {
+              "text": "save",
+              "style": "emphasis-gold"
+            },
+            {
+              "text": "you",
+              "style": "normal"
+            }
+          ]
+        },
+        {
+          "words": [
+            {
+              "text": "hours",
+              "style": "emphasis-gold"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "startFrame": 383,
+      "durationFrames": 16,
+      "lines": [
+        {
+          "words": [
+            {
+              "text": "Comment",
+              "style": "emphasis-gold"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "startFrame": 399,
+      "durationFrames": 24,
+      "lines": [
+        {
+          "words": [
+            {
+              "text": "presets",
+              "style": "emphasis-blue"
+            }
+          ]
+        },
+        {
+          "words": [
+            {
+              "text": "and",
+              "style": "filler"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "startFrame": 423,
+      "durationFrames": 24,
+      "lines": [
+        {
+          "words": [
+            {
+              "text": "I'll",
+              "style": "normal"
+            }
+          ]
+        },
+        {
+          "words": [
+            {
+              "text": "send",
+              "style": "emphasis-gold"
+            },
+            {
+              "text": "it",
+              "style": "normal"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

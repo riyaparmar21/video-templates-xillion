@@ -1,0 +1,1 @@
+export { GradientWash } from "./GradientWash";

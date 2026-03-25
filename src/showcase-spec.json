@@ -1,0 +1,22 @@
+{
+  "fps": 30,
+  "width": 1080,
+  "height": 1350,
+  "durationMs": 12000,
+  "title": "Social Template",
+  "website": "www.website.com",
+  "bgColor": "#ffffff",
+  "titleFontSize": 60,
+  "showcaseItems": [
+    { "color": "#c9a8e8", "image": "showcase/01.png", "x": 10, "y": -60 },
+    { "color": "#7c3aed", "image": "showcase/02.png", "x": 120, "y": -20 },
+    { "color": "#1a3a2a", "image": "showcase/03.png", "x": -100, "y": -100 },
+    { "color": "#d97706", "image": "showcase/04.png", "x": -60, "y": 100 },
+    { "color": "#0891b2", "image": "showcase/05.png", "x": -150, "y": -140 },
+    { "color": "#9ca3af", "image": "showcase/06.png", "x": 20, "y": 10 },
+    { "color": "#1e1b4b", "image": "showcase/07.png", "x": 100, "y": -80 },
+    { "color": "#06b6d4", "image": "showcase/08.png", "x": -120, "y": 80 },
+    { "color": "#4c1d95", "image": "showcase/09.png", "x": 140, "y": -120 },
+    { "color": "#f97316", "image": "showcase/10.png", "x": -40, "y": -30 }
+  ]
+}

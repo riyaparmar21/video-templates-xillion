@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./scripts/render.sh:*)",
+      "Bash(ffprobe:*)",
+      "Bash(ffmpeg:*)",
+      "Bash(ls:*)",
+      "Bash(pip3 install:*)",
+      "Bash(python3:*)",
+      "WebFetch(domain:www.remotion.dev)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:docs.agno.com)",
+      "WebFetch(domain:www.npmjs.com)",
+      "Bash(python:*)",
+      "Bash(npx:*)",
+      "Bash(node scripts/render-video.mjs:*)",
+      "WebFetch(domain:platform.moonshot.ai)",
+      "WebFetch(domain:openrouter.ai)"
+    ]
+  }
+}

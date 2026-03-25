@@ -1,0 +1,103 @@
+{
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "durationMs": 13000,
+  "bgColor": "#000000",
+
+  "scene1": {
+    "startMs": 0,
+    "endMs": 4500,
+    "cursorBlinkMs": 500,
+    "textLines": [
+      { "words": ["Create", "realistic"], "color": "#ffffff" },
+      { "words": ["videos", "and"], "color": "#ffffff", "trailingWord": "photos", "trailingColor": "#888888", "trailingItalic": true }
+    ],
+    "wordIntervalMs": 200,
+    "textStartMs": 400,
+    "image": "gen-ai-features/portrait.png",
+    "imageEnterMs": 1800,
+    "imageScaleDurationMs": 800,
+    "exitStartMs": 3600,
+    "exitDurationMs": 600,
+    "fontSize": 64,
+    "fontFamily": "Inter, Helvetica Neue, Arial, sans-serif",
+    "imageSize": 380,
+    "imageBorderRadius": 24
+  },
+
+  "scene2": {
+    "startMs": 4500,
+    "endMs": 8500,
+    "textLines": [
+      { "words": ["Modify", "the", "prompt"], "color": "#ffffff" },
+      { "words": ["and"], "color": "#ffffff", "trailingWord": "key features", "trailingColor": "#888888", "trailingItalic": true }
+    ],
+    "image": "gen-ai-features/profiles.png",
+    "imageSize": 360,
+    "imageBorderRadius": 24,
+    "imageEnterMs": 0,
+    "imageEnterDurationMs": 500,
+    "promptBox": {
+      "text": "A cinematic shot in a wide open golden field at sunset. The camera is low and looking up, capturing a human hand slowly rising from the bottom of the frame toward the sky.",
+      "boldWords": ["golden", "human", "frame"],
+      "label": "Imagen 1",
+      "enterDelayMs": 600,
+      "enterDurationMs": 400,
+      "typeSpeedMs": 20,
+      "bgColor": "rgba(255,255,255,0.12)",
+      "textColor": "#ffffff",
+      "boldColor": "#ffffff",
+      "width": 320,
+      "height": 220
+    },
+    "buttons": [
+      { "text": "Generate versions", "enterDelayMs": 500, "enterDurationMs": 300, "icon": "arrow" },
+      { "text": "Edit color", "enterDelayMs": 700, "enterDurationMs": 300, "icon": "color" }
+    ],
+    "buttonBgColor": "rgba(255,255,255,0.15)",
+    "buttonTextColor": "#ffffff",
+    "exitStartMs": 3200,
+    "exitDurationMs": 600,
+    "fontSize": 52,
+    "fontFamily": "Inter, Helvetica Neue, Arial, sans-serif"
+  },
+
+  "scene3": {
+    "startMs": 8500,
+    "endMs": 11500,
+    "textLines": [
+      { "words": ["Change", "aspect", "ratio"], "color": "#ffffff" },
+      { "words": ["and", "resolution"], "color": "#888888", "italic": true }
+    ],
+    "image": "gen-ai-features/poodle.png",
+    "imageBorderRadius": 24,
+    "imageEnterMs": 0,
+    "imageEnterDurationMs": 400,
+    "portraitWidth": 320,
+    "portraitHeight": 440,
+    "landscapeWidth": 560,
+    "landscapeHeight": 320,
+    "stretchStartMs": 1200,
+    "stretchToLandscapeMs": 600,
+    "stretchHoldMs": 400,
+    "stretchBackMs": 600,
+    "exitStartMs": 2400,
+    "exitDurationMs": 500,
+    "fontSize": 52,
+    "fontFamily": "Inter, Helvetica Neue, Arial, sans-serif"
+  },
+
+  "scene4": {
+    "startMs": 11500,
+    "endMs": 13000,
+    "logoText": "acme",
+    "logoSuperscript": "AI",
+    "logoColor": "#ffffff",
+    "logoFontSize": 48,
+    "logoFontFamily": "Inter, Helvetica Neue, Arial, sans-serif",
+    "enterDurationMs": 500,
+    "holdMs": 600,
+    "exitDurationMs": 400
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "fps": 30,
+  "width": 1080,
+  "height": 1350,
+  "durationMs": 5400,
+  "bgColor": "#d9d9d9",
+  "headerLeftText": "jitter.video",
+  "headerRightText": "Blend modes",
+  "headerYFrac": 0.105,
+
+  "blockA": { "xFrac": 0.04, "yFrac": 0.06, "wFrac": 0.24, "hFrac": 0.26 },
+  "blockB": { "xFrac": 0.19, "yFrac": 0.19, "wFrac": 0.54, "hFrac": 0.52 },
+  "blockC": { "xFrac": 0.64, "yFrac": 0.58, "wFrac": 0.24, "hFrac": 0.26 },
+
+  "transitionMs": 200,
+
+  "scenes": [
+    {
+      "imageSrc": "color-blend-blocks/scene_sneaker.png",
+      "topLeftColor": "#DDAA00",
+      "bottomRightColor": "#00CCFF",
+      "blendMode": "exclusion",
+      "durationMs": 550
+    },
+    {
+      "imageSrc": "color-blend-blocks/scene_portrait.png",
+      "topLeftColor": "#DDAA00",
+      "bottomRightColor": "#FF0033",
+      "blendMode": "difference",
+      "durationMs": 600
+    },
+    {
+      "imageSrc": "color-blend-blocks/scene_hoodie.png",
+      "topLeftColor": "#00FF00",
+      "bottomRightColor": "#CC88FF",
+      "blendMode": "exclusion",
+      "durationMs": 600
+    },
+    {
+      "imageSrc": "color-blend-blocks/scene_lipstick.png",
+      "topLeftColor": "#FFD600",
+      "bottomRightColor": "#000066",
+      "blendMode": "exclusion",
+      "durationMs": 600
+    },
+    {
+      "imageSrc": "color-blend-blocks/scene_face.png",
+      "topLeftColor": "#220077",
+      "bottomRightColor": "#FF0000",
+      "blendMode": "difference",
+      "durationMs": 500
+    },
+    {
+      "imageSrc": "color-blend-blocks/scene_silhouette.png",
+      "topLeftColor": "#0088FF",
+      "bottomRightColor": "#FF8800",
+      "blendMode": "exclusion",
+      "durationMs": 500
+    },
+    {
+      "imageSrc": "color-blend-blocks/scene_sneaker.png",
+      "imageSrc2": "color-blend-blocks/scene_portrait.png",
+      "topLeftColor": "#DDAA00",
+      "bottomRightColor": "#FF0033",
+      "blendMode": "exclusion",
+      "durationMs": 500
+    }
+  ]
+}

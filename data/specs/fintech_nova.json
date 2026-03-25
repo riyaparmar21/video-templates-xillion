@@ -1,0 +1,222 @@
+{
+  "palette": {
+    "primary": "#FFD700",
+    "secondary": "#3873FF",
+    "background": "#0A0A0A",
+    "text": "#FFFFFF",
+    "accent": "#1E90FF"
+  },
+  "typography": {
+    "heading": "Montserrat",
+    "body": "Inter",
+    "mono": "JetBrains Mono"
+  },
+  "duration": 60,
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "audio": {
+    "src": "",
+    "reactive": false
+  },
+  "camera": {
+    "kenBurns": true,
+    "kenBurnsScale": 1.06,
+    "punchZoom": true,
+    "punchInterval": 4,
+    "punchScale": 1.025
+  },
+  "scenes": [
+    {
+      "template": "KineticCaptions",
+      "duration": 4,
+      "params": {
+        "groups": [
+          {
+            "lines": [
+              {
+                "words": [
+                  { "text": "Stop", "style": "big" },
+                  { "text": "overpaying", "style": "emphasis-gold" },
+                  { "text": "on", "style": "filler" },
+                  { "text": "international", "style": "emphasis-blue" },
+                  { "text": "transfers.", "style": "big-blue" }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "transition": "zoom_in",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "GenAiFeatures",
+      "duration": 13,
+      "params": {
+        "bgColor": "#0A0A0A",
+        "scene1": {
+          "textLines": [
+            { "words": ["Nova", "sends", "money", "to"], "color": "#FFFFFF" },
+            { "words": ["140", "countries."], "color": "#FFD700" }
+          ],
+          "image": "@fintech:app-dashboard"
+        },
+        "scene2": {
+          "textLines": [
+            { "words": ["Real", "exchange", "rates."], "color": "#FFFFFF" },
+            { "words": ["Zero", "hidden", "fees."], "color": "#FFD700" }
+          ],
+          "image": "@fintech:app-dashboard",
+          "promptBox": {
+            "text": "Send $100 to London at the real exchange rate",
+            "boldWords": ["$100", "London", "real"],
+            "label": "Nova Transfer"
+          },
+          "buttons": [
+            { "text": "Send Now" },
+            { "text": "View Rates" }
+          ]
+        },
+        "scene3": {
+          "textLines": [
+            { "words": ["Your", "money", "arrives"], "color": "#FFFFFF" },
+            { "words": ["in", "minutes,", "not", "days."], "color": "#1E90FF" }
+          ],
+          "image": "@fintech:app-dashboard"
+        },
+        "scene4": {
+          "logoText": "Nova",
+          "logoSuperscript": "Finance"
+        }
+      },
+      "transition": "wipe_left",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "Tweet",
+      "duration": 5,
+      "params": {
+        "displayName": "Sarah Chen",
+        "handle": "@sarahchen_io",
+        "tweetText": "Switched to Nova for international transfers last month. Already saved $400 this year. The exchange rates are actually real!",
+        "timestamp": "3h ago",
+        "source": "Twitter for iPhone",
+        "verified": true,
+        "cardColor": "#1A1A2E",
+        "textColor": "#FFFFFF"
+      },
+      "transition": "crossfade",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "NumberCounterScene",
+      "duration": 6,
+      "params": {
+        "target": 3000000,
+        "label": "Users Trust Nova",
+        "prefix": "",
+        "suffix": "+",
+        "decimals": 0,
+        "fontSize": 150,
+        "particleCount": 50,
+        "glowColor": "#FFD700"
+      },
+      "transition": "slide_up",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "BlurTextScroller",
+      "duration": 6,
+      "params": {
+        "words": [
+          "Speed",
+          "Savings",
+          "Security",
+          "Transparency",
+          "Global",
+          "Instant",
+          "Zero-Fee",
+          "Trusted",
+          "Simple",
+          "Smart",
+          "Reliable",
+          "Effortless"
+        ],
+        "fontSize": 80,
+        "textColor": "#FFFFFF",
+        "bgColor": "#0A0A0A"
+      },
+      "transition": "wipe_left",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "ParallaxImageReveal",
+      "duration": 9,
+      "params": {
+        "image": "@fintech:app-dashboard",
+        "layerCount": 4,
+        "direction": "up",
+        "speed": "slow",
+        "zoom": "in",
+        "revealStyle": "fade",
+        "headline": "Built for the Modern World",
+        "subtitle": "Fast, transparent money transfers",
+        "vignette": true,
+        "lightLeak": true
+      },
+      "transition": "zoom_in",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "StackHiring",
+      "duration": 11,
+      "params": {
+        "brandName": "Nova",
+        "titleText": "Why Choose Nova",
+        "roles": [
+          "140 Countries Covered",
+          "Real Exchange Rates",
+          "Zero Hidden Fees",
+          "Money in Minutes",
+          "Save $400 Per Year",
+          "Bank-Level Security",
+          "24/7 Support"
+        ],
+        "ctaLine1": "Start Sending Free",
+        "ctaLine2": "Join 3 Million Users",
+        "ctaButton": "Download Nova",
+        "bgColor": "#0A0A0A",
+        "textColor": "#FFFFFF"
+      },
+      "transition": "wipe_left",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "TextRevealWipe",
+      "duration": 6,
+      "params": {
+        "headline": "Download Nova Today",
+        "subtitle": "Available on iOS & Android",
+        "wipeDirection": "left",
+        "wipeColor": "#FFD700",
+        "headlineSize": 76,
+        "subtitleSize": 34
+      },
+      "transition": "crossfade",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "LogoStinger",
+      "duration": 3,
+      "params": {
+        "logo": "@fintech:logo",
+        "tagline": "Send Money Smarter",
+        "style": "particles",
+        "logoSize": 350
+      },
+      "transition": "crossfade",
+      "transitionDuration": 0
+    }
+  ]
+}

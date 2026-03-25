@@ -1,0 +1,33 @@
+{
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "durationMs": 6000,
+  "bgColor": "#000000",
+  "textColor": "#ffffff",
+  "arrowColor": "#ffbf26",
+  "fontSize": 220,
+  "rowHeight": 270,
+  "rows": [
+    {
+      "cities": ["Bruxelles", "København", "Warszawa", "Bruxelles", "København"],
+      "scrollX": 4050,
+      "group": 0
+    },
+    {
+      "cities": ["Barcelona", "Zaragoza", "Madrid", "Barcelona", "Zaragoza"],
+      "scrollX": 3550,
+      "group": 0
+    },
+    {
+      "cities": ["Fiorence", "Genève", "Milano", "Fiorence", "Genève"],
+      "scrollX": 3190,
+      "group": 1
+    },
+    {
+      "cities": ["Wien", "Praha", "München", "Wien", "Praha"],
+      "scrollX": 2920,
+      "group": 1
+    }
+  ]
+}

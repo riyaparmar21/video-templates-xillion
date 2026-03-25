@@ -1,0 +1,143 @@
+{
+  "palette": {
+    "primary": "#FFD700",
+    "secondary": "#1E90FF",
+    "background": "#0A0A0A",
+    "text": "#FFFFFF",
+    "accent": "#FF6B35"
+  },
+  "typography": {
+    "heading": "Montserrat",
+    "body": "Inter",
+    "mono": "JetBrains Mono"
+  },
+  "duration": 20,
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "audio": {
+    "src": "",
+    "reactive": false
+  },
+  "camera": {
+    "kenBurns": true,
+    "kenBurnsScale": 1.06,
+    "punchZoom": true,
+    "punchInterval": 4,
+    "punchScale": 1.025
+  },
+  "scenes": [
+    {
+      "template": "KineticCaptions",
+      "duration": 5.4,
+      "params": {
+        "groups": [
+          {
+            "lines": [
+              {
+                "words": [
+                  {
+                    "text": "73%",
+                    "style": "emphasis-gold big"
+                  },
+                  {
+                    "text": "of",
+                    "style": "filler"
+                  },
+                  {
+                    "text": "consumers",
+                    "style": "normal"
+                  }
+                ]
+              },
+              {
+                "words": [
+                  {
+                    "text": "prefer",
+                    "style": "normal"
+                  },
+                  {
+                    "text": "brands",
+                    "style": "normal"
+                  },
+                  {
+                    "text": "that",
+                    "style": "filler"
+                  },
+                  {
+                    "text": "personalize",
+                    "style": "accent-blue"
+                  },
+                  {
+                    "text": "their experience.",
+                    "style": "normal"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "transition": "zoom_in",
+      "transitionDuration": 0.6
+    },
+    {
+      "template": "ImpactNumber",
+      "duration": 4.32,
+      "params": {
+        "number": "40%",
+        "label": "Revenue Increase",
+        "sublabel": "Driven by AI personalization",
+        "color": "#FFD700",
+        "entrance": "slam"
+      },
+      "transition": "wipe_left",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "BlurTextScroller",
+      "duration": 6.48,
+      "params": {
+        "words": [
+          {
+            "text": "real-time data collection",
+            "style": "normal"
+          },
+          {
+            "text": "machine learning models that adapt",
+            "style": "emphasis-blue"
+          },
+          {
+            "text": "seamless integration",
+            "style": "accent-blue"
+          }
+        ],
+        "fontSize": 48,
+        "textColor": "#FFFFFF",
+        "bgColor": "#0A0A0A"
+      },
+      "transition": "wipe_right",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "StackHiring",
+      "duration": 5.4,
+      "params": {
+        "brandName": "personalize.ai",
+        "titleText": "Start Personalizing Today",
+        "roles": [
+          "Personalization Specialist",
+          "AI Engineer",
+          "Data Analyst"
+        ],
+        "ctaLine1": "Visit",
+        "ctaLine2": "personalize.ai now",
+        "ctaButton": "Get Started",
+        "bgColor": "#0A0A0A",
+        "textColor": "#FFD700"
+      },
+      "transition": "slide_up",
+      "transitionDuration": 0.5
+    }
+  ]
+}

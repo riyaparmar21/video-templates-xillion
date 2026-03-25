@@ -1,0 +1,224 @@
+{
+  "palette": {
+    "primary": "#00FF40",
+    "secondary": "#00DD6E",
+    "background": "#0A0A0A",
+    "text": "#FFFFFF",
+    "accent": "#029D50"
+  },
+  "typography": {
+    "heading": "Montserrat",
+    "body": "Inter",
+    "mono": "JetBrains Mono"
+  },
+  "duration": 60,
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "audio": {
+    "src": "",
+    "reactive": false
+  },
+  "camera": {
+    "kenBurns": true,
+    "kenBurnsScale": 1.06,
+    "punchZoom": true,
+    "punchInterval": 4,
+    "punchScale": 1.025
+  },
+  "scenes": [
+    {
+      "template": "KineticCaptions",
+      "duration": 7,
+      "params": {
+        "groups": [
+          {
+            "lines": [
+              {
+                "words": [
+                  {
+                    "text": "Your",
+                    "style": "normal"
+                  },
+                  {
+                    "text": "next",
+                    "style": "big"
+                  },
+                  {
+                    "text": "personal",
+                    "style": "big-blue"
+                  },
+                  {
+                    "text": "best",
+                    "style": "emphasis-gold"
+                  }
+                ]
+              },
+              {
+                "words": [
+                  {
+                    "text": "starts",
+                    "style": "normal"
+                  },
+                  {
+                    "text": "with",
+                    "style": "normal"
+                  },
+                  {
+                    "text": "what's",
+                    "style": "emphasis-blue"
+                  },
+                  {
+                    "text": "on",
+                    "style": "normal"
+                  }
+                ]
+              },
+              {
+                "words": [
+                  {
+                    "text": "your",
+                    "style": "filler"
+                  },
+                  {
+                    "text": "feet.",
+                    "style": "accent-blue"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "transition": "crossfade",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "GenAiFeatures",
+      "duration": 14,
+      "params": {
+        "scene1": {
+          "textLines": "Introducing Volt X9",
+          "image": "assets/fitness_volt/product-hero.png"
+        },
+        "scene2": {
+          "image": "assets/fitness_volt/app-dashboard.png",
+          "promptBox": {
+            "boldWords": [
+              "37% lighter",
+              "2x the energy return"
+            ],
+            "label": "Performance",
+            "typeSpeedMs": 50,
+            "bgColor": "#002F1A",
+            "textColor": "#FFFFFF",
+            "boldColor": "#00FF40",
+            "width": 950,
+            "height": 160
+          },
+          "buttons": [
+            "Explore Features",
+            "Shop Now"
+          ]
+        },
+        "scene3": {
+          "image": "assets/fitness_volt/shoe-tech.png",
+          "morphDims": {
+            "aspectRatio": "smooth transition",
+            "animationStyle": "zoom"
+          }
+        },
+        "scene4": {
+          "logoText": "Volt",
+          "logoSuperscript": "X9",
+          "logoImage": "assets/fitness_volt/logo.png"
+        },
+        "bgColor": "#0A0A0A"
+      },
+      "transition": "crossfade",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "ParallaxImageReveal",
+      "duration": 13,
+      "params": {
+        "image": "assets/fitness_volt/runner-action.png",
+        "layerCount": 3,
+        "direction": "diagonal",
+        "speed": "medium",
+        "zoom": "in",
+        "revealStyle": "iris",
+        "headline": "Built for runners",
+        "subtitle": "who don't believe in limits",
+        "vignette": true,
+        "lightLeak": true
+      },
+      "transition": "wipe_left",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "VaultAnimatedCards",
+      "duration": 15,
+      "params": {
+        "cards": [
+          {
+            "type": "Feature",
+            "bgColor": "#029D50",
+            "textColor": "#FFFFFF",
+            "brand": "Volt"
+          },
+          {
+            "type": "Performance",
+            "bgColor": "#00DD6E",
+            "textColor": "#FFFFFF",
+            "brand": "Volt"
+          },
+          {
+            "type": "Energy Return",
+            "bgColor": "#00FF40",
+            "textColor": "#FFFFFF",
+            "brand": "Volt"
+          },
+          {
+            "type": "Technology",
+            "bgColor": "#029D50",
+            "textColor": "#FFFFFF",
+            "brand": "Volt"
+          }
+        ],
+        "tagline": "The Volt X9\nRun Beyond Limits",
+        "taglineBrand": "Volt",
+        "gridCols": 2,
+        "gridRows": 2
+      },
+      "transition": "crossfade",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "TextRevealWipe",
+      "duration": 7,
+      "params": {
+        "headline": "Available now",
+        "subtitle": "volt.run",
+        "wipeDirection": "bottom",
+        "wipeColor": "#00FF40",
+        "headlineSize": 80,
+        "subtitleSize": 48
+      },
+      "transition": "slide_up",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "LogoStinger",
+      "duration": 4,
+      "params": {
+        "logo": "assets/fitness_volt/logo.png",
+        "tagline": "Run Beyond Limits",
+        "style": "particles",
+        "logoSize": 320
+      },
+      "transition": "none",
+      "transitionDuration": 0
+    }
+  ]
+}

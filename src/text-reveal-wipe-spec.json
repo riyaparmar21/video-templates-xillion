@@ -1,0 +1,16 @@
+{
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "durationMs": 4000,
+  "durationFrames": 120,
+  "headline": "Chapter Two",
+  "subtitle": "The Journey Begins",
+  "wipeDirection": "left",
+  "wipeColor": "#FF6B35",
+  "headlineSize": 80,
+  "subtitleSize": 36,
+  "bgColor": "#0A0A0A",
+  "textColor": "#FFFFFF",
+  "accentColor": "#FF6B35"
+}

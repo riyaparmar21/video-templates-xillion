@@ -1,0 +1,137 @@
+[
+  {
+    "id": "corporate-clean",
+    "display": "Montserrat",
+    "body": "Inter",
+    "accent": "JetBrains Mono",
+    "mood": ["professional", "authoritative", "clean"],
+    "genres": ["tech-product", "corporate", "saas"],
+    "description": "Clean and corporate. Montserrat for bold headlines, Inter for readable body, JetBrains Mono for data and code."
+  },
+  {
+    "id": "bold-editorial",
+    "display": "Oswald",
+    "body": "Lato",
+    "accent": "Inconsolata",
+    "mood": ["bold", "editorial", "assertive"],
+    "genres": ["editorial", "news", "documentary"],
+    "description": "Strong editorial voice. Oswald commands attention in headlines, Lato stays readable, Inconsolata adds technical contrast."
+  },
+  {
+    "id": "modern-minimal",
+    "display": "Poppins",
+    "body": "Open Sans",
+    "accent": "Space Mono",
+    "mood": ["modern", "minimal", "fresh"],
+    "genres": ["startup", "minimal", "modern"],
+    "description": "Modern and minimal. Poppins is geometric and friendly, Open Sans is universally readable, Space Mono adds digital character."
+  },
+  {
+    "id": "luxury-elegant",
+    "display": "Playfair Display",
+    "body": "Source Sans Pro",
+    "accent": "Cormorant Garamond",
+    "mood": ["elegant", "luxury", "refined"],
+    "genres": ["luxury", "fashion", "premium"],
+    "description": "Luxury and elegance. Playfair Display brings serif sophistication, Source Sans Pro stays neutral, Cormorant Garamond adds classical accent."
+  },
+  {
+    "id": "playful-consumer",
+    "display": "Fredoka One",
+    "body": "Nunito",
+    "accent": "Comic Neue",
+    "mood": ["playful", "fun", "friendly"],
+    "genres": ["consumer", "kids", "fun", "casual"],
+    "description": "Playful and consumer-friendly. Fredoka One is bubbly, Nunito is soft and readable, Comic Neue adds whimsy without looking cheap."
+  },
+  {
+    "id": "tech-futuristic",
+    "display": "Orbitron",
+    "body": "Exo 2",
+    "accent": "Fira Code",
+    "mood": ["futuristic", "technical", "sci-fi"],
+    "genres": ["sci-fi", "gaming", "futuristic", "tech-product"],
+    "description": "Futuristic tech aesthetic. Orbitron is geometric and sci-fi, Exo 2 bridges display and body, Fira Code is the coder's choice."
+  },
+  {
+    "id": "warm-human",
+    "display": "Merriweather",
+    "body": "Cabin",
+    "accent": "Courier Prime",
+    "mood": ["warm", "human", "trustworthy"],
+    "genres": ["testimonial", "storytelling", "nonprofit"],
+    "description": "Warm and human. Merriweather is a welcoming serif, Cabin is approachable, Courier Prime adds an authentic typed-letter feel."
+  },
+  {
+    "id": "geometric-sharp",
+    "display": "Raleway",
+    "body": "Work Sans",
+    "accent": "IBM Plex Mono",
+    "mood": ["geometric", "sharp", "designed"],
+    "genres": ["design", "architecture", "geometric"],
+    "description": "Geometric precision. Raleway is thin and elegant, Work Sans is workhorse readable, IBM Plex Mono is clean and engineered."
+  },
+  {
+    "id": "impact-hype",
+    "display": "Anton",
+    "body": "Roboto",
+    "accent": "Share Tech Mono",
+    "mood": ["energetic", "hype", "bold"],
+    "genres": ["hype-launch", "sports", "energy", "event"],
+    "description": "Maximum impact. Anton screams from the screen, Roboto keeps body text grounded, Share Tech Mono adds digital edge."
+  },
+  {
+    "id": "classic-serif",
+    "display": "Lora",
+    "body": "Source Serif Pro",
+    "accent": "DM Mono",
+    "mood": ["classic", "academic", "thoughtful"],
+    "genres": ["academic", "editorial", "classic", "educational"],
+    "description": "Classic and literary. Lora is an elegant contemporary serif, Source Serif Pro matches in body, DM Mono adds modern code contrast."
+  },
+  {
+    "id": "swiss-neutral",
+    "display": "Inter",
+    "body": "Roboto",
+    "accent": "Roboto Mono",
+    "mood": ["neutral", "universal", "safe"],
+    "genres": ["corporate", "universal", "safe"],
+    "description": "Swiss neutrality. Inter and Roboto are the safest sans-serifs available, Roboto Mono keeps the monospace equally clean."
+  },
+  {
+    "id": "creative-studio",
+    "display": "Instrument Sans",
+    "body": "Manrope",
+    "accent": "JetBrains Mono",
+    "mood": ["creative", "studio", "portfolio"],
+    "genres": ["creative", "agency", "portfolio"],
+    "description": "Creative studio feel. Instrument Sans is fresh and distinctive, Manrope is geometric and modern, JetBrains Mono adds developer cred."
+  },
+  {
+    "id": "startup-friendly",
+    "display": "DM Sans",
+    "body": "Inter",
+    "accent": "JetBrains Mono",
+    "mood": ["friendly", "approachable", "startup"],
+    "genres": ["startup", "saas", "tech-product"],
+    "description": "Startup-friendly and approachable. DM Sans is geometric and warm, Inter is the industry standard body, JetBrains Mono for data."
+  },
+  {
+    "id": "data-heavy",
+    "display": "Barlow Condensed",
+    "body": "Barlow",
+    "accent": "Fira Mono",
+    "mood": ["data-driven", "analytical", "dense"],
+    "genres": ["data-viz", "analytics", "dashboard", "explainer"],
+    "description": "Data-first design. Barlow Condensed packs headlines tight, Barlow stays readable in body, Fira Mono is perfect for numbers and code."
+  },
+  {
+    "id": "premium-fintech",
+    "display": "Plus Jakarta Sans",
+    "body": "Inter",
+    "accent": "Fira Code",
+    "mood": ["premium", "fintech", "trustworthy"],
+    "genres": ["fintech", "banking", "premium", "luxury"],
+    "description": "Premium fintech aesthetic. Plus Jakarta Sans is refined and modern, Inter is trusted body text, Fira Code handles numbers elegantly."
+  }
+]

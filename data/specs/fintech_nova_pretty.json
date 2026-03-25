@@ -1,0 +1,193 @@
+{
+  "palette": {
+    "primary": "#FFD700",
+    "secondary": "#3873FF",
+    "background": "#0A0A0A",
+    "text": "#FFFFFF",
+    "accent": "#1E90FF"
+  },
+  "typography": {
+    "heading": "Montserrat",
+    "body": "Inter",
+    "mono": "JetBrains Mono"
+  },
+  "duration": 60,
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "audio": {
+    "src": "",
+    "reactive": false
+  },
+  "camera": {
+    "kenBurns": true,
+    "kenBurnsScale": 1.06,
+    "punchZoom": true,
+    "punchInterval": 4,
+    "punchScale": 1.025
+  },
+  "scenes": [
+    {
+      "template": "KineticCaptions",
+      "duration": 5,
+      "params": {
+        "groups": [
+          {
+            "lines": [
+              {
+                "text": "Stop overpaying on international transfers easily and securely",
+                "style": "big"
+              }
+            ]
+          }
+        ]
+      },
+      "transition": "zoom_in",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "GenAiFeatures",
+      "duration": 10,
+      "params": {
+        "scene1": {
+          "textLines": [
+            "Nova sends money to over 140 countries with zero hidden fees."
+          ],
+          "image": "assets/fintech_nova/app-dashboard.png"
+        },
+        "scene2": {
+          "promptBox": {
+            "text": "Send $100 anytime with real exchange rates.",
+            "buttons": [
+              "Send Now",
+              "View Rates"
+            ]
+          }
+        },
+        "scene3": {
+          "textLines": [
+            "Your money arrives in just minutes, not days."
+          ],
+          "image": "assets/fintech_nova/app-cards.png"
+        },
+        "scene4": {
+          "logoText": "Nova",
+          "logoSuperscript": "Financial Empowerment"
+        }
+      },
+      "transition": "crossfade",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "Tweet",
+      "duration": 6,
+      "params": {
+        "displayName": "Jane Doe",
+        "handle": "@janedoe",
+        "tweetText": "I saved $400 last year with Nova. It's the easiest and fastest way to send money abroad securely!",
+        "timestamp": "2h ago",
+        "source": "Twitter for iPhone",
+        "verified": true
+      },
+      "transition": "wipe_left",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "NumberCounterScene",
+      "duration": 3,
+      "params": {
+        "target": 3000000,
+        "label": "Users Worldwide and Growing",
+        "prefix": "",
+        "suffix": "",
+        "decimals": 0,
+        "fontSize": 300,
+        "particleCount": 50,
+        "glowColor": "#3873FF"
+      },
+      "transition": "slide_up",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "BlurTextScroller",
+      "duration": 11,
+      "params": {
+        "words": [
+          "Over 140 countries served",
+          "Real exchange rates guaranteed",
+          "Zero hidden fees",
+          "Money transfer in just minutes",
+          "Save up to $400 yearly"
+        ],
+        "fontSize": 80,
+        "textColor": "#FFFFFF",
+        "bgColor": "#0A0A0A"
+      },
+      "transition": "slide_up",
+      "transitionDuration": 0.6
+    },
+    {
+      "template": "StackHiring",
+      "duration": 5,
+      "params": {
+        "brandName": "Nova",
+        "titleText": "Why Nova Makes Sense",
+        "roles": [
+          "Fast Transfers Anytime",
+          "No Fees - Save More",
+          "True Exchange Rates"
+        ],
+        "ctaLine1": "Join Nova Free",
+        "ctaLine2": "Save More, Start Now",
+        "ctaButton": "Get Nova Today",
+        "bgColor": "#0A0A0A",
+        "textColor": "#FFFFFF"
+      },
+      "transition": "crossfade",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "GradientWash",
+      "duration": 3,
+      "params": {
+        "colors": [
+          "#3873FF",
+          "#FFD700",
+          "#1E90FF"
+        ],
+        "style": "aurora",
+        "speed": "medium",
+        "text": "Nova makes money transfers simple, secure, and fast.",
+        "textSize": 96
+      },
+      "transition": "zoom_in",
+      "transitionDuration": 0.7
+    },
+    {
+      "template": "LogoStinger",
+      "duration": 5,
+      "params": {
+        "logo": "assets/fintech_nova/logo.webp",
+        "tagline": "Nova - Saving You More, Faster",
+        "style": "particles",
+        "logoSize": 400
+      },
+      "transition": "none",
+      "transitionDuration": 0
+    },
+    {
+      "template": "TextRevealWipe",
+      "duration": 12,
+      "params": {
+        "headline": "Download Nova Now",
+        "subtitle": "Available on iOS & Android - Easy, Secure Transfers",
+        "wipeDirection": "center",
+        "wipeColor": "#3873FF",
+        "headlineSize": 96,
+        "subtitleSize": 48
+      },
+      "transition": "slide_up",
+      "transitionDuration": 0.8
+    }
+  ]
+}

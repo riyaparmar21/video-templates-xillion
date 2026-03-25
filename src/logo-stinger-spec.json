@@ -1,0 +1,14 @@
+{
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "durationMs": 3000,
+  "durationFrames": 90,
+  "logo": "gen-ai-features/portrait.png",
+  "tagline": "Built for Scale",
+  "style": "particles",
+  "logoSize": 280,
+  "bgColor": "#0A0A0A",
+  "textColor": "#FFFFFF",
+  "accentColor": "#7C3AED"
+}

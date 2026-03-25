@@ -1,0 +1,176 @@
+{
+  "palette": {
+    "primary": "#FFD700",
+    "secondary": "#1E90FF",
+    "background": "#0A0A0A",
+    "text": "#FFFFFF",
+    "accent": "#FF6B35"
+  },
+  "typography": {
+    "heading": "Montserrat",
+    "body": "Inter",
+    "mono": "JetBrains Mono"
+  },
+  "duration": 25,
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "audio": {
+    "src": "",
+    "reactive": false
+  },
+  "camera": {
+    "kenBurns": true,
+    "kenBurnsScale": 1.06,
+    "punchZoom": true,
+    "punchInterval": 4,
+    "punchScale": 1.025
+  },
+  "scenes": [
+    {
+      "template": "KineticCaptions",
+      "duration": 5,
+      "params": {
+        "groups": [
+          {
+            "lines": [
+              {
+                "words": [
+                  {
+                    "text": "Meet",
+                    "style": "big"
+                  },
+                  {
+                    "text": "Flowboard",
+                    "style": "emphasis-gold"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "lines": [
+              {
+                "words": [
+                  {
+                    "text": "the",
+                    "style": "filler"
+                  },
+                  {
+                    "text": "project",
+                    "style": "emphasis-blue"
+                  },
+                  {
+                    "text": "management",
+                    "style": "emphasis-blue"
+                  },
+                  {
+                    "text": "tool",
+                    "style": "big"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "lines": [
+              {
+                "words": [
+                  {
+                    "text": "your",
+                    "style": "filler"
+                  },
+                  {
+                    "text": "team",
+                    "style": "big-blue"
+                  },
+                  {
+                    "text": "actually",
+                    "style": "accent-blue"
+                  },
+                  {
+                    "text": "wants",
+                    "style": "accent-blue"
+                  },
+                  {
+                    "text": "to",
+                    "style": "filler"
+                  },
+                  {
+                    "text": "use.",
+                    "style": "big-gold"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "transition": "crossfade",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "GenAiFeatures",
+      "duration": 8,
+      "params": {
+        "scene1": {
+          "textLines": [
+            "Drag, drop, done.",
+            "Flowboard turns chaotic workflows into visual pipelines."
+          ],
+          "image": "feature-ui1.png"
+        },
+        "scene2": {
+          "image": "feature-ui2.png",
+          "promptBox": "Organize tasks instantly",
+          "buttons": [
+            "Visualize",
+            "Customize"
+          ]
+        },
+        "scene3": {
+          "image": "feature-ui3.png",
+          "morphDims": {
+            "width": 800,
+            "height": 600
+          }
+        },
+        "scene4": {
+          "logoText": "Flowboard",
+          "logoSuperscript": "TM"
+        },
+        "bgColor": "#0A0A0A"
+      },
+      "transition": "zoom_in",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "NumberCounterScene",
+      "duration": 5,
+      "params": {
+        "target": 12000,
+        "prefix": "",
+        "suffix": "+",
+        "label": "Teams made the switch",
+        "decimals": 0,
+        "fontSize": 60,
+        "particleCount": 50,
+        "glowColor": "#FFD700"
+      },
+      "transition": "wipe_left",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "LogoStinger",
+      "duration": 7,
+      "params": {
+        "logo": "flowboard-logo.png",
+        "tagline": "Try Flowboard free for 30 days",
+        "style": "particles",
+        "logoSize": 72
+      },
+      "transition": "none",
+      "transitionDuration": 0
+    }
+  ]
+}

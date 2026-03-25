@@ -1,0 +1,25 @@
+# Video Templates - Python Pipeline Requirements
+
+# Core dependencies
+python-dotenv>=1.0.0
+
+# Azure OpenAI (for agent backend)
+openai>=1.0.0
+
+# Agno AI Framework (for MCP integration)
+# Install with: pip install agno
+agno>=1.0.0
+
+# MCP Python SDK (for Remotion MCP server)
+# Install with: pip install mcp
+mcp>=1.0.0
+
+# Optional: Anthropic Claude (if using Claude model)
+anthropic>=0.30.0
+
+# Type hints and validation
+# pydantic>=2.0.0
+
+# HTTP requests (if needed)
+# httpx>=0.25.0
+# requests>=2.31.0

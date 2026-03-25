@@ -1,0 +1,22 @@
+{
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "durationMs": 8000,
+  "bgColor": "#111111",
+  "images": [
+    "mobile-showreel-frames/01.png",
+    "mobile-showreel-frames/02.png",
+    "mobile-showreel-frames/03.png",
+    "mobile-showreel-frames/04.png"
+  ],
+  "cardRadius": 22,
+  "cardGap": 14,
+  "thumbWidth": 200,
+  "thumbHeight": 200,
+  "dotSize": 6,
+  "labelFont": "Neue Haas Unica W1G Bold, Helvetica Neue, Arial, sans-serif",
+  "labelFontSize": 48,
+  "cardHoldMs": 900,
+  "scrollTransitionMs": 500
+}

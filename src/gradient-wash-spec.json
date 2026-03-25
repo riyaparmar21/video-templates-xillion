@@ -1,0 +1,15 @@
+{
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "durationMs": 3000,
+  "durationFrames": 90,
+  "colors": ["#FF6B35", "#7C3AED", "#06B6D4", "#EC4899"],
+  "style": "radial",
+  "speed": "medium",
+  "text": "",
+  "textSize": 48,
+  "bgColor": "#0A0A0A",
+  "textColor": "#FFFFFF",
+  "accentColor": "#FF6B35"
+}

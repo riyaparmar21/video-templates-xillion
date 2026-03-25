@@ -1,0 +1,15 @@
+{
+  "fps": 30,
+  "width": 1080,
+  "height": 1080,
+  "durationMs": 4000,
+  "percentage": 100,
+  "bgColor": "#EFEFEF",
+  "trackColor": "#F5B8C4",
+  "trackOpacity": 40,
+  "fillColorStart": "#FF1150",
+  "fillColorEnd": "#FF6B8A",
+  "barHeight": 18,
+  "barRadius": 50,
+  "barWidth": 540
+}

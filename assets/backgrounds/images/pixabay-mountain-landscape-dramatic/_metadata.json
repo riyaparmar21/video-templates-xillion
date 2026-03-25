@@ -1,0 +1,27 @@
+{
+  "source": "pixabay",
+  "query": "mountain landscape dramatic",
+  "type": "photo",
+  "count": 2,
+  "license": "Pixabay Content License (free for commercial use, no attribution required)",
+  "items": [
+    {
+      "id": 6199355,
+      "url": "https://pixabay.com/get/g1d2e6346073524250c34e828cdea5ea451037177ebb2bee52f98adc380693dc6b6577ba0a4b69ed21e53f4b27abb86ce007480d9cf4c999d99a9131c3de016e8_1280.jpg",
+      "width": 5568,
+      "height": 3712,
+      "tags": "landscape, mountains, fog, sky, nature, clouds, mountainous, mountain ranges, foggy, mountain landscape, haze, mist",
+      "user": "ELG21",
+      "pixabay_url": "https://pixabay.com/photos/landscape-mountains-fog-sky-clouds-6199355/"
+    },
+    {
+      "id": 532857,
+      "url": "https://pixabay.com/get/gc9e718de12fd594a844fa4a22588f966078fde04b5f24cbfd8272783707c35febf65a3cc1a0a2f3f844533278e665d0618b66e089ad96307a4694b74ec863193_1280.jpg",
+      "width": 5616,
+      "height": 3744,
+      "tags": "yellow mountains, mountain ranges, sea of clouds, horizon, mountainous, mountain landscape, landscape, china, travel, scenic, sunset, nature, rural, countryside, china, china, china, china, china",
+      "user": "derwiki",
+      "pixabay_url": "https://pixabay.com/photos/yellow-mountains-mountain-ranges-532857/"
+    }
+  ]
+}

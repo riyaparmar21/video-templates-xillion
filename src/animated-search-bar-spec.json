@@ -1,0 +1,13 @@
+{
+  "fps": 30,
+  "width": 1080,
+  "height": 1080,
+  "durationMs": 4000,
+  "searchText": "Best motion design tool",
+  "iconSrc": null,
+  "bgColor": "transparent",
+  "barColor": "#ffffff",
+  "textColor": "#404040",
+  "barRadius": 40,
+  "fontSize": 24
+}

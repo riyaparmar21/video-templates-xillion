@@ -1,0 +1,247 @@
+{
+  "palette": {
+    "primary": "#FFD700",
+    "secondary": "#1E90FF",
+    "background": "#0A0A0A",
+    "text": "#FFFFFF",
+    "accent": "#3873FF"
+  },
+  "typography": {
+    "heading": "Plus Jakarta Sans",
+    "body": "Inter",
+    "mono": "Fira Code"
+  },
+  "duration": 60,
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "audio": {
+    "src": "",
+    "reactive": false
+  },
+  "camera": {
+    "kenBurns": true,
+    "kenBurnsScale": 1.06,
+    "punchZoom": true,
+    "punchInterval": 4,
+    "punchScale": 1.025
+  },
+  "scenes": [
+    {
+      "template": "KineticCaptions",
+      "duration": 5,
+      "params": {
+        "groups": [
+          {
+            "lines": [
+              {
+                "words": [
+                  {
+                    "text": "Stop",
+                    "style": "big-blue"
+                  },
+                  {
+                    "text": "overpaying",
+                    "style": "emphasis-gold"
+                  }
+                ]
+              },
+              {
+                "words": [
+                  {
+                    "text": "on",
+                    "style": "normal"
+                  },
+                  {
+                    "text": "international",
+                    "style": "normal"
+                  },
+                  {
+                    "text": "transfers",
+                    "style": "normal"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "transition": "crossfade",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "GenAiFeatures",
+      "duration": 7,
+      "params": {
+        "scene1": {
+          "textLines": {
+            "words": [
+              "Nova",
+              "sends",
+              "money"
+            ],
+            "color": "#FFFFFF"
+          },
+          "image": "@project:app-cards"
+        },
+        "scene2": {
+          "image": "@project:app-dashboard",
+          "promptBox": {
+            "boldWords": [
+              "Zero hidden fees"
+            ],
+            "label": "Exclusive benefit",
+            "typeSpeedMs": 40,
+            "bgColor": "#1E90FF",
+            "textColor": "#FFFFFF",
+            "boldColor": "#FFD700",
+            "width": 400,
+            "height": 200
+          },
+          "buttons": [
+            "Learn More",
+            "Get Started"
+          ]
+        },
+        "scene3": {
+          "image": "@project:app-dashboard",
+          "morphDims": {
+            "aspectRatio": "16:9",
+            "animationStyle": "zoom"
+          }
+        },
+        "scene4": {
+          "logoText": "Nova",
+          "logoSuperscript": ""
+        },
+        "bgColor": "#0A0A0A"
+      },
+      "transition": "zoom_in",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "VaultCardFeatures",
+      "duration": 11,
+      "params": {
+        "featureWords": [
+          "Minutes",
+          "Not days",
+          "Instant transfers",
+          "Speed",
+          "Secure"
+        ],
+        "subtitle": "Fast & Reliable Transfers",
+        "cards": [
+          {
+            "bgColor": "#1E90FF",
+            "textColor": "#FFFFFF",
+            "brand": "Nova",
+            "cardNumber": "1234 5678 9012 3456",
+            "network": "Visa"
+          }
+        ],
+        "poweredByBrand": "Nova"
+      },
+      "transition": "slide_down",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "NumberCounterScene",
+      "duration": 5,
+      "params": {
+        "target": 3000000,
+        "prefix": "",
+        "suffix": "users",
+        "label": "Already saving $400 per year",
+        "particleCount": 50,
+        "glowColor": "#FFD700",
+        "fontSize": 100
+      },
+      "transition": "zoom_out",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "TextRevealWipe",
+      "duration": 5,
+      "params": {
+        "headline": "Download Nova now",
+        "subtitle": "Save money instantly",
+        "wipeDirection": "center",
+        "wipeColor": "#FFD700",
+        "headlineSize": 64,
+        "subtitleSize": 36
+      },
+      "transition": "wipe_left",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "GradientWash",
+      "duration": 3,
+      "params": {
+        "colors": [
+          "#3873FF",
+          "#FFD700",
+          "#1E90FF"
+        ],
+        "style": "aurora",
+        "speed": "slow",
+        "text": "",
+        "textSize": 0
+      },
+      "transition": "crossfade",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "BlurTextScroller",
+      "duration": 11,
+      "params": {
+        "words": [
+          "Real exchange rates",
+          "Zero hidden fees",
+          "Instant transfers",
+          "140 countries",
+          "$400 saved per year"
+        ],
+        "fontSize": 56,
+        "textColor": "#FFFFFF",
+        "bgColor": "#0A0A0A"
+      },
+      "transition": "slide_up",
+      "transitionDuration": 0.5
+    },
+    {
+      "template": "StackHiring",
+      "duration": 9,
+      "params": {
+        "brandName": "Nova",
+        "titleText": "Download Nova today",
+        "roles": [
+          "Available on iOS",
+          "Available on Android",
+          "Secure cloud storage",
+          "Global transaction insights",
+          "Zero currency markup"
+        ],
+        "ctaLine1": "Start saving now!",
+        "ctaLine2": "Get the app today",
+        "ctaButton": "Download Now",
+        "bgColor": "#0A0A0A",
+        "textColor": "#FFFFFF"
+      },
+      "transition": "none",
+      "transitionDuration": 0
+    },
+    {
+      "template": "LogoStinger",
+      "duration": 4,
+      "params": {
+        "logo": "@project:logo-webp",
+        "tagline": "Nova: Save More, Send Faster",
+        "style": "particles",
+        "logoSize": 120
+      },
+      "transition": "crossfade",
+      "transitionDuration": 0.5
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "durationMs": 8000,
+  "durationFrames": 240,
+  "cards": [
+    { "image": "showreel-grid/screen-1.jpg", "label": "Campaign One" },
+    { "image": "showreel-grid/screen-2.jpg", "label": "Campaign Two" },
+    { "image": "showreel-grid/screen-3.jpg", "label": "Campaign Three" }
+  ],
+  "style": "tilt",
+  "borderRadius": 24,
+  "cardWidthPercent": 65,
+  "reflection": true,
+  "shadow": true,
+  "headline": "Built for Scale",
+  "bgColor": "#0A0A0A",
+  "textColor": "#FFFFFF",
+  "accentColor": "#7C3AED",
+  "particles": true
+}
