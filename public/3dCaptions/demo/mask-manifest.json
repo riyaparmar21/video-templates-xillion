@@ -1,0 +1,26 @@
+{
+  "jobId": "demo",
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "frameCount": 150,
+  "maskPattern": "3dCaptions/demo/masks/mask_%05d.png",
+  "maskStartIndex": 1,
+  "subjectTrack": {
+    "startFrame": 0,
+    "endFrame": 149,
+    "hasSubject": true,
+    "bbox": {
+      "x": 0.18,
+      "y": 0.14,
+      "width": 0.64,
+      "height": 0.8
+    },
+    "faceSafe": {
+      "x": 0.38,
+      "y": 0.15,
+      "width": 0.24,
+      "height": 0.18
+    }
+  }
+}

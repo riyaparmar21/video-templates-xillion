@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { width: 1080px; height: 1920px; overflow: hidden; background: black; }
+canvas { display: block; }
+#text-overlay {
+  position: absolute; top: 0; left: 0; width: 1080px; height: 1920px;
+  pointer-events: none;
+}
+.word {
+  position: absolute;
+  font-family: 'Inter', sans-serif;
+  white-space: nowrap;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  text-shadow: 0 4px 24px rgba(0,0,0,0.8), 0 2px 8px rgba(0,0,0,0.6), 0 0 12px rgba(0,0,0,0.4);
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+<canvas id="canvas" width="1080" height="1920"></canvas>
+<div id="text-overlay"></div>
+
+<script>
+const SPEC = {
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "durationFrames": 150,
+  "durationMs": 5000,
+  "videoSrc": "test_vid.mov",
+  "maskPattern": "depth_captions_data/masks/mask_%05d.png",
+  "maskFrameCount": 150,
+  "maskStartIndex": 1,
+  "defaultFontSize": 80,
+  "defaultColor": "#FFFFFF",
+  "textShadow": "0 4px 24px rgba(0,0,0,0.8), 0 0 10px rgba(0,0,0,0.5)",
+  "words": [
+    {
+      "text": "Welcome",
+      "startFrame": 0,
+      "durationFrames": 45,
+      "x": 0.05,
+      "y": 0.10,
+      "fontSize": 90,
+      "entrance": "left",
+      "align": "left"
+    },
+    {
+      "text": "back",
+      "startFrame": 8,
+      "durationFrames": 42,
+      "x": 0.55,
+      "y": 0.17,
+      "fontSize": 100,
+      "color": "#FFD700",
+      "entrance": "right",
+      "align": "center"
+    },
+    {
+      "text": "to",
+      "startFrame": 16,
+      "durationFrames": 38,
+      "x": 0.02,
+      "y": 0.35,
+      "fontSize": 65,
+      "entrance": "left",
+      "align": "left"
+    },
+    {
+      "text": "another",
+      "startFrame": 20,
+      "durationFrames": 40,
+      "x": 0.95,
+      "y": 0.40,
+      "fontSize": 85,
+      "color": "#FFD700",
+      "entrance": "right",
+      "align": "right"
+    },
+
+    {
+      "text": "really",
+      "startFrame": 50,
+      "durationFrames": 42,
+      "x": 0.95,
+      "y": 0.12,
+      "fontSize": 80,
+      "entrance": "right",
+      "align": "right"
+    },
+    {
+      "text": "exciting",
+      "startFrame": 55,
+      "durationFrames": 45,
+      "x": 0.05,
+      "y": 0.42,
+      "fontSize": 95,
+      "color": "#FFD700",
+      "entrance": "left",
+      "align": "left"
+    },
+    {
+      "text": "video",
+      "startFrame": 60,
+      "durationFrames": 44,
+      "x": 0.50,
+      "y": 0.06,
+      "fontSize": 130,
+      "entrance": "top",
+      "align": "center"
+    },
+    {
+      "text": "right",
+      "startFrame": 65,
+      "durationFrames": 40,
+      "x": 0.95,
+      "y": 0.48,
+      "fontSize": 75,
+      "entrance": "right",
+      "align": "right"
+    },
+
+    {
+      "text": "coming",
+      "startFrame": 100,
+      "durationFrames": 50,
+      "x": 0.05,
+      "y": 0.12,
+      "fontSize": 85,
+      "entrance": "left",
+      "align": "left"
+    },
+    {
+      "text": "your",
+      "startFrame": 105,
+      "durationFrames": 45,
+      "x": 0.50,
+      "y": 0.06,
+      "fontSize": 110,
+      "color": "#FFD700",
+      "entrance": "scale",
+      "align": "center"
+    },
+    {
+      "text": "way",
+      "startFrame": 110,
+      "durationFrames": 40,
+      "x": 0.95,
+      "y": 0.35,
+      "fontSize": 100,
+      "color": "#FFD700",
+      "entrance": "right",
+      "align": "right"
+    },
+    {
+      "text": "soon",
+      "startFrame": 115,
+      "durationFrames": 35,
+      "x": 0.05,
+      "y": 0.45,
+      "fontSize": 90,
+      "entrance": "left",
+      "align": "left"
+    }
+  ]
+};
+const FPS = SPEC.fps;
+const W = SPEC.width;
+const H = SPEC.height;
+const EXIT_DUR = 12;
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
+// Image cache
+const imageCache = {};
+function loadImage(src) {
+  if (imageCache[src]) return Promise.resolve(imageCache[src]);
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => { imageCache[src] = img; resolve(img); };
+    img.onerror = reject;
+    img.src = src;
+  });
+}
+
+function springApprox(frame, damping, stiffness, mass) {
+  const omega = Math.sqrt(stiffness / mass);
+  const gamma = damping / (2 * mass);
+  const t = frame / FPS;
+  if (gamma >= omega) return Math.min(1, Math.max(0, 1 - Math.exp(-gamma*t) * (1 + gamma*t)));
+  const omegaD = Math.sqrt(omega*omega - gamma*gamma);
+  return Math.min(1, Math.max(0, 1 - Math.exp(-gamma*t) * (Math.cos(omegaD*t) + (gamma/omegaD)*Math.sin(omegaD*t))));
+}
+
+function renderTextOverlay(frameNum) {
+  const layer = document.getElementById('text-overlay');
+  layer.innerHTML = '';
+  for (const word of SPEC.words) {
+    if (frameNum < word.startFrame) continue;
+    const dur = word.durationFrames || 0;
+    if (dur > 0 && frameNum >= word.startFrame + dur) continue;
+    const localFrame = frameNum - word.startFrame;
+    const fontSize = word.fontSize || SPEC.defaultFontSize || 80;
+    const color = word.color || SPEC.defaultColor || '#FFFFFF';
+    const entrance = word.entrance || 'scale';
+    const align = word.align || 'left';
+    let s, opacity, translateX = 0, translateY = 0, scale = 1;
+    if (entrance === 'scale') {
+      s = springApprox(localFrame, 12, 180, 0.6);
+      scale = 0.3 + 0.7 * s; opacity = s;
+    } else {
+      s = springApprox(localFrame, 14, 120, 0.8);
+      opacity = s;
+      if (entrance === 'left') translateX = -120 * (1 - s);
+      else if (entrance === 'right') translateX = 120 * (1 - s);
+      else if (entrance === 'top') translateY = -80 * (1 - s);
+      else if (entrance === 'bottom') translateY = 80 * (1 - s);
+    }
+    if (dur > 0) {
+      const exitStart = dur - EXIT_DUR;
+      if (localFrame >= exitStart) {
+        const exitP = Math.min(1, (localFrame - exitStart) / EXIT_DUR);
+        const eased = exitP * exitP;
+        opacity *= (1 - eased);
+        scale *= (1 - 0.15 * eased);
+        if (entrance === 'left') translateX -= eased * 60;
+        else if (entrance === 'right') translateX += eased * 60;
+        else if (entrance === 'top') translateY -= eased * 40;
+        else if (entrance === 'bottom') translateY += eased * 40;
+      }
+    }
+    if (opacity < 0.02) continue;
+    let anchorX = '0%';
+    if (align === 'center') anchorX = '-50%';
+    else if (align === 'right') anchorX = '-100%';
+    const div = document.createElement('div');
+    div.className = 'word';
+    div.textContent = word.text;
+    Object.assign(div.style, {
+      left: (word.x * W) + 'px', top: (word.y * H) + 'px',
+      fontSize: fontSize + 'px', color: color, opacity: opacity,
+      fontWeight: fontSize > 80 ? '900' : fontSize > 50 ? '800' : '700',
+      transform: 'translate(' + anchorX + ', -50%) translate(' + translateX + 'px, ' + translateY + 'px) scale(' + scale + ')',
+      transformOrigin: align + ' center'
+    });
+    layer.appendChild(div);
+  }
+}
+
+window.setFrame = async function(frameNum) {
+  const fIdx = String(frameNum + 1).padStart(5, '0');
+  const frameSrc = '/video_frames/frame_' + fIdx + '.png';
+  const maskStart = SPEC.maskStartIndex || 1;
+  const maskIdx = Math.min(frameNum + maskStart, SPEC.maskFrameCount + maskStart - 1);
+  const maskSrc = '/' + SPEC.maskPattern.replace('%05d', String(maskIdx).padStart(5, '0'));
+  
+  // Load images
+  const [frameImg, maskImg] = await Promise.all([
+    loadImage(frameSrc),
+    loadImage(maskSrc)
+  ]);
+  
+  // Step 1: Draw video frame as background
+  ctx.drawImage(frameImg, 0, 0, W, H);
+  
+  // Step 2: Render text as HTML overlay (will be composited on top)
+  renderTextOverlay(frameNum);
+  
+  // Step 3: Composite person on top using mask
+  // We need to: draw the video frame ONLY where the mask is white (person area)
+  // This means: use 'destination-in' compositing with the mask, then overlay on the text
+  
+  // Create an offscreen canvas for the person cutout
+  const offscreen = document.createElement('canvas');
+  offscreen.width = W; offscreen.height = H;
+  const offCtx = offscreen.getContext('2d');
+  
+  // Draw video frame on offscreen
+  offCtx.drawImage(frameImg, 0, 0, W, H);
+  // Use mask as alpha: destination-in keeps existing pixels only where new (mask) is opaque
+  offCtx.globalCompositeOperation = 'destination-in';
+  offCtx.drawImage(maskImg, 0, 0, W, H);
+  offCtx.globalCompositeOperation = 'source-over';
+  
+  // Now paste the person cutout on top of the main canvas (over text)
+  // But we need the text to be drawn on canvas too for proper layering.
+  // Problem: text is HTML overlay, person cutout is canvas.
+  // Solution: draw text on canvas too, then person on top.
+  
+  // Actually, we need a fully canvas-based approach for screenshots.
+  // Let's use html2canvas approach: capture the text overlay first, then composite.
+  
+  // Simple approach: hide the text overlay, just use canvas for everything
+  document.getElementById('text-overlay').style.display = 'none';
+  
+  // Redraw main canvas fully:
+  // 1. Video background
+  ctx.globalCompositeOperation = 'source-over';
+  ctx.drawImage(frameImg, 0, 0, W, H);
+  
+  // 2. Draw text ON canvas
+  drawTextOnCanvas(ctx, frameNum);
+  
+  // 3. Draw person cutout on top
+  ctx.drawImage(offscreen, 0, 0);
+  
+  window.__FRAME_READY__ = true;
+};
+
+function drawTextOnCanvas(ctx, frameNum) {
+  for (const word of SPEC.words) {
+    if (frameNum < word.startFrame) continue;
+    const dur = word.durationFrames || 0;
+    if (dur > 0 && frameNum >= word.startFrame + dur) continue;
+    const localFrame = frameNum - word.startFrame;
+    const fontSize = word.fontSize || SPEC.defaultFontSize || 80;
+    const color = word.color || SPEC.defaultColor || '#FFFFFF';
+    const entrance = word.entrance || 'scale';
+    const align = word.align || 'left';
+    let s, opacity, translateX = 0, translateY = 0, scale = 1;
+    if (entrance === 'scale') {
+      s = springApprox(localFrame, 12, 180, 0.6);
+      scale = 0.3 + 0.7 * s; opacity = s;
+    } else {
+      s = springApprox(localFrame, 14, 120, 0.8);
+      opacity = s;
+      if (entrance === 'left') translateX = -120 * (1 - s);
+      else if (entrance === 'right') translateX = 120 * (1 - s);
+      else if (entrance === 'top') translateY = -80 * (1 - s);
+      else if (entrance === 'bottom') translateY = 80 * (1 - s);
+    }
+    if (dur > 0) {
+      const exitStart = dur - EXIT_DUR;
+      if (localFrame >= exitStart) {
+        const exitP = Math.min(1, (localFrame - exitStart) / EXIT_DUR);
+        const eased = exitP * exitP;
+        opacity *= (1 - eased);
+        scale *= (1 - 0.15 * eased);
+        if (entrance === 'left') translateX -= eased * 60;
+        else if (entrance === 'right') translateX += eased * 60;
+        else if (entrance === 'top') translateY -= eased * 40;
+        else if (entrance === 'bottom') translateY += eased * 40;
+      }
+    }
+    if (opacity < 0.02) continue;
+    
+    const px = word.x * W + translateX;
+    const py = word.y * H + translateY;
+    const effSize = fontSize * scale;
+    
+    ctx.save();
+    ctx.globalAlpha = opacity;
+    ctx.font = (fontSize > 80 ? '900' : fontSize > 50 ? '800' : '700') + ' ' + effSize + 'px Inter, sans-serif';
+    
+    let textAlign = 'left';
+    if (align === 'center') textAlign = 'center';
+    else if (align === 'right') textAlign = 'right';
+    ctx.textAlign = textAlign;
+    ctx.textBaseline = 'middle';
+    
+    // Shadow
+    ctx.shadowColor = 'rgba(0,0,0,0.8)';
+    ctx.shadowBlur = 24;
+    ctx.shadowOffsetX = 0;
+    ctx.shadowOffsetY = 4;
+    
+    // Outline for extra pop
+    ctx.strokeStyle = 'rgba(0,0,0,0.6)';
+    ctx.lineWidth = 3;
+    ctx.strokeText(word.text, px, py);
+    
+    // Fill
+    ctx.fillStyle = color;
+    ctx.fillText(word.text, px, py);
+    
+    ctx.restore();
+  }
+}
+
+// Auto-render frame 0
+window.setFrame(0);
+</script>
+</body>
+</html>

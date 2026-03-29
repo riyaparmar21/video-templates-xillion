@@ -1,0 +1,32 @@
+{
+  "jobId": "demo",
+  "durationSeconds": 5,
+  "text": "This is what depth captions feel like. Depth keeps the face clean and readable. Words can orbit without losing structure. Stable placement avoids jitter across the shot. Rear word behind. Subject on top. Support text in front.",
+  "segments": [
+    {
+      "start": 0,
+      "end": 1,
+      "text": "This is what depth captions feel like."
+    },
+    {
+      "start": 1,
+      "end": 2,
+      "text": "Depth keeps the face clean and readable."
+    },
+    {
+      "start": 2,
+      "end": 3,
+      "text": "Words can orbit without losing structure."
+    },
+    {
+      "start": 3,
+      "end": 4,
+      "text": "Stable placement avoids jitter across the shot."
+    },
+    {
+      "start": 4,
+      "end": 5,
+      "text": "Rear word behind. Subject on top. Support text in front."
+    }
+  ]
+}

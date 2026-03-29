@@ -14,7 +14,7 @@ npm test                     # run smoke tests
 
 ## Standalone Templates
 
-21 standalone templates, each with its own spec JSON and CLI tools.
+20 standalone templates, each with its own spec JSON and CLI tools.
 
 ### AnimatedSearchBar
 
@@ -111,18 +111,6 @@ Spec: `src/kinetic-captions-spec.json` · ⚠ No text CLI — captions are gener
 | Still | `npx remotion still src/index.ts SpiralCaptions --frame=200 --output out/spiral-captions.png` |
 
 Spec: `src/spiral-captions-spec.json` · ⚠ No text CLI — words are defined in the spec JSON. Spiral config (radius, decay, font sizes, revolutions) fully customizable via `spiral` object.
-
-### DepthCaptions
-
-> 3D depth-layered captions that render behind a person using per-frame segmentation masks.
-
-| Action | Command |
-|--------|---------|
-| Segment video | `python src/templates/DepthCaptions/segment.py <video> --fps 30 --max-seconds 10` |
-| Render | `npx remotion render src/index.ts DepthCaptions --output out/depth-captions.mp4` |
-| Still | `npx remotion still src/index.ts DepthCaptions --frame=60 --output out/depth-captions.png` |
-
-Spec: `src/depth-captions-spec.json` · Requires pre-generated masks in `public/`. Run `segment.py` first, then copy masks to `public/depth_captions_data/masks/`. Word positions are normalized (0-1) for dynamic placement around the subject.
 
 ### Tweet
 
@@ -418,6 +406,80 @@ Spec: `src/text-reveal-wipe-spec.json`
 | Logo size | Edit `"logoSize"` (default 280) |
 
 Spec: `src/logo-stinger-spec.json`
+
+### 3dCaptions (Depth Captions)
+
+> Cinematic spatial captions that float behind and in front of a person. Giant hero text sits behind the subject (occluded by their body via segmentation masks), smaller support text sits in front. Creates a 2.5D depth illusion without any 3D engine.
+
+**Preprocessing (run once per video):**
+
+| Action | Command |
+|--------|---------|
+| Full pipeline (video + script) | `python src/templates/3dCaptions/preprocessing/build_job.py --video input.mp4 --job-id myjob --script "Your script text here" --fps 30` |
+| Full pipeline (video + timed transcript) | `python src/templates/3dCaptions/preprocessing/build_job.py --video input.mp4 --job-id myjob --timed-transcript transcript.json --fps 30` |
+| Full pipeline (auto-transcribe) | `python src/templates/3dCaptions/preprocessing/build_job.py --video input.mp4 --job-id myjob --fps 30` |
+| Segmentation only | `python src/templates/3dCaptions/preprocessing/segment_subject.py --video source.mp4 --out-dir public/3dCaptions/myjob --fps 30` |
+| Spatial plan only | `python src/templates/3dCaptions/preprocessing/build_spatial_plan.py --transcript transcript.json --mask-manifest mask-manifest.json --job-id myjob --out plan.json --fps 30 --frame-count 150` |
+
+**Rendering:**
+
+| Action | Command |
+|--------|---------|
+| Preview in Studio | `npm start` → select `3dCaptions` composition |
+| Render MP4 | `npx remotion render src/index.ts 3dCaptions out/3dcaptions.mp4` |
+
+**Output structure:** `public/3dCaptions/{jobId}/` → `source.mp4`, `transcript.json`, `mask-manifest.json`, `plan.json`, `shot-boundaries.json`, `masks/`
+
+**Segmentation priority:** SAM2 → rembg → OpenCV GrabCut → heuristic ellipse. Set `SAM2_CHECKPOINT` env var to enable SAM2.
+
+**Environment variables (optional):**
+
+| Variable | Purpose |
+|----------|---------|
+| `SAM2_CHECKPOINT` | Path to SAM2 model checkpoint (e.g. `sam2_hiera_tiny.pt`) |
+| `SAM2_CONFIG` | SAM2 config yaml (default: `sam2_hiera_t.yaml`) |
+| `AZURE_OPENAI_KEY` | Enables LLM-assisted semantic word selection in spatial plan |
+| `AZURE_GPT_IMAGE_ENDPOINT` | Azure OpenAI endpoint for LLM refinement |
+
+Spec: `src/3dCaptions-spec.json`
+
+### GroundCaptions
+
+> 3D perspective text painted on the ground surface of any image. Two workflows: fully automatic (LLM decides everything) or manual (you tune it visually).
+
+**Flow 1 — Automatic (LLM decides placement):**
+
+```bash
+# LLM analyzes image, picks angles/position/size, writes spec
+npm run ground:plan -- <image_path> --text "STOP|RIGHT|THERE"
+
+# Preview in Remotion Studio
+npm start
+```
+
+**Flow 2 — Manual (you tune it visually):**
+
+```bash
+# Step 1: Run plan to set up the image (or skip if already done)
+npm run ground:plan -- <image_path>
+
+# Step 2: Open interactive tuner — drag text, adjust sliders
+npm run ground:tuner
+
+# Step 3: Click "Save & Render" in the tuner to export video
+```
+
+**CLI flags for `ground:plan`:**
+
+| Flag | Short | Default | Description |
+|------|-------|---------|-------------|
+| `--text` | `-t` | keeps existing | Caption lines, pipe-separated |
+| `--font` | `-f` | `Archivo Black` | Any Google Font family name |
+| `--color` | `-c` | `#FFFFFF` | Text color (hex) |
+
+**Env:** Requires `AZURE_OPENAI_KEY` + `AZURE_GPT_IMAGE_ENDPOINT` in `.env` (primary), or `GEMINI_API_KEY` (fallback).
+
+Spec: `src/ground-captions-spec.json`
 
 ---
 

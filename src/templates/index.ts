@@ -88,5 +88,5 @@ export { TextRevealWipe } from "./TextRevealWipe";
 export { LogoStinger } from "./LogoStinger";
 // Spiral Captions
 export { SpiralCaptions } from "./SpiralCaptions";
-// Depth Captions
-export { DepthCaptions } from "./DepthCaptions";
+// 3d Captions
+export { Template3dCaptions } from "./3dCaptions";

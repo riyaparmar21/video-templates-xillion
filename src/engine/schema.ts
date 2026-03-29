@@ -172,8 +172,8 @@ export const TemplateName = z.enum([
   "LogoStinger",
   // Spiral Captions
   "SpiralCaptions",
-  // Depth Captions
-  "DepthCaptions",
+  // 3d Captions
+  "3dCaptions",
 ]);
 export type TemplateName = z.infer<typeof TemplateName>;
 

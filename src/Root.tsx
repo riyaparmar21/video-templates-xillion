@@ -124,9 +124,17 @@ import logoStingerSpec from "./logo-stinger-spec.json";
 import { SpiralCaptions } from "./templates/SpiralCaptions";
 import spiralCaptionsSpec from "./spiral-captions-spec.json";
 
-// ── Depth Captions ──
-import { DepthCaptions } from "./templates/DepthCaptions";
-import depthCaptionsSpec from "./depth-captions-spec.json";
+// ── Ground Captions ──
+import { GroundCaptions } from "./templates/GroundCaptions";
+import groundCaptionsSpec from "./ground-captions-spec.json";
+import { Template3dCaptions } from "./templates/3dCaptions";
+import captions3dSpec from "./3dCaptions-spec.json";
+// Pre-load plan and mask manifest so they're available synchronously at render time
+// (avoids async fetch race conditions in headless Chromium)
+import captions3dPlan from "../public/3dCaptions/demo/plan.json";
+import captions3dMaskManifest from "../public/3dCaptions/demo/mask-manifest.json";
+
+
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -513,16 +521,32 @@ export const RemotionRoot: React.FC = () => {
         }}
       />
 
-      {/* ── Depth Captions Composition ── */}
+      {/* ── 3d Captions Composition ── */}
       <Composition
-        id="DepthCaptions"
-        component={DepthCaptions}
-        durationInFrames={Math.round((depthCaptionsSpec.durationMs / 1000) * depthCaptionsSpec.fps)}
-        fps={depthCaptionsSpec.fps}
-        width={depthCaptionsSpec.width}
-        height={depthCaptionsSpec.height}
+        id="3dCaptions"
+        component={Template3dCaptions as any}
+        durationInFrames={captions3dSpec.durationFrames}
+        fps={captions3dSpec.fps}
+        width={captions3dSpec.width}
+        height={captions3dSpec.height}
         defaultProps={{
-          data: depthCaptionsSpec as any,
+          data: captions3dSpec as any,
+          resolvedPlan: captions3dPlan as any,
+          resolvedMaskManifest: captions3dMaskManifest as any,
+        }}
+      />
+
+
+      {/* ── Ground Captions Composition ── */}
+      <Composition
+        id="GroundCaptions"
+        component={GroundCaptions}
+        durationInFrames={groundCaptionsSpec.durationFrames}
+        fps={groundCaptionsSpec.fps}
+        width={groundCaptionsSpec.width}
+        height={groundCaptionsSpec.height}
+        defaultProps={{
+          data: groundCaptionsSpec as any,
         }}
       />
 

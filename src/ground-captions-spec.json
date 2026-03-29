@@ -1,0 +1,44 @@
+{
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "durationFrames": 150,
+  "durationMs": 5000,
+  "backgroundImage": "groundCaptions/background.png",
+  "videoSrc": null,
+  "showBackground": true,
+  "backgroundColor": "#222",
+  "textColor": "#FF0000",
+  "fontFamily": "Archivo Black",
+  "fontSize": 200,
+  "enableShadow": true,
+  "lineHeight": 0.85,
+  "animation": "slideForward",
+  "blendMode": "normal",
+  "textOpacity": 0.95,
+  "perspective": {
+    "distance": 1431,
+    "rotateX": 50,
+    "rotateY": 0,
+    "rotateZ": 45,
+    "scaleY": 2.6
+  },
+  "position": {
+    "x": 25,
+    "y": 71
+  },
+  "lines": [
+    {
+      "text": "STOP",
+      "startFrame": 0
+    },
+    {
+      "text": "RIGHT",
+      "startFrame": 8
+    },
+    {
+      "text": "THERE",
+      "startFrame": 16
+    }
+  ]
+}

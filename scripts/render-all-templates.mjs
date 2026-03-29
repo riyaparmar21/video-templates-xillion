@@ -48,7 +48,6 @@ const COMPOSITIONS = [
   "TextRevealWipe",
   "LogoStinger",
   "SpiralCaptions",
-  "DepthCaptions",
 ];
 
 // Parse args

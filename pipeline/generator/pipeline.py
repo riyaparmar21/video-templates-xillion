@@ -275,12 +275,12 @@ TEMPLATE_NAMES = [
     "WhiteSocialHandle", "AnimatedSearchBar", "AnimatedWebScreens",
     "ParallaxImageReveal", "ThreeDCardFlip",
     "GradientWash", "SplitScreenMorph", "NumberCounterScene",
-    "TextRevealWipe", "LogoStinger", "SpiralCaptions", "DepthCaptions",
+    "TextRevealWipe", "LogoStinger", "SpiralCaptions",
 ]
 
 # PRIMARY templates — rich cinematic templates with their own SKILL.md and spec JSON
 PRIMARY_TEMPLATES = {
-    "KineticCaptions", "GenAiFeatures", "SpiralCaptions", "DepthCaptions",
+    "KineticCaptions", "GenAiFeatures", "SpiralCaptions",
     "SlideshowSocial", "VaultAnimatedCards", "VaultCardFeatures",
     "Tweet", "Showcase", "DesignPreview", "StackHiring",
     "MobileShowreelFrames", "ShowreelGrid", "BlurTextScroller",

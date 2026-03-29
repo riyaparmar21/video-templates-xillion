@@ -73,7 +73,8 @@ import { NumberCounterScene as _NumberCounterScene } from "../templates/NumberCo
 import { TextRevealWipe as _TextRevealWipe } from "../templates/TextRevealWipe";
 import { LogoStinger as _LogoStinger } from "../templates/LogoStinger";
 import { SpiralCaptions as _SpiralCaptions } from "../templates/SpiralCaptions";
-import { DepthCaptions as _DepthCaptions } from "../templates/DepthCaptions";
+import { Template3dCaptions as _Template3dCaptions } from "../templates/3dCaptions";
+
 
 export type TemplateComponent = React.FC<TemplateProps>;
 
@@ -476,7 +477,8 @@ export const templateRegistry: Record<TemplateName, TemplateComponent> = {
   TextRevealWipe: wrapDataTemplate(_TextRevealWipe),
   LogoStinger: wrapDataTemplate(_LogoStinger),
   SpiralCaptions: wrapDataTemplate(_SpiralCaptions),
-  DepthCaptions: wrapDataTemplate(_DepthCaptions),
+  "3dCaptions": wrapDataTemplate(_Template3dCaptions),
+
 };
 
 /** Get a template component by name. Throws if not found. */

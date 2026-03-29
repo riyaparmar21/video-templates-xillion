@@ -1,0 +1,20 @@
+{
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "durationFrames": 150,
+  "durationMs": 5000,
+  "videoSrc": "3dCaptions/demo/source.mp4",
+  "planSrc": "3dCaptions/demo/plan.json",
+  "maskManifestSrc": "3dCaptions/demo/mask-manifest.json",
+  "backgroundMode": "video",
+  "bgColor": "#090A0F",
+  "textColor": "#FFFFFF",
+  "accentColor": "#F5B74E",
+  "safeArea": {
+    "top": 0.06,
+    "right": 0.08,
+    "bottom": 0.08,
+    "left": 0.08
+  }
+}

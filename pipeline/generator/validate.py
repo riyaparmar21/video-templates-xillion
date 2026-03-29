@@ -255,7 +255,6 @@ ALLOWED_TEMPLATES = [
     "TextRevealWipe",
     "LogoStinger",
     "SpiralCaptions",
-    "DepthCaptions",
 ]
 
 

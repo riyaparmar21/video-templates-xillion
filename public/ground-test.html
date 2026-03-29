@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ground Text Tuner</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#111; display:flex; min-height:100vh; font-family:sans-serif; color:#fff; }
+
+.controls {
+  width: 320px; padding: 20px; background: #1a1a1a;
+  display:flex; flex-direction:column; gap:14px;
+  overflow-y:auto; flex-shrink:0;
+}
+.controls label { display:block; font-size:13px; color:#aaa; margin-bottom:4px; text-transform:uppercase; letter-spacing:1px; }
+.controls input[type=range] { width:100%; }
+.controls .val { color:#4af; font-weight:bold; }
+
+.preview {
+  flex:1; display:flex; justify-content:center; align-items:center;
+  padding: 20px; overflow:hidden;
+}
+.phone {
+  width: 360px; height: 640px;
+  position: relative; overflow: hidden;
+  border: 2px solid #333; border-radius: 8px;
+  background: #222;
+}
+.phone img { width:100%; height:100%; object-fit:cover; }
+
+.stage {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+.ground-text {
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+  font-family: 'Archivo Black', Impact, sans-serif;
+  font-weight: 400;
+  line-height: 0.85;
+  white-space: nowrap;
+  transform-origin: bottom center;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+}
+</style>
+</head>
+<body>
+<div class="controls">
+  <h3 style="color:#4af">Ground Text Tuner</h3>
+
+  <div>
+    <label>Font Size: <span class="val" id="v-fs">200</span>px</label>
+    <input type="range" id="fontSize" min="80" max="400" value="200">
+  </div>
+  <div>
+    <label>Perspective: <span class="val" id="v-persp">1500</span>px</label>
+    <input type="range" id="perspective" min="200" max="3000" value="1500">
+  </div>
+  <div>
+    <label>X-Axis (Tilt): <span class="val" id="v-rx">55</span>°</label>
+    <input type="range" id="rotateX" min="0" max="85" value="55">
+  </div>
+  <div>
+    <label>Y-Axis (Yaw): <span class="val" id="v-ry">0</span>°</label>
+    <input type="range" id="rotateY" min="-30" max="30" value="0">
+  </div>
+  <div>
+    <label>Z-Axis (Roll): <span class="val" id="v-rz">-6</span>°</label>
+    <input type="range" id="rotateZ" min="-45" max="45" value="-6">
+  </div>
+  <div>
+    <label>Scale Y: <span class="val" id="v-sy">2.0</span>x</label>
+    <input type="range" id="scaleY" min="0.5" max="10" step="0.1" value="2.0">
+  </div>
+  <div>
+    <label>Pos X: <span class="val" id="v-px">50</span>%</label>
+    <input type="range" id="posX" min="10" max="90" value="50">
+  </div>
+  <div>
+    <label>Pos Y: <span class="val" id="v-py">70</span>%</label>
+    <input type="range" id="posY" min="20" max="95" value="70">
+  </div>
+
+  <div style="margin-top:10px; padding:10px; background:#222; border-radius:6px; font-size:11px; font-family:monospace;">
+    <div id="spec-output"></div>
+  </div>
+  <button onclick="copySpec()" style="padding:8px; background:#4af; border:none; border-radius:4px; cursor:pointer; font-weight:bold;">Copy Spec Values</button>
+</div>
+
+<div class="preview">
+  <div class="phone">
+    <img src="groundCaptions/background.png" alt="bg">
+    <div class="stage" id="stage">
+      <div class="ground-text" id="groundText">
+        <div>KISI KO</div>
+        <div>BATANA</div>
+        <div>MAT</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const ids = ['fontSize','perspective','rotateX','rotateY','rotateZ','scaleY','posX','posY'];
+const valIds = ['v-fs','v-persp','v-rx','v-ry','v-rz','v-sy','v-px','v-py'];
+
+function update() {
+  const fs = +document.getElementById('fontSize').value;
+  const persp = +document.getElementById('perspective').value;
+  const rx = +document.getElementById('rotateX').value;
+  const ry = +document.getElementById('rotateY').value;
+  const rz = +document.getElementById('rotateZ').value;
+  const sy = +document.getElementById('scaleY').value;
+  const px = +document.getElementById('posX').value;
+  const py = +document.getElementById('posY').value;
+
+  // Update labels
+  document.getElementById('v-fs').textContent = fs;
+  document.getElementById('v-persp').textContent = persp;
+  document.getElementById('v-rx').textContent = rx;
+  document.getElementById('v-ry').textContent = ry;
+  document.getElementById('v-rz').textContent = rz;
+  document.getElementById('v-sy').textContent = sy;
+  document.getElementById('v-px').textContent = px;
+  document.getElementById('v-py').textContent = py;
+
+  // Scale font for 360px phone preview (original is 1080px)
+  const scaledFs = fs * (360 / 1080);
+
+  const stage = document.getElementById('stage');
+  stage.style.left = px + '%';
+  stage.style.top = py + '%';
+  stage.style.perspective = (persp * 360/1080) + 'px';
+
+  const gt = document.getElementById('groundText');
+  gt.style.fontSize = scaledFs + 'px';
+
+  let t = `rotateX(${rx}deg)`;
+  if (ry !== 0) t += ` rotateY(${ry}deg)`;
+  if (rz !== 0) t += ` rotateZ(${rz}deg)`;
+  t += ` scaleY(${sy})`;
+  gt.style.transform = t;
+
+  // Show spec JSON
+  document.getElementById('spec-output').textContent =
+    `perspective: ${persp}\n` +
+    `rotateX: ${rx}, rotateZ: ${rz}\n` +
+    `scaleY: ${sy}, fontSize: ${fs}\n` +
+    `pos: (${px}%, ${py}%)`;
+}
+
+function copySpec() {
+  const spec = {
+    distance: +document.getElementById('perspective').value,
+    rotateX: +document.getElementById('rotateX').value,
+    rotateY: +document.getElementById('rotateY').value,
+    rotateZ: +document.getElementById('rotateZ').value,
+    scaleY: +document.getElementById('scaleY').value,
+  };
+  const pos = {
+    x: +document.getElementById('posX').value,
+    y: +document.getElementById('posY').value,
+  };
+  const fs = +document.getElementById('fontSize').value;
+  const text = JSON.stringify({fontSize: fs, perspective: spec, position: pos}, null, 2);
+  navigator.clipboard.writeText(text).then(() => alert('Copied!'));
+}
+
+ids.forEach(id => document.getElementById(id).addEventListener('input', update));
+update();
+</script>
+</body>
+</html>

@@ -1,0 +1,402 @@
+{
+  "jobId": "demo",
+  "fps": 30,
+  "frameCount": 150,
+  "blocks": [
+    {
+      "id": "b1",
+      "startFrame": 0,
+      "endFrame": 20,
+      "layoutMode": "rear-word-front-line",
+      "heroText": "CAPTIONS",
+      "heroTextAlt": "DEPTH",
+      "supportText": "is what",
+      "rearAnchor": {
+        "x": 0.46199999999999997,
+        "y": 0.36800000000000005
+      },
+      "frontAnchor": {
+        "x": 0.37999999999999995,
+        "y": 0.7640000000000001
+      },
+      "align": "right",
+      "allowRearOcclusion": true,
+      "subjectTrackFrameRange": {
+        "startFrame": 0,
+        "endFrame": 20
+      },
+      "rearVariant": "split",
+      "frontVariant": "italic-line",
+      "rearScale": 1.08,
+      "rearRotation": -4,
+      "rearSkew": -2.2,
+      "rearOpacity": 0.95,
+      "frontWidth": 0.48,
+      "accentWords": [
+        "WHAT"
+      ],
+      "emphasisWords": [
+        "WHAT"
+      ],
+      "orbitRadius": null
+    },
+    {
+      "id": "b2",
+      "startFrame": 21,
+      "endFrame": 29,
+      "layoutMode": "rear-word",
+      "heroText": "FEEL",
+      "heroTextAlt": "LIKE",
+      "supportText": "",
+      "rearAnchor": {
+        "x": 0.408,
+        "y": 0.36800000000000005
+      },
+      "frontAnchor": {
+        "x": 0.32999999999999996,
+        "y": 0.7640000000000001
+      },
+      "align": "right",
+      "allowRearOcclusion": true,
+      "subjectTrackFrameRange": {
+        "startFrame": 21,
+        "endFrame": 29
+      },
+      "rearVariant": "split",
+      "frontVariant": "italic-line",
+      "rearScale": 1.08,
+      "rearRotation": -8,
+      "rearSkew": -4.4,
+      "rearOpacity": 0.95,
+      "frontWidth": 0.48,
+      "accentWords": [],
+      "emphasisWords": [],
+      "orbitRadius": null
+    },
+    {
+      "id": "b3",
+      "startFrame": 30,
+      "endFrame": 50,
+      "layoutMode": "orbit",
+      "heroText": "DEPTH",
+      "heroTextAlt": "KEEPS",
+      "supportText": "face clean",
+      "rearAnchor": {
+        "x": 0.46,
+        "y": 0.36800000000000005
+      },
+      "frontAnchor": {
+        "x": 0.37999999999999995,
+        "y": 0.7640000000000001
+      },
+      "align": "right",
+      "allowRearOcclusion": true,
+      "subjectTrackFrameRange": {
+        "startFrame": 30,
+        "endFrame": 50
+      },
+      "rearVariant": "orbit",
+      "frontVariant": "italic-line",
+      "rearScale": 1.08,
+      "rearRotation": -4,
+      "rearSkew": -2.2,
+      "rearOpacity": 0.95,
+      "frontWidth": 0.48,
+      "accentWords": [
+        "CLEAN",
+        "FACE"
+      ],
+      "emphasisWords": [
+        "CLEAN",
+        "FACE"
+      ],
+      "orbitRadius": 220
+    },
+    {
+      "id": "b4",
+      "startFrame": 51,
+      "endFrame": 59,
+      "layoutMode": "rear-word",
+      "heroText": "READABLE",
+      "heroTextAlt": null,
+      "supportText": "",
+      "rearAnchor": {
+        "x": 0.592,
+        "y": 0.36800000000000005
+      },
+      "frontAnchor": {
+        "x": 0.32999999999999996,
+        "y": 0.7640000000000001
+      },
+      "align": "right",
+      "allowRearOcclusion": true,
+      "subjectTrackFrameRange": {
+        "startFrame": 51,
+        "endFrame": 59
+      },
+      "rearVariant": "solid",
+      "frontVariant": "italic-line",
+      "rearScale": 1.08,
+      "rearRotation": 8,
+      "rearSkew": 4.4,
+      "rearOpacity": 0.95,
+      "frontWidth": 0.48,
+      "accentWords": [],
+      "emphasisWords": [],
+      "orbitRadius": null
+    },
+    {
+      "id": "b5",
+      "startFrame": 60,
+      "endFrame": 84,
+      "layoutMode": "rear-word-front-line",
+      "heroText": "WITHOUT",
+      "heroTextAlt": "WORDS",
+      "supportText": "can orbit losing",
+      "rearAnchor": {
+        "x": 0.488,
+        "y": 0.36800000000000005
+      },
+      "frontAnchor": {
+        "x": 0.43,
+        "y": 0.7640000000000001
+      },
+      "align": "right",
+      "allowRearOcclusion": true,
+      "subjectTrackFrameRange": {
+        "startFrame": 60,
+        "endFrame": 84
+      },
+      "rearVariant": "split",
+      "frontVariant": "italic-line",
+      "rearScale": 1.08,
+      "rearRotation": -4,
+      "rearSkew": -2.2,
+      "rearOpacity": 0.95,
+      "frontWidth": 0.48,
+      "accentWords": [
+        "LOSING",
+        "ORBIT",
+        "CAN"
+      ],
+      "emphasisWords": [
+        "LOSING",
+        "ORBIT"
+      ],
+      "orbitRadius": null
+    },
+    {
+      "id": "b6",
+      "startFrame": 85,
+      "endFrame": 89,
+      "layoutMode": "rear-word",
+      "heroText": "STRUCTURE",
+      "heroTextAlt": null,
+      "supportText": "",
+      "rearAnchor": {
+        "x": 0.566,
+        "y": 0.36800000000000005
+      },
+      "frontAnchor": {
+        "x": 0.32999999999999996,
+        "y": 0.7640000000000001
+      },
+      "align": "right",
+      "allowRearOcclusion": true,
+      "subjectTrackFrameRange": {
+        "startFrame": 85,
+        "endFrame": 89
+      },
+      "rearVariant": "solid",
+      "frontVariant": "italic-line",
+      "rearScale": 1.08,
+      "rearRotation": 8,
+      "rearSkew": 4.4,
+      "rearOpacity": 0.95,
+      "frontWidth": 0.48,
+      "accentWords": [],
+      "emphasisWords": [],
+      "orbitRadius": null
+    },
+    {
+      "id": "b7",
+      "startFrame": 90,
+      "endFrame": 110,
+      "layoutMode": "rear-word-front-line",
+      "heroText": "PLACEMENT",
+      "heroTextAlt": "STABLE",
+      "supportText": "avoids jitter across",
+      "rearAnchor": {
+        "x": 0.5,
+        "y": 0.34800000000000003
+      },
+      "frontAnchor": {
+        "x": 0.43,
+        "y": 0.7640000000000001
+      },
+      "align": "right",
+      "allowRearOcclusion": true,
+      "subjectTrackFrameRange": {
+        "startFrame": 90,
+        "endFrame": 110
+      },
+      "rearVariant": "split",
+      "frontVariant": "italic-line",
+      "rearScale": 1.08,
+      "rearRotation": -4,
+      "rearSkew": -2.2,
+      "rearOpacity": 0.95,
+      "frontWidth": 0.48,
+      "accentWords": [
+        "AVOIDS",
+        "JITTER",
+        "ACROSS"
+      ],
+      "emphasisWords": [
+        "AVOIDS",
+        "JITTER"
+      ],
+      "orbitRadius": null
+    },
+    {
+      "id": "b8",
+      "startFrame": 111,
+      "endFrame": 119,
+      "layoutMode": "rear-word",
+      "heroText": "SHOT",
+      "heroTextAlt": null,
+      "supportText": "",
+      "rearAnchor": {
+        "x": 0.6599999999999999,
+        "y": 0.36800000000000005
+      },
+      "frontAnchor": {
+        "x": 0.32999999999999996,
+        "y": 0.7640000000000001
+      },
+      "align": "right",
+      "allowRearOcclusion": true,
+      "subjectTrackFrameRange": {
+        "startFrame": 111,
+        "endFrame": 119
+      },
+      "rearVariant": "solid",
+      "frontVariant": "italic-line",
+      "rearScale": 1.08,
+      "rearRotation": 8,
+      "rearSkew": 4.4,
+      "rearOpacity": 0.95,
+      "frontWidth": 0.48,
+      "accentWords": [],
+      "emphasisWords": [],
+      "orbitRadius": null
+    },
+    {
+      "id": "b9",
+      "startFrame": 120,
+      "endFrame": 128,
+      "layoutMode": "rear-word-front-line",
+      "heroText": "REAR",
+      "heroTextAlt": "BEHIND",
+      "supportText": "word",
+      "rearAnchor": {
+        "x": 0.5399999999999999,
+        "y": 0.36800000000000005
+      },
+      "frontAnchor": {
+        "x": 0.32999999999999996,
+        "y": 0.7640000000000001
+      },
+      "align": "right",
+      "allowRearOcclusion": true,
+      "subjectTrackFrameRange": {
+        "startFrame": 120,
+        "endFrame": 128
+      },
+      "rearVariant": "split",
+      "frontVariant": "italic-line",
+      "rearScale": 1.08,
+      "rearRotation": -4,
+      "rearSkew": -2.2,
+      "rearOpacity": 0.95,
+      "frontWidth": 0.48,
+      "accentWords": [
+        "WORD"
+      ],
+      "emphasisWords": [
+        "WORD"
+      ],
+      "orbitRadius": null
+    },
+    {
+      "id": "b10",
+      "startFrame": 129,
+      "endFrame": 137,
+      "layoutMode": "rear-word",
+      "heroText": "SUBJECT",
+      "heroTextAlt": "TOP",
+      "supportText": "",
+      "rearAnchor": {
+        "x": 0.5399999999999999,
+        "y": 0.36800000000000005
+      },
+      "frontAnchor": {
+        "x": 0.32999999999999996,
+        "y": 0.7640000000000001
+      },
+      "align": "right",
+      "allowRearOcclusion": true,
+      "subjectTrackFrameRange": {
+        "startFrame": 129,
+        "endFrame": 137
+      },
+      "rearVariant": "split",
+      "frontVariant": "italic-line",
+      "rearScale": 1.08,
+      "rearRotation": 4,
+      "rearSkew": 2.2,
+      "rearOpacity": 0.95,
+      "frontWidth": 0.48,
+      "accentWords": [],
+      "emphasisWords": [],
+      "orbitRadius": null
+    },
+    {
+      "id": "b11",
+      "startFrame": 138,
+      "endFrame": 149,
+      "layoutMode": "rear-word-front-line",
+      "heroText": "SUPPORT",
+      "heroTextAlt": "FRONT",
+      "supportText": "text in",
+      "rearAnchor": {
+        "x": 0.488,
+        "y": 0.36800000000000005
+      },
+      "frontAnchor": {
+        "x": 0.37999999999999995,
+        "y": 0.7640000000000001
+      },
+      "align": "right",
+      "allowRearOcclusion": true,
+      "subjectTrackFrameRange": {
+        "startFrame": 138,
+        "endFrame": 149
+      },
+      "rearVariant": "split",
+      "frontVariant": "italic-line",
+      "rearScale": 1.08,
+      "rearRotation": -4,
+      "rearSkew": -2.2,
+      "rearOpacity": 0.95,
+      "frontWidth": 0.48,
+      "accentWords": [
+        "TEXT"
+      ],
+      "emphasisWords": [
+        "TEXT"
+      ],
+      "orbitRadius": null
+    }
+  ]
+}

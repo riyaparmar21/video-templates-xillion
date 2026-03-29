@@ -49,6 +49,7 @@ Each template has its own SKILL.md with spec format, animation details, and edit
 - [VaultCardFeatures](../../../src/templates/VaultCardFeatures/SKILL.md) - Fintech card-features showcase with scrolling feature words, rotating credit cards flying in/out, split-text INVOICES reveal, and powered-by badge
 - [Showcase](../../../src/templates/Showcase/SKILL.md) - Social media portfolio showcase with spreading border lines, typewriter text, zoom+blur image cycling, and title zoom ending
 - [RouteText](../../../src/templates/RouteText/SKILL.md) - Kinetic typography with multi-row scrolling city names, gold arrow separators, and staggered speed per row
+- [3dCaptions](../../../src/templates/3dCaptions/SKILL.md) - Spatial captions with rear hero text, subject occlusion masks, and front support lines
 - [ColorBlendBlocks](../../../src/templates/ColorBlendBlocks/) - Multi-scene color blend blocks with images, gradient overlays, and configurable blend modes (⚠ no SKILL.md yet)
 
 ## How to use
