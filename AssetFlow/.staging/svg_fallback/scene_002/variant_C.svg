@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <rect x="0" y="0" width="800" height="600" fill="#005B96" />
+  <g transform="translate(100,100)">
+    <path d="M0,0 Q100,-50 200,0 T400,0 Q300,50 200,0 T0,0" fill="#FFD700" />
+    <circle cx="200" cy="50" r="40" fill="#F4E3C1" stroke="#D4A373" stroke-width="5" />
+  </g>
+  <g transform="translate(300,300) rotate(-30)">
+    <rect x="0" y="0" width="150" height="100" fill="#D4A373" />
+    <circle cx="50" cy="50" r="30" fill="#A9865B" />
+  </g>
+  <g transform="translate(500,200) rotate(45)">
+    <ellipse cx="0" cy="0" rx="50" ry="20" fill="#F4E3C1" />
+    <line x1="-50" y1="0" x2="50" y2="0" stroke="#D4A373" stroke-width="3" />
+  </g>
+  <text x="50" y="550" font-family="Arial, sans-serif" font-size="16" fill="#FFFFFF">Abstract barter scene with seashells</text>
+</svg>

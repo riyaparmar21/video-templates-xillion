@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AssetFlow — Review Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0f0f13;
+            color: #e0e0e6;
+            padding: 2rem;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #2a2a35;
+        }
+        .header h1 {
+            font-size: 1.8rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+        .header p { color: #888; font-size: 0.95rem; }
+        .stats {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+        .stat {
+            background: #1a1a24;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .stat .num { font-size: 1.5rem; font-weight: 700; color: #7c6aef; }
+        .stat .label { font-size: 0.8rem; color: #888; }
+        .scene-card {
+            background: #1a1a24;
+            border: 1px solid #2a2a35;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .scene-card.resolved { border-color: #2dd4a0; }
+        .scene-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+        .scene-header h2 { font-size: 1.2rem; color: #fff; }
+        .badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .badge.pending { background: #3a2f00; color: #fbbf24; }
+        .badge.approved { background: #0a3022; color: #2dd4a0; }
+        .scene-desc { color: #aaa; margin-bottom: 1rem; font-size: 0.9rem; }
+        details { margin-bottom: 1rem; }
+        details summary { cursor: pointer; color: #7c6aef; font-size: 0.85rem; }
+        details ul { margin: 0.5rem 0 0 1.5rem; font-size: 0.8rem; color: #888; }
+        .variants-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+        .variant-card {
+            background: #12121a;
+            border: 2px solid #2a2a35;
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            transition: border-color 0.2s;
+            cursor: pointer;
+        }
+        .variant-card:hover { border-color: #7c6aef; }
+        .variant-card.selected { border-color: #2dd4a0; background: #0f1f1a; }
+        .variant-header {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+            color: #ccc;
+        }
+        .variant-card img {
+            max-width: 100%;
+            height: 150px;
+            object-fit: contain;
+            border-radius: 6px;
+            background: #222;
+            margin-bottom: 0.5rem;
+        }
+        .no-preview {
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #222;
+            border-radius: 6px;
+            color: #555;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+        }
+        .variant-desc { font-size: 0.8rem; color: #888; margin-bottom: 0.75rem; }
+        .select-btn {
+            background: #7c6aef;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: background 0.2s;
+        }
+        .select-btn:hover { background: #6852e0; }
+        .upload-zone {
+            height: 150px;
+            border: 2px dashed #2a2a35;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            cursor: pointer;
+            transition: border-color 0.2s;
+            margin-bottom: 0.5rem;
+        }
+        .upload-zone:hover { border-color: #7c6aef; color: #7c6aef; }
+        .upload-zone p { margin-top: 0.5rem; font-size: 0.8rem; }
+        .finalize-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #1a1a24;
+            border-top: 1px solid #2a2a35;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .finalize-btn {
+            background: #2dd4a0;
+            color: #000;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .finalize-btn:disabled { background: #333; color: #666; cursor: not-allowed; }
+        .finalize-btn:not(:disabled):hover { background: #25b88a; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>AssetFlow Review Dashboard</h1>
+        <p>Select an asset option for each flagged scene, or upload your own.</p>
+        <div class="stats">
+            <div class="stat">
+                <div class="num" id="total-count">5</div>
+                <div class="label">Scenes to Review</div>
+            </div>
+            <div class="stat">
+                <div class="num" id="resolved-count">0</div>
+                <div class="label">Resolved</div>
+            </div>
+        </div>
+    </div>
+
+    
+            <div class="scene-card" id="scene-1">
+                <div class="scene-header">
+                    <h2>Scene 1: Introduction to Money's Evolution</h2>
+                    <span class="badge pending" id="badge-1">Pending Review</span>
+                </div>
+                <p class="scene-desc">A smooth transition from a blank screen to a timeline graphic, showing the progression of money from physical objects to digital data.</p>
+
+                
+
+                <div class="variants-grid">
+                    
+                <div class="variant-card" data-scene="1" data-variant="A">
+                    <div class="variant-header">Option A</div>
+                    <div class="no-preview">Preview unavailable</div>
+                    <p class="variant-desc">Minimal geometric representation with clean lines and subtle gradients</p>
+                    <button class="select-btn" onclick="selectVariant(1, 'A')">
+                        Select Option A
+                    </button>
+                </div>
+                
+                <div class="variant-card" data-scene="1" data-variant="B">
+                    <div class="variant-header">Option B</div>
+                    <div class="no-preview">Preview unavailable</div>
+                    <p class="variant-desc">Detailed illustration with layered elements</p>
+                    <button class="select-btn" onclick="selectVariant(1, 'B')">
+                        Select Option B
+                    </button>
+                </div>
+                
+                <div class="variant-card" data-scene="1" data-variant="C">
+                    <div class="variant-header">Option C</div>
+                    <div class="no-preview">Preview unavailable</div>
+                    <p class="variant-desc">Abstract artistic interpretation with bold shapes</p>
+                    <button class="select-btn" onclick="selectVariant(1, 'C')">
+                        Select Option C
+                    </button>
+                </div>
+                
+                    <div class="variant-card upload-card" data-scene="1">
+                        <div class="variant-header">Upload Custom</div>
+                        <div class="upload-zone" onclick="document.getElementById('upload-1').click()">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            <p>Upload your own asset</p>
+                        </div>
+                        <input type="file" id="upload-1" accept="image/*,video/*,.svg"
+                               onchange="handleUpload(1, this)" style="display:none">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="scene-card" id="scene-2">
+                <div class="scene-header">
+                    <h2>Scene 2: Bartering with Seashells</h2>
+                    <span class="badge pending" id="badge-2">Pending Review</span>
+                </div>
+                <p class="scene-desc">A serene beach setting with close-up shots of seashells and polished stones being exchanged by hands.</p>
+
+                
+
+                <div class="variants-grid">
+                    
+                <div class="variant-card" data-scene="2" data-variant="A">
+                    <div class="variant-header">Option A</div>
+                    <div class="no-preview">Preview unavailable</div>
+                    <p class="variant-desc">Minimal geometric representation with clean lines and subtle gradients</p>
+                    <button class="select-btn" onclick="selectVariant(2, 'A')">
+                        Select Option A
+                    </button>
+                </div>
+                
+                <div class="variant-card" data-scene="2" data-variant="B">
+                    <div class="variant-header">Option B</div>
+                    <div class="no-preview">Preview unavailable</div>
+                    <p class="variant-desc">Detailed illustration with layered elements</p>
+                    <button class="select-btn" onclick="selectVariant(2, 'B')">
+                        Select Option B
+                    </button>
+                </div>
+                
+                <div class="variant-card" data-scene="2" data-variant="C">
+                    <div class="variant-header">Option C</div>
+                    <div class="no-preview">Preview unavailable</div>
+                    <p class="variant-desc">Abstract artistic interpretation with bold shapes</p>
+                    <button class="select-btn" onclick="selectVariant(2, 'C')">
+                        Select Option C
+                    </button>
+                </div>
+                
+                    <div class="variant-card upload-card" data-scene="2">
+                        <div class="variant-header">Upload Custom</div>
+                        <div class="upload-zone" onclick="document.getElementById('upload-2').click()">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            <p>Upload your own asset</p>
+                        </div>
+                        <input type="file" id="upload-2" accept="image/*,video/*,.svg"
+                               onchange="handleUpload(2, this)" style="display:none">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="scene-card" id="scene-3">
+                <div class="scene-header">
+                    <h2>Scene 3: Gold Coins and Kings</h2>
+                    <span class="badge pending" id="badge-3">Pending Review</span>
+                </div>
+                <p class="scene-desc">A dramatic close-up of gold coins being minted, with symbols of kings being stamped into them. The setting shifts to a bustling ancient marketplace.</p>
+
+                
+
+                <div class="variants-grid">
+                    
+                <div class="variant-card" data-scene="3" data-variant="A">
+                    <div class="variant-header">Option A</div>
+                    <div class="no-preview">Preview unavailable</div>
+                    <p class="variant-desc">Minimal geometric representation with clean lines and subtle gradients.</p>
+                    <button class="select-btn" onclick="selectVariant(3, 'A')">
+                        Select Option A
+                    </button>
+                </div>
+                
+                <div class="variant-card" data-scene="3" data-variant="B">
+                    <div class="variant-header">Option B</div>
+                    <div class="no-preview">Preview unavailable</div>
+                    <p class="variant-desc">Detailed illustration with layered elements showing stamping and a marketplace background.</p>
+                    <button class="select-btn" onclick="selectVariant(3, 'B')">
+                        Select Option B
+                    </button>
+                </div>
+                
+                <div class="variant-card" data-scene="3" data-variant="C">
+                    <div class="variant-header">Option C</div>
+                    <div class="no-preview">Preview unavailable</div>
+                    <p class="variant-desc">Abstract artistic interpretation with bold shapes and high contrast colors.</p>
+                    <button class="select-btn" onclick="selectVariant(3, 'C')">
+                        Select Option C
+                    </button>
+                </div>
+                
+                    <div class="variant-card upload-card" data-scene="3">
+                        <div class="variant-header">Upload Custom</div>
+                        <div class="upload-zone" onclick="document.getElementById('upload-3').click()">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            <p>Upload your own asset</p>
+                        </div>
+                        <input type="file" id="upload-3" accept="image/*,video/*,.svg"
+                               onchange="handleUpload(3, this)" style="display:none">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="scene-card" id="scene-4">
+                <div class="scene-header">
+                    <h2>Scene 4: Digital Wealth</h2>
+                    <span class="badge pending" id="badge-4">Pending Review</span>
+                </div>
+                <p class="scene-desc">A futuristic animation of glowing lines of code and data structures moving across a global network of servers.</p>
+
+                
+
+                <div class="variants-grid">
+                    
+                <div class="variant-card" data-scene="4" data-variant="A">
+                    <div class="variant-header">Option A</div>
+                    <div class="no-preview">Preview unavailable</div>
+                    <p class="variant-desc">Minimal geometric representation with clean lines and subtle gradients</p>
+                    <button class="select-btn" onclick="selectVariant(4, 'A')">
+                        Select Option A
+                    </button>
+                </div>
+                
+                <div class="variant-card" data-scene="4" data-variant="B">
+                    <div class="variant-header">Option B</div>
+                    <div class="no-preview">Preview unavailable</div>
+                    <p class="variant-desc">Detailed illustration with layered elements</p>
+                    <button class="select-btn" onclick="selectVariant(4, 'B')">
+                        Select Option B
+                    </button>
+                </div>
+                
+                <div class="variant-card" data-scene="4" data-variant="C">
+                    <div class="variant-header">Option C</div>
+                    <div class="no-preview">Preview unavailable</div>
+                    <p class="variant-desc">Abstract artistic interpretation with bold shapes</p>
+                    <button class="select-btn" onclick="selectVariant(4, 'C')">
+                        Select Option C
+                    </button>
+                </div>
+                
+                    <div class="variant-card upload-card" data-scene="4">
+                        <div class="variant-header">Upload Custom</div>
+                        <div class="upload-zone" onclick="document.getElementById('upload-4').click()">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            <p>Upload your own asset</p>
+                        </div>
+                        <input type="file" id="upload-4" accept="image/*,video/*,.svg"
+                               onchange="handleUpload(4, this)" style="display:none">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="scene-card" id="scene-5">
+                <div class="scene-header">
+                    <h2>Scene 5: Seal of Trust</h2>
+                    <span class="badge pending" id="badge-5">Pending Review</span>
+                </div>
+                <p class="scene-desc">A close-up of an intricate, hand-crafted heraldic crest being designed or embossed, symbolizing trust and heritage.</p>
+
+                
+
+                <div class="variants-grid">
+                    
+                <div class="variant-card" data-scene="5" data-variant="A">
+                    <div class="variant-header">Option A</div>
+                    <div class="no-preview">Preview unavailable</div>
+                    <p class="variant-desc">Minimal geometric representation with clean lines and subtle gradients</p>
+                    <button class="select-btn" onclick="selectVariant(5, 'A')">
+                        Select Option A
+                    </button>
+                </div>
+                
+                <div class="variant-card" data-scene="5" data-variant="B">
+                    <div class="variant-header">Option B</div>
+                    <div class="no-preview">Preview unavailable</div>
+                    <p class="variant-desc">Detailed illustration with layered elements</p>
+                    <button class="select-btn" onclick="selectVariant(5, 'B')">
+                        Select Option B
+                    </button>
+                </div>
+                
+                <div class="variant-card" data-scene="5" data-variant="C">
+                    <div class="variant-header">Option C</div>
+                    <div class="no-preview">Preview unavailable</div>
+                    <p class="variant-desc">Abstract artistic interpretation with bold shapes</p>
+                    <button class="select-btn" onclick="selectVariant(5, 'C')">
+                        Select Option C
+                    </button>
+                </div>
+                
+                    <div class="variant-card upload-card" data-scene="5">
+                        <div class="variant-header">Upload Custom</div>
+                        <div class="upload-zone" onclick="document.getElementById('upload-5').click()">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            <p>Upload your own asset</p>
+                        </div>
+                        <input type="file" id="upload-5" accept="image/*,video/*,.svg"
+                               onchange="handleUpload(5, this)" style="display:none">
+                    </div>
+                </div>
+            </div>
+            
+
+    <div class="finalize-bar">
+        <span id="finalize-status">0 of 5 scenes resolved</span>
+        <button class="finalize-btn" id="finalize-btn" disabled onclick="finalize()">
+            Finalize Asset Pool
+        </button>
+    </div>
+
+    <div style="height: 80px;"></div> <!-- spacer for fixed bar -->
+
+    <script>
+        const selections = {};
+        const totalScenes = 5;
+
+        function selectVariant(sceneId, variantId) {
+            selections[sceneId] = { type: 'variant', variant: variantId };
+            // Update UI
+            document.querySelectorAll(`[data-scene="${sceneId}"]`).forEach(card => {
+                card.classList.remove('selected');
+            });
+            const selected = document.querySelector(`[data-scene="${sceneId}"][data-variant="${variantId}"]`);
+            if (selected) selected.classList.add('selected');
+            // Update badge
+            const badge = document.getElementById(`badge-${sceneId}`);
+            badge.className = 'badge approved';
+            badge.textContent = `Option ${variantId} Selected`;
+            document.getElementById(`scene-${sceneId}`).classList.add('resolved');
+            updateStatus();
+        }
+
+        function handleUpload(sceneId, input) {
+            if (input.files.length > 0) {
+                selections[sceneId] = { type: 'upload', file: input.files[0].name };
+                const badge = document.getElementById(`badge-${sceneId}`);
+                badge.className = 'badge approved';
+                badge.textContent = 'Custom Upload';
+                document.getElementById(`scene-${sceneId}`).classList.add('resolved');
+                updateStatus();
+            }
+        }
+
+        function updateStatus() {
+            const resolved = Object.keys(selections).length;
+            document.getElementById('resolved-count').textContent = resolved;
+            document.getElementById('finalize-status').textContent =
+                `${resolved} of ${totalScenes} scenes resolved`;
+            document.getElementById('finalize-btn').disabled = resolved < totalScenes;
+        }
+
+        function finalize() {
+            // Save selections as JSON
+            const blob = new Blob([JSON.stringify(selections, null, 2)], { type: 'application/json' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'hitl_selections.json';
+            a.click();
+            alert('Selections saved! The pipeline will continue with your choices.');
+        }
+    </script>
+</body>
+</html>

@@ -418,6 +418,7 @@ Spec: `src/logo-stinger-spec.json`
 | Full pipeline (video + script) | `python src/templates/3dCaptions/preprocessing/build_job.py --video input.mp4 --job-id myjob --script "Your script text here" --fps 30` |
 | Full pipeline (video + timed transcript) | `python src/templates/3dCaptions/preprocessing/build_job.py --video input.mp4 --job-id myjob --timed-transcript transcript.json --fps 30` |
 | Full pipeline (auto-transcribe) | `python src/templates/3dCaptions/preprocessing/build_job.py --video input.mp4 --job-id myjob --fps 30` |
+| Segmentation only | `python src/templates/3dCaptions/preprocessing/segment_subject.py --video source.mp4 --out-dir public/3dCaptions/myjob --fps 30` |` |
 | Segmentation only | `python src/templates/3dCaptions/preprocessing/segment_subject.py --video source.mp4 --out-dir public/3dCaptions/myjob --fps 30` |
 | Spatial plan only | `python src/templates/3dCaptions/preprocessing/build_spatial_plan.py --transcript transcript.json --mask-manifest mask-manifest.json --job-id myjob --out plan.json --fps 30 --frame-count 150` |
 
@@ -442,44 +443,6 @@ Spec: `src/logo-stinger-spec.json`
 | `AZURE_GPT_IMAGE_ENDPOINT` | Azure OpenAI endpoint for LLM refinement |
 
 Spec: `src/3dCaptions-spec.json`
-
-### GroundCaptions
-
-> 3D perspective text painted on the ground surface of any image. Two workflows: fully automatic (LLM decides everything) or manual (you tune it visually).
-
-**Flow 1 — Automatic (LLM decides placement):**
-
-```bash
-# LLM analyzes image, picks angles/position/size, writes spec
-npm run ground:plan -- <image_path> --text "STOP|RIGHT|THERE"
-
-# Preview in Remotion Studio
-npm start
-```
-
-**Flow 2 — Manual (you tune it visually):**
-
-```bash
-# Step 1: Run plan to set up the image (or skip if already done)
-npm run ground:plan -- <image_path>
-
-# Step 2: Open interactive tuner — drag text, adjust sliders
-npm run ground:tuner
-
-# Step 3: Click "Save & Render" in the tuner to export video
-```
-
-**CLI flags for `ground:plan`:**
-
-| Flag | Short | Default | Description |
-|------|-------|---------|-------------|
-| `--text` | `-t` | keeps existing | Caption lines, pipe-separated |
-| `--font` | `-f` | `Archivo Black` | Any Google Font family name |
-| `--color` | `-c` | `#FFFFFF` | Text color (hex) |
-
-**Env:** Requires `AZURE_OPENAI_KEY` + `AZURE_GPT_IMAGE_ENDPOINT` in `.env` (primary), or `GEMINI_API_KEY` (fallback).
-
-Spec: `src/ground-captions-spec.json`
 
 ---
 
@@ -739,6 +702,15 @@ python pipeline/generate_from_script.py -s test_scripts/script_saas_launch.txt -
 crossfade, wipe_left, wipe_right, slide_up, slide_down, zoom_in, zoom_out, none
 
 ---
+### ASSETFLOW COMMANDS:
+
+```
+python -m AssetFlow check                    # verify config
+python -m AssetFlow parse -s script.txt      # Phase 1 only (no API calls)
+python -m AssetFlow run -s script.txt        # full pipeline
+python -m AssetFlow resolve selections.json  # apply HITL choices
+```
+
 
 ## File Structure
 

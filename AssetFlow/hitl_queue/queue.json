@@ -1,0 +1,142 @@
+[
+  {
+    "scene_id": 1,
+    "scene_title": "Introduction to Money's Evolution",
+    "scene_description": "A smooth transition from a blank screen to a timeline graphic, showing the progression of money from physical objects to digital data.",
+    "svg_variants": [
+      {
+        "variant_id": "A",
+        "description": "Minimal geometric representation with clean lines and subtle gradients",
+        "svg_path": "",
+        "svg_code_path": "/Users/riya/Desktop/xillion/video-templates/AssetFlow/.staging/svg_fallback/scene_001/variant_A.svg"
+      },
+      {
+        "variant_id": "B",
+        "description": "Detailed illustration with layered elements",
+        "svg_path": "",
+        "svg_code_path": "/Users/riya/Desktop/xillion/video-templates/AssetFlow/.staging/svg_fallback/scene_001/variant_B.svg"
+      },
+      {
+        "variant_id": "C",
+        "description": "Abstract artistic interpretation with bold shapes",
+        "svg_path": "",
+        "svg_code_path": "/Users/riya/Desktop/xillion/video-templates/AssetFlow/.staging/svg_fallback/scene_001/variant_C.svg"
+      }
+    ],
+    "failed_asset_scores": [],
+    "resolved": false,
+    "selected_variant": null
+  },
+  {
+    "scene_id": 2,
+    "scene_title": "Bartering with Seashells",
+    "scene_description": "A serene beach setting with close-up shots of seashells and polished stones being exchanged by hands.",
+    "svg_variants": [
+      {
+        "variant_id": "A",
+        "description": "Minimal geometric representation with clean lines and subtle gradients",
+        "svg_path": "",
+        "svg_code_path": "/Users/riya/Desktop/xillion/video-templates/AssetFlow/.staging/svg_fallback/scene_002/variant_A.svg"
+      },
+      {
+        "variant_id": "B",
+        "description": "Detailed illustration with layered elements",
+        "svg_path": "",
+        "svg_code_path": "/Users/riya/Desktop/xillion/video-templates/AssetFlow/.staging/svg_fallback/scene_002/variant_B.svg"
+      },
+      {
+        "variant_id": "C",
+        "description": "Abstract artistic interpretation with bold shapes",
+        "svg_path": "",
+        "svg_code_path": "/Users/riya/Desktop/xillion/video-templates/AssetFlow/.staging/svg_fallback/scene_002/variant_C.svg"
+      }
+    ],
+    "failed_asset_scores": [],
+    "resolved": false,
+    "selected_variant": null
+  },
+  {
+    "scene_id": 3,
+    "scene_title": "Gold Coins and Kings",
+    "scene_description": "A dramatic close-up of gold coins being minted, with symbols of kings being stamped into them. The setting shifts to a bustling ancient marketplace.",
+    "svg_variants": [
+      {
+        "variant_id": "A",
+        "description": "Minimal geometric representation with clean lines and subtle gradients.",
+        "svg_path": "",
+        "svg_code_path": "/Users/riya/Desktop/xillion/video-templates/AssetFlow/.staging/svg_fallback/scene_003/variant_A.svg"
+      },
+      {
+        "variant_id": "B",
+        "description": "Detailed illustration with layered elements showing stamping and a marketplace background.",
+        "svg_path": "",
+        "svg_code_path": "/Users/riya/Desktop/xillion/video-templates/AssetFlow/.staging/svg_fallback/scene_003/variant_B.svg"
+      },
+      {
+        "variant_id": "C",
+        "description": "Abstract artistic interpretation with bold shapes and high contrast colors.",
+        "svg_path": "",
+        "svg_code_path": "/Users/riya/Desktop/xillion/video-templates/AssetFlow/.staging/svg_fallback/scene_003/variant_C.svg"
+      }
+    ],
+    "failed_asset_scores": [],
+    "resolved": false,
+    "selected_variant": null
+  },
+  {
+    "scene_id": 4,
+    "scene_title": "Digital Wealth",
+    "scene_description": "A futuristic animation of glowing lines of code and data structures moving across a global network of servers.",
+    "svg_variants": [
+      {
+        "variant_id": "A",
+        "description": "Minimal geometric representation with clean lines and subtle gradients",
+        "svg_path": "",
+        "svg_code_path": "/Users/riya/Desktop/xillion/video-templates/AssetFlow/.staging/svg_fallback/scene_004/variant_A.svg"
+      },
+      {
+        "variant_id": "B",
+        "description": "Detailed illustration with layered elements",
+        "svg_path": "",
+        "svg_code_path": "/Users/riya/Desktop/xillion/video-templates/AssetFlow/.staging/svg_fallback/scene_004/variant_B.svg"
+      },
+      {
+        "variant_id": "C",
+        "description": "Abstract artistic interpretation with bold shapes",
+        "svg_path": "",
+        "svg_code_path": "/Users/riya/Desktop/xillion/video-templates/AssetFlow/.staging/svg_fallback/scene_004/variant_C.svg"
+      }
+    ],
+    "failed_asset_scores": [],
+    "resolved": false,
+    "selected_variant": null
+  },
+  {
+    "scene_id": 5,
+    "scene_title": "Seal of Trust",
+    "scene_description": "A close-up of an intricate, hand-crafted heraldic crest being designed or embossed, symbolizing trust and heritage.",
+    "svg_variants": [
+      {
+        "variant_id": "A",
+        "description": "Minimal geometric representation with clean lines and subtle gradients",
+        "svg_path": "",
+        "svg_code_path": "/Users/riya/Desktop/xillion/video-templates/AssetFlow/.staging/svg_fallback/scene_005/variant_A.svg"
+      },
+      {
+        "variant_id": "B",
+        "description": "Detailed illustration with layered elements",
+        "svg_path": "",
+        "svg_code_path": "/Users/riya/Desktop/xillion/video-templates/AssetFlow/.staging/svg_fallback/scene_005/variant_B.svg"
+      },
+      {
+        "variant_id": "C",
+        "description": "Abstract artistic interpretation with bold shapes",
+        "svg_path": "",
+        "svg_code_path": "/Users/riya/Desktop/xillion/video-templates/AssetFlow/.staging/svg_fallback/scene_005/variant_C.svg"
+      }
+    ],
+    "failed_asset_scores": [],
+    "resolved": false,
+    "selected_variant": null
+  }
+]
