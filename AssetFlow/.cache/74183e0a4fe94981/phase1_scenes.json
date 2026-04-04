@@ -1,0 +1,470 @@
+[
+  {
+    "scene_id": 1,
+    "title": "Opening Hook",
+    "description": "\"Zomato aur Blinkit din ke 25 lakh orders process karte hai but how big can Zomato really become in the future??\"",
+    "duration_hint": 5.0,
+    "visual_style": "premium corporate clean",
+    "raw_text": "\"Zomato aur Blinkit din ke 25 lakh orders process karte hai but how big can Zomato really become in the future??\"",
+    "destination": "Google_Search",
+    "api_queries": [
+      "Zomato logo",
+      "Blinkit logo",
+      "Zomato delivery riders India traffic",
+      "Blinkit delivery fleet India"
+    ],
+    "fallback_stock_query": "food delivery bikes busy city India",
+    "flag_for_remotion": false,
+    "remotion_description": null,
+    "v4_queries": [
+      {
+        "role": "identity",
+        "source": "Google_Search",
+        "media_type": "photo",
+        "text": "Zomato logo",
+        "negative_terms": [
+          "cartoon",
+          "illustration",
+          "vector"
+        ]
+      },
+      {
+        "role": "identity",
+        "source": "Google_Search",
+        "media_type": "photo",
+        "text": "Blinkit logo",
+        "negative_terms": [
+          "cartoon",
+          "illustration",
+          "vector"
+        ]
+      },
+      {
+        "role": "hero",
+        "source": "Google_Search",
+        "media_type": "video",
+        "text": "Zomato delivery riders India traffic",
+        "negative_terms": [
+          "cartoon",
+          "illustration",
+          "vector"
+        ]
+      },
+      {
+        "role": "context",
+        "source": "Google_Search",
+        "media_type": "video",
+        "text": "Blinkit delivery fleet India",
+        "negative_terms": [
+          "cartoon",
+          "illustration",
+          "vector"
+        ]
+      }
+    ],
+    "v4_fallback_queries": [
+      {
+        "role": "backup",
+        "source": "Google_Search",
+        "media_type": "either",
+        "text": "food delivery bikes busy city India",
+        "negative_terms": [
+          "cartoon",
+          "illustration",
+          "vector"
+        ]
+      }
+    ],
+    "scene_function": "hook",
+    "visual_intent": "brand",
+    "asset_roles": [
+      "hook",
+      "identity",
+      "context"
+    ],
+    "remotion_overlay": {
+      "needed": false,
+      "description": null
+    }
+  },
+  {
+    "scene_id": 2,
+    "title": "Comparison Setup",
+    "description": "\"To understand this, compare Zomato with Meituan the Chinese food delivery platform.\"",
+    "duration_hint": 7.0,
+    "visual_style": "premium corporate clean",
+    "raw_text": "\"To understand this, compare Zomato with Meituan the Chinese food delivery platform.\"",
+    "destination": "Google_Search",
+    "api_queries": [
+      "Meituan logo",
+      "Zomato vs Meituan",
+      "Meituan delivery riders yellow jackets China"
+    ],
+    "fallback_stock_query": "Zomato Meituan comparison infographic",
+    "flag_for_remotion": false,
+    "remotion_description": null,
+    "v4_queries": [
+      {
+        "role": "identity",
+        "source": "Google_Search",
+        "media_type": "photo",
+        "text": "Meituan logo",
+        "negative_terms": [
+          "cartoon",
+          "illustration",
+          "vector"
+        ]
+      },
+      {
+        "role": "hero",
+        "source": "Google_Search",
+        "media_type": "photo",
+        "text": "Zomato vs Meituan",
+        "negative_terms": [
+          "cartoon",
+          "illustration",
+          "vector"
+        ]
+      },
+      {
+        "role": "context",
+        "source": "Google_Search",
+        "media_type": "video",
+        "text": "Meituan delivery riders yellow jackets China",
+        "negative_terms": [
+          "cartoon",
+          "illustration",
+          "vector"
+        ]
+      }
+    ],
+    "v4_fallback_queries": [
+      {
+        "role": "backup",
+        "source": "Google_Search",
+        "media_type": "either",
+        "text": "Zomato Meituan comparison infographic",
+        "negative_terms": [
+          "cartoon",
+          "illustration",
+          "vector"
+        ]
+      }
+    ],
+    "scene_function": "comparison",
+    "visual_intent": "comparison",
+    "asset_roles": [
+      "identity",
+      "context",
+      "proof"
+    ],
+    "remotion_overlay": {
+      "needed": false,
+      "description": null
+    }
+  },
+  {
+    "scene_id": 3,
+    "title": "India vs China Context",
+    "description": "\"See India abhi uss stage pe hai jaha China 15 saal pehle tha and almost everything in India comes late from the west or China a few years later, our per capita income is increasing now and so is the spending. And not to forget that India and China has the same population numbers.\"",
+    "duration_hint": 10.0,
+    "visual_style": "gritty documentary handheld",
+    "raw_text": "\"See India abhi uss stage pe hai jaha China 15 saal pehle tha and almost everything in India comes late from the west or China a few years later, our per capita income is increasing now and so is the spending. And not to forget that India and China has the same population numbers.\"",
+    "destination": "Google_Search",
+    "api_queries": [
+      "India traffic jam delivery bikes Mumbai",
+      "India GDP per capita growth chart",
+      "China night market street food crowd"
+    ],
+    "fallback_stock_query": "India China population density map",
+    "flag_for_remotion": false,
+    "remotion_description": null,
+    "v4_queries": [
+      {
+        "role": "context",
+        "source": "Google_Search",
+        "media_type": "video",
+        "text": "India traffic jam delivery bikes Mumbai",
+        "negative_terms": [
+          "cartoon",
+          "illustration",
+          "vector"
+        ]
+      },
+      {
+        "role": "proof",
+        "source": "Google_Search",
+        "media_type": "photo",
+        "text": "India GDP per capita growth chart",
+        "negative_terms": [
+          "cartoon",
+          "illustration",
+          "vector"
+        ]
+      },
+      {
+        "role": "emotion",
+        "source": "Google_Search",
+        "media_type": "video",
+        "text": "China night market street food crowd",
+        "negative_terms": [
+          "cartoon",
+          "illustration",
+          "vector"
+        ]
+      }
+    ],
+    "v4_fallback_queries": [
+      {
+        "role": "backup",
+        "source": "Google_Search",
+        "media_type": "either",
+        "text": "India China population density map",
+        "negative_terms": [
+          "cartoon",
+          "illustration",
+          "vector"
+        ]
+      }
+    ],
+    "scene_function": "explanation",
+    "visual_intent": "broll",
+    "asset_roles": [
+      "context",
+      "proof",
+      "emotion"
+    ],
+    "remotion_overlay": {
+      "needed": false,
+      "description": null
+    }
+  },
+  {
+    "scene_id": 4,
+    "title": "Meituan vs Zomato Data Comparison",
+    "description": "\"Meituan din ke 15 crore orders process karta hai, 60x more than Zomato's 25 lakh per day. Zomato's annual revenue is 13,000 Crores currently vs Meituan ka 1 lakh crore, almost 8x more. Zomato ka profit after tax hai 65 crores vs Meituan ka 17,000 crores, 260x more.\"",
+    "duration_hint": 15.0,
+    "visual_style": "premium corporate clean",
+    "raw_text": "\"Meituan din ke 15 crore orders process karta hai, 60x more than Zomato's 25 lakh per day. Zomato's annual revenue is 13,000 Crores currently vs Meituan ka 1 lakh crore, almost 8x more. Zomato ka profit after tax hai 65 crores vs Meituan ka 17,000 crores, 260x more.\"",
+    "destination": "Remotion",
+    "api_queries": [
+      "Zomato revenue chart",
+      "Meituan revenue chart",
+      "Zomato delivery fleet India busy street"
+    ],
+    "fallback_stock_query": "Zomato Meituan revenue comparison infographic",
+    "flag_for_remotion": true,
+    "remotion_description": "animated bar chart comparing orders, revenue, and profit between Zomato and Meituan",
+    "v4_queries": [
+      {
+        "role": "proof",
+        "source": "Google_Search",
+        "media_type": "photo",
+        "text": "Zomato revenue chart",
+        "negative_terms": [
+          "cartoon",
+          "illustration",
+          "vector"
+        ]
+      },
+      {
+        "role": "proof",
+        "source": "Google_Search",
+        "media_type": "photo",
+        "text": "Meituan revenue chart",
+        "negative_terms": [
+          "cartoon",
+          "illustration",
+          "vector"
+        ]
+      },
+      {
+        "role": "context",
+        "source": "Google_Search",
+        "media_type": "video",
+        "text": "Zomato delivery fleet India busy street",
+        "negative_terms": [
+          "cartoon",
+          "illustration",
+          "vector"
+        ]
+      }
+    ],
+    "v4_fallback_queries": [
+      {
+        "role": "backup",
+        "source": "Google_Search",
+        "media_type": "either",
+        "text": "Zomato Meituan revenue comparison infographic",
+        "negative_terms": [
+          "cartoon",
+          "illustration",
+          "vector"
+        ]
+      }
+    ],
+    "scene_function": "proof",
+    "visual_intent": "chart",
+    "asset_roles": [
+      "proof",
+      "context",
+      "fallback"
+    ],
+    "remotion_overlay": {
+      "needed": true,
+      "description": "animated bar chart comparing orders, revenue, and profit between Zomato and Meituan"
+    }
+  },
+  {
+    "scene_id": 5,
+    "title": "Market Cap and PE Ratio Analysis",
+    "description": "\"Zomato trails at a PE ratio of 1500x which is very very high aur Meituan is at a modest PE of around 20x.\"",
+    "duration_hint": 10.0,
+    "visual_style": "premium corporate clean",
+    "raw_text": "\"Zomato trails at a PE ratio of 1500x which is very very high aur Meituan is at a modest PE of around 20x.\"",
+    "destination": "Remotion",
+    "api_queries": [
+      "Zomato PE ratio chart",
+      "Meituan PE ratio chart",
+      "stock market trading floor India"
+    ],
+    "fallback_stock_query": "Zomato Meituan market cap comparison infographic",
+    "flag_for_remotion": true,
+    "remotion_description": "animated comparison of Zomato and Meituan market cap and PE ratios",
+    "v4_queries": [
+      {
+        "role": "proof",
+        "source": "Google_Search",
+        "media_type": "photo",
+        "text": "Zomato PE ratio chart",
+        "negative_terms": [
+          "cartoon",
+          "illustration",
+          "vector"
+        ]
+      },
+      {
+        "role": "proof",
+        "source": "Google_Search",
+        "media_type": "photo",
+        "text": "Meituan PE ratio chart",
+        "negative_terms": [
+          "cartoon",
+          "illustration",
+          "vector"
+        ]
+      },
+      {
+        "role": "context",
+        "source": "Google_Search",
+        "media_type": "video",
+        "text": "stock market trading floor India",
+        "negative_terms": [
+          "cartoon",
+          "illustration",
+          "vector"
+        ]
+      }
+    ],
+    "v4_fallback_queries": [
+      {
+        "role": "backup",
+        "source": "Google_Search",
+        "media_type": "either",
+        "text": "Zomato Meituan market cap comparison infographic",
+        "negative_terms": [
+          "cartoon",
+          "illustration",
+          "vector"
+        ]
+      }
+    ],
+    "scene_function": "proof",
+    "visual_intent": "chart",
+    "asset_roles": [
+      "proof",
+      "context",
+      "fallback"
+    ],
+    "remotion_overlay": {
+      "needed": true,
+      "description": "animated comparison of Zomato and Meituan market cap and PE ratios"
+    }
+  },
+  {
+    "scene_id": 6,
+    "title": "Investor Confidence",
+    "description": "\"Just recheck the numbers this is how big Zomato can really become in the future and maybe that's why Investors like Sanjeev Bikhchandani and others are still invested in Zomato to unlock that potential value and not exiting early.\"",
+    "duration_hint": 10.0,
+    "visual_style": "premium corporate clean",
+    "raw_text": "\"Just recheck the numbers this is how big Zomato can really become in the future and maybe that's why Investors like Sanjeev Bikhchandani and others are still invested in Zomato to unlock that potential value and not exiting early.\"",
+    "destination": "Google_Search",
+    "api_queries": [
+      "Sanjeev Bikhchandani",
+      "Zomato investors meeting",
+      "business team celebrating success"
+    ],
+    "fallback_stock_query": "Zomato investor confidence",
+    "flag_for_remotion": false,
+    "remotion_description": null,
+    "v4_queries": [
+      {
+        "role": "identity",
+        "source": "Google_Search",
+        "media_type": "photo",
+        "text": "Sanjeev Bikhchandani",
+        "negative_terms": [
+          "cartoon",
+          "illustration",
+          "vector"
+        ]
+      },
+      {
+        "role": "context",
+        "source": "Google_Search",
+        "media_type": "video",
+        "text": "Zomato investors meeting",
+        "negative_terms": [
+          "cartoon",
+          "illustration",
+          "vector"
+        ]
+      },
+      {
+        "role": "emotion",
+        "source": "Google_Search",
+        "media_type": "video",
+        "text": "business team celebrating success",
+        "negative_terms": [
+          "cartoon",
+          "illustration",
+          "vector"
+        ]
+      }
+    ],
+    "v4_fallback_queries": [
+      {
+        "role": "backup",
+        "source": "Google_Search",
+        "media_type": "either",
+        "text": "Zomato investor confidence",
+        "negative_terms": [
+          "cartoon",
+          "illustration",
+          "vector"
+        ]
+      }
+    ],
+    "scene_function": "credibility anchor",
+    "visual_intent": "face",
+    "asset_roles": [
+      "identity",
+      "context",
+      "emotion"
+    ],
+    "remotion_overlay": {
+      "needed": false,
+      "description": null
+    }
+  }
+]

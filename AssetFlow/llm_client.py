@@ -11,7 +11,7 @@ import re
 from pathlib import Path
 from typing import Any, Optional
 
-from AssetFlow.config import Config, PROMPTS_DIR
+from AssetFlow.config import Config, PROMPTS_DIR, ASSETFLOW_DIR
 
 
 def load_prompt(name: str, **kwargs) -> str:
@@ -23,6 +23,17 @@ def load_prompt(name: str, **kwargs) -> str:
     for key, value in kwargs.items():
         content = content.replace(f"{{{key}}}", str(value))
     return content
+
+
+def load_directors_framework() -> str:
+    """Load the Director's Framework prompt from AssetFlow root."""
+    path = ASSETFLOW_DIR / "directors_framework.md"
+    if not path.exists():
+        raise FileNotFoundError(
+            f"Director's Framework not found: {path}. "
+            "Expected at AssetFlow/directors_framework.md"
+        )
+    return path.read_text(encoding="utf-8")
 
 
 def extract_json(text: str) -> Any:

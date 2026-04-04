@@ -4,10 +4,13 @@ AssetFlow Configuration
 Loads API keys from .env and defines pipeline constants.
 """
 
+import logging
 import os
 from pathlib import Path
 from dataclasses import dataclass, field
 from typing import Optional
+
+logger = logging.getLogger("AssetFlow.config")
 
 try:
     from dotenv import load_dotenv
@@ -25,12 +28,10 @@ TEMPLATES_DIR = ASSETFLOW_DIR / "templates"
 class Config:
     """Pipeline configuration with sensible defaults."""
 
-    # ── API Keys (loaded from env) ──
-    pexels_api_key: str = field(default_factory=lambda: os.getenv("PEXELS_API_KEY", ""))
-    pixabay_api_key: str = field(default_factory=lambda: os.getenv("PIXABAY_API_KEY", ""))
-    iconify_base_url: str = "https://api.iconify.design"  # No key needed
+    # ── Google Search (PRIMARY asset source via Serper.dev) ──
+    serper_api_key: str = field(default_factory=lambda: os.getenv("SERPER_API_KEY", ""))
 
-    # ── LLM Config (reuses project's Azure OpenAI) ──
+    # ── LLM Config (Azure OpenAI for vision scoring) ──
     azure_openai_key: str = field(default_factory=lambda: os.getenv("AZURE_OPENAI_KEY", ""))
     azure_openai_endpoint: str = field(
         default_factory=lambda: os.getenv(
@@ -53,11 +54,17 @@ class Config:
     vision_llm_provider: str = "azure"
 
     # ── Pipeline Tunables ──
-    candidates_per_source: int = 3          # Assets to fetch per source per scene
+    candidates_per_source: int = 5          # Assets to fetch per query
     quality_threshold: float = 6.0          # Min score (1-10) from Vision LLM
-    svg_variants: int = 3                   # Number of SVG options to generate
     max_concurrent_fetches: int = 10        # Parallel download limit
     fetch_timeout: int = 30                 # Seconds per HTTP request
+
+    # ── Video Download Settings ──
+    video_max_duration: int = 10            # Max video duration in seconds
+    video_quality: int = 720                # Max video height (720p)
+    video_min_duration: int = 1             # Min video duration in seconds
+    video_min_file_size: int = 50_000       # Min video file size in bytes (50KB)
+    video_max_file_size: int = 50_000_000   # Max video file size in bytes (50MB)
 
     # ── Paths ──
     staging_dir: Path = field(default_factory=lambda: PROJECT_ROOT / "AssetFlow" / ".staging")
@@ -65,7 +72,10 @@ class Config:
     hitl_dir: Path = field(default_factory=lambda: PROJECT_ROOT / "AssetFlow" / "hitl_queue")
 
     def __post_init__(self):
-        """Create working directories."""
+        pass
+
+    def ensure_dirs(self):
+        """Create working directories on disk."""
         self.staging_dir.mkdir(parents=True, exist_ok=True)
         self.output_dir.mkdir(parents=True, exist_ok=True)
         self.hitl_dir.mkdir(parents=True, exist_ok=True)
@@ -73,10 +83,8 @@ class Config:
     def validate(self) -> list[str]:
         """Return list of missing/invalid config items."""
         issues = []
-        if not self.pexels_api_key:
-            issues.append("PEXELS_API_KEY not set")
-        if not self.pixabay_api_key:
-            issues.append("PIXABAY_API_KEY not set")
+        if not self.serper_api_key:
+            issues.append("SERPER_API_KEY not set (primary asset source — get free key at serper.dev)")
         if self.vision_llm_provider == "azure" and not self.azure_openai_key:
             issues.append("AZURE_OPENAI_KEY not set (needed for vision LLM)")
         if self.vision_llm_provider == "gemini" and not self.gemini_api_key:
@@ -91,5 +99,4 @@ class Config:
 
     @property
     def has_text_llm(self) -> bool:
-        """Check if any text LLM is available for script parsing."""
         return bool(self.azure_openai_key) or bool(self.gemini_api_key)

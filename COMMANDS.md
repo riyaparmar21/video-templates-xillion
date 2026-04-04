@@ -704,13 +704,88 @@ crossfade, wipe_left, wipe_right, slide_up, slide_down, zoom_in, zoom_out, none
 ---
 ### ASSETFLOW COMMANDS:
 
-```
-python -m AssetFlow check                    # verify config
-python -m AssetFlow parse -s script.txt      # Phase 1 only (no API calls)
-python -m AssetFlow run -s script.txt        # full pipeline
-python -m AssetFlow resolve selections.json  # apply HITL choices
+AssetFlow fetches visual assets for talking-head style short-form videos. It reads a video script, generates search queries via the Director's Framework (LLM), fetches images from Google Image Search (Serper.dev), scores them with a Vision LLM, deduplicates visually similar results, and presents a HITL dashboard for failed scenes.
+
+```bash
+# ── Check & Info ──
+python -m AssetFlow check                              # verify Serper API key, Vision LLM config
+python -m AssetFlow status -s script.txt               # show cache status for a script
+
+# ── Run Pipeline ──
+python -m AssetFlow run -s script.txt                  # run pipeline (auto-resumes from cache)
+python -m AssetFlow run -s script.txt --fresh           # ignore cache, start from scratch
+python -m AssetFlow run -s script.txt --refetch 3 5     # re-fetch only scenes 3 and 5
+python -m AssetFlow run -s script.txt --style "dark cinematic fintech"  # set style anchor
+python -m AssetFlow run -s script.txt --format 9:16     # vertical video (default: 16:9)
+python -m AssetFlow run -s script.txt --threshold 7     # quality gate threshold (1-10, default 6)
+python -m AssetFlow run -s script.txt --candidates 5    # candidates per query (default 5)
+python -m AssetFlow run -s script.txt --skip-vision     # skip Vision LLM scoring (auto-pass all)
+python -m AssetFlow run -s script.txt --force           # run despite config warnings
+python -m AssetFlow run -s script.txt --phase 3         # re-run from Phase 3 (re-score existing assets)
+python -m AssetFlow run -s script.txt --phase 3 --threshold 8  # re-score with higher bar
+
+# ── Parse Only (Phase 1 — no API calls) ──
+python -m AssetFlow parse -s script.txt                # runs Director's Framework, outputs scene plan
+
+# ── HITL Review ──
+python -m AssetFlow resolve selections.json            # apply HITL dashboard choices
+
+# ── Background Removal (visual HITL dashboard) ──
+python -m AssetFlow rembg-review                       # opens visual dashboard to review & select images
+python -m AssetFlow rembg-apply                        # apply bg removal to images selected in dashboard
+python -m AssetFlow rembg-apply scene_001_Logo.jpg     # remove bg from specific image(s) directly
+python -m AssetFlow rembg-apply --all                  # remove bg from ALL candidate images
+
+# ── Cache Management ──
+python -m AssetFlow clear -s script.txt                # clear all cache for a script
+python -m AssetFlow clear -s script.txt --scene 3 5    # clear cache for specific scenes only
+python -m AssetFlow clear --all                        # clear ALL AssetFlow cache & data
 ```
 
+#### Pipeline phases
+
+| Phase | What | Skippable via |
+|-------|------|---------------|
+| 1 | Script → Director's Framework → scenes with Google Search queries | `--phase 2+` (loads from cache) |
+| 2 | Google Image Search (Serper.dev) + download + quality gates + perceptual dedup | `--phase 3` (loads from cache) |
+| 3 | Vision LLM scoring (relevance, quality, framing) | `--skip-vision` |
+| HITL | Dashboard for scenes that failed the quality gate (upload / select / skip) | — |
+
+Resume behavior: by default, `run` skips scenes that already have approved assets in `output/` or cached fetch data in `.cache/`. Use `--fresh` to wipe everything, `--refetch` to selectively re-run specific scenes, or `--phase N` to re-run from a specific phase (earlier phases load from cache).
+
+#### Quality gates (Phase 2)
+
+Downloaded images pass through four quality gates before reaching the Vision LLM:
+1. **Minimum file size** — rejects files under 8 KB (thumbnails, broken downloads)
+2. **HTML detection** — rejects HTML pages saved as .jpg (403 pages, captchas)
+3. **Pillow integrity** — verifies the image can be decoded
+4. **Perceptual dedup (dHash)** — removes visually identical images within a scene (e.g. same logo at 3 different resolutions). Uses difference hashing with Hamming distance ≤ 12 out of 256 bits.
+
+Cross-scene deduplication also runs: the same Google Image URL appearing in multiple scenes is kept only in the first scene.
+
+#### Background removal
+
+Background removal is **manual with a visual dashboard**, not automatic. After the pipeline completes:
+1. Run `python -m AssetFlow rembg-review` — opens an HTML dashboard showing all candidate images as a visual grid. Each image has a checkbox; click to zoom for a closer look.
+2. Select/deselect images in the dashboard, then click **"Remove Backgrounds"** to save your choices.
+3. Run `python -m AssetFlow rembg-apply` — reads your selections and processes them. Or use `--all` to skip the dashboard and process everything, or pass specific filenames directly.
+4. Background-removed files are saved as `*_nobg.png` alongside the originals in `output/`.
+
+The dashboard starts a lightweight local server (auto port) so selections are saved directly to `hitl_queue/rembg_selections.json`. Press Ctrl+C in the terminal to stop the server when done reviewing.
+
+Requires `pip install rembg Pillow`. Uses the `birefnet-general` model for best accuracy.
+
+#### Director's Framework
+
+The framework prompt lives at `AssetFlow/directors_framework.md`. It teaches the LLM to:
+- Generate targeted Google Search queries per scene (one entity per query)
+- Enforce identity queries for every named brand/person/product
+- Generate "vs" comparison queries for comparison scenes
+- Apply visual style consistency via `style_modifier`
+- Adjust queries for aspect ratio (16:9 vs 9:16)
+- Plan Remotion overlays for data-heavy scenes (additive, not exclusive)
+
+---
 
 ## File Structure
 
@@ -727,9 +802,24 @@ scripts/
   set-aspect.mjs                      # aspect ratio CLI
   render-video.mjs                    # render script
 
+AssetFlow/
+  directors_framework.md              # Director's Framework prompt (Google Search queries)
+  types.py                            # shared types (Scene, QuerySlot, AssetSource, etc.)
+  config.py                           # Serper API key, Vision LLM config, pipeline tunables
+  llm_client.py                       # LLM client (Azure OpenAI / Gemini)
+  phase1_script_parser.py             # script → Director's Framework → scenes with queries
+  phase2_asset_fetcher.py             # Google Search (Serper.dev) + download + quality gates
+  dedup.py                            # perceptual hash deduplication (dHash)
+  phase3_processor.py                 # Vision LLM scoring + video keyframe extraction
+  phase5_hitl_dashboard.py            # HITL dashboard (upload, select, skip)
+  orchestrator.py                     # pipeline orchestrator (phases 1-3 + HITL)
+  regen_server.py                     # localhost server for dashboard selections
+  cache.py                            # content-hash cache system
+  run_manifest.py                     # execution trace (run_manifest.json)
+
 tests/                                # smoke tests (npm test)
 pipeline/                             # transcribe → analyze → generate
-assets/                               # media (images, videos, SVGs, audio)
+assets/                               # media (images, videos, audio)
 data/                                 # transcripts, blueprints, specs
 cache/                                # cached specs, scenes, frames
 ```
@@ -739,8 +829,15 @@ cache/                                # cached specs, scenes, frames
 ## Environment Variables
 
 ```bash
+# ── LLM (required) ──
 AZURE_GPT_IMAGE_ENDPOINT=https://your-endpoint.openai.azure.com/
 AZURE_OPENAI_KEY=your-key-here
 AZURE_O4_DEPLOYMENT_NAME=o4-mini         # optional
 AZURE_O4_API_VERSION=2024-12-01-preview  # optional
+
+# ── Google Image Search (required) ──
+SERPER_API_KEY=your-key                   # free tier at serper.dev (2500 searches)
+
+# ── Vision LLM (optional, for quality gate) ──
+GEMINI_API_KEY=your-key                   # alternative to Azure for vision scoring
 ```

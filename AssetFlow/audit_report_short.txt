@@ -1,0 +1,56 @@
+AssetFlow Repo Sweep — Audit Report
+====================================
+Date: 2026-04-02
+Scanner: Manual deep-dive (CLI, bugs, optimization, dead code)
+
+25 issues found. Status summary:
+
+PATCHED (code edits applied):
+  P-001 — CLI: `clear` without flags now errors instead of silently doing nothing — __main__.py
+  P-002 — CLI: `cmd_parse` now calls ScriptParser.run() directly, not full pipeline — __main__.py
+  P-003 — CLI: Removed dead `or "16:9"` fallback (argparse already sets default) — __main__.py
+  P-004 — CLI: Added --phase to docstring usage examples — __main__.py
+  P-007 — CLI: sys.path.insert now guarded with `if not in sys.path` — __main__.py
+  P-008 — BUG: Orchestrator now infers source/type from cached data instead of hardcoding PEXELS — orchestrator.py + cache.py
+  P-009 — BUG: Replaced signal.pause() with cross-platform threading.Event().wait() — orchestrator.py
+  P-010 — BUG: Fixed IHDR color_type offset from data[9] to data[8] — phase3_processor.py
+  P-011 — PERF: HTTP requests now use a shared aiohttp session instead of per-request sessions — phase2_asset_fetcher.py
+  P-012 — DEPRECATED: Added clearer deprecation notice to SceneQuery — types.py
+  P-013 — DEAD CODE: Removed parse_script_legacy() — phase1_script_parser.py
+  P-014 — DEAD CODE: Removed legacy fetch_for_scene() and fetch_all() — phase2_asset_fetcher.py
+  P-015 — DEAD CODE: Removed unused _scene_to_query() — phase2_asset_fetcher.py
+  P-019 — PERF: Vision LLM scoring now parallelized via ThreadPoolExecutor — phase3_processor.py
+  P-020 — STRUCTURE: Added TODO for HTML template extraction in phase5 — phase5_hitl_dashboard.py
+  P-021 — STRUCTURE: Added graceful error handling for rembg model download failures — phase3_processor.py
+  P-022 — STRUCTURE: Moved dir creation from __post_init__ to explicit ensure_dirs() — config.py + orchestrator.py
+  P-023 — STRUCTURE: Tavily API key now sent via Authorization header (v2 API) — phase2_asset_fetcher.py
+  P-024 — TESTS: Created tests/ directory with test_types.py, test_config.py, test_phase3_alpha.py
+  P-025 — SECURITY: Pixabay URL with API key no longer logged at INFO level — phase2_asset_fetcher.py
+
+VERIFIED FALSE POSITIVE:
+  P-005 — Import casing `from AssetFlow.xxx` matches actual folder name (macOS case-insensitive FS)
+  P-006 — Same as P-005 (all imports verified correct)
+
+MANUAL ACTION REQUIRED (sandbox cannot delete files):
+  P-016 — Delete prompts/directors_framework.md (stub file saying "MOVED")
+  P-017 — Remove or populate empty templates/ directory
+  P-018 — Add __pycache__/ to .gitignore and run: find . -name __pycache__ -exec rm -rf {} +
+
+FILES MODIFIED:
+  __main__.py          — P-001, P-002, P-003, P-004, P-007
+  cache.py             — P-008 (save_phase3_scene extended with source/type)
+  config.py            — P-022 (ensure_dirs)
+  orchestrator.py      — P-008, P-009, P-022
+  phase1_script_parser.py — P-013 (removed legacy)
+  phase2_asset_fetcher.py — P-011, P-014, P-015, P-023, P-025
+  phase3_processor.py  — P-010, P-019, P-021
+  phase5_hitl_dashboard.py — P-020 (TODO comment)
+  types.py             — P-012 (deprecation notice)
+
+FILES CREATED:
+  tests/__init__.py
+  tests/test_types.py
+  tests/test_config.py
+  tests/test_phase3_alpha.py
+
+End of report.

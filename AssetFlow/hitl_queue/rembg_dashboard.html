@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AssetFlow — Background Removal Review</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0f0f13;
+            color: #e0e0e6;
+            padding: 2rem;
+            padding-bottom: 100px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #2a2a35;
+        }
+        .header h1 { font-size: 1.8rem; color: #fff; margin-bottom: 0.5rem; }
+        .header p { color: #888; font-size: 0.95rem; }
+        .stats {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+        .stat {
+            background: #1a1a24;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .stat .num { font-size: 1.5rem; font-weight: 700; color: #7c6aef; }
+        .stat .label { font-size: 0.8rem; color: #888; }
+
+        /* ── Controls ── */
+        .controls {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        .ctrl-btn {
+            background: #1a1a24;
+            border: 1px solid #2a2a35;
+            color: #ccc;
+            padding: 0.5rem 1.2rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+        .ctrl-btn:hover { border-color: #7c6aef; color: #fff; }
+
+        /* ── Image Grid ── */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 1.25rem;
+        }
+        .img-card {
+            background: #1a1a24;
+            border: 2px solid #2a2a35;
+            border-radius: 12px;
+            padding: 1rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .img-card:hover { border-color: #3a3a4a; }
+        .img-card.deselected { opacity: 0.45; }
+        .img-card.deselected .img-wrapper { filter: grayscale(0.6); }
+        .img-wrapper {
+            width: 100%;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #12121a;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+        }
+        .img-wrapper img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            cursor: zoom-in;
+        }
+        .img-info { margin-bottom: 0.75rem; }
+        .img-name {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #ddd;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .img-meta { font-size: 0.75rem; color: #666; margin-top: 0.2rem; }
+
+        /* ── Checkbox ── */
+        .checkbox-wrap {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            font-size: 0.85rem;
+            color: #aaa;
+            user-select: none;
+        }
+        .checkbox-wrap input { display: none; }
+        .checkmark {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #444;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.15s;
+            flex-shrink: 0;
+        }
+        .checkbox-wrap input:checked + .checkmark {
+            background: #7c6aef;
+            border-color: #7c6aef;
+        }
+        .checkbox-wrap input:checked + .checkmark::after {
+            content: '';
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            margin-top: -2px;
+        }
+
+        /* ── Section Headings ── */
+        .section-heading {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #2a2a35;
+        }
+        .section-heading .count {
+            color: #7c6aef;
+            font-weight: 600;
+        }
+
+        /* ── Collapsible / Accordion ── */
+        .collapsible {
+            margin-top: 2.5rem;
+        }
+        .collapsible-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            width: 100%;
+            background: #1a1a24;
+            border: 1px solid #2a2a35;
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            cursor: pointer;
+            color: #ccc;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.2s;
+            text-align: left;
+        }
+        .collapsible-toggle:hover {
+            border-color: #3a3a4a;
+            color: #fff;
+        }
+        .collapsible-toggle .arrow {
+            display: inline-block;
+            transition: transform 0.25s ease;
+            font-size: 0.8rem;
+            color: #666;
+        }
+        .collapsible-toggle.open .arrow {
+            transform: rotate(90deg);
+        }
+        .collapsible-toggle .toggle-meta {
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: #666;
+            margin-left: auto;
+        }
+        .collapsible-body {
+            display: none;
+            padding-top: 1.25rem;
+        }
+        .collapsible-body.open {
+            display: block;
+        }
+        .empty-msg {
+            color: #555;
+            font-size: 0.9rem;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        /* ── Finalize Bar ── */
+        .finalize-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #1a1a24;
+            border-top: 1px solid #2a2a35;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+        .finalize-btn {
+            background: #7c6aef;
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .finalize-btn:hover { background: #6852e0; }
+        .finalize-btn:disabled { background: #333; color: #666; cursor: not-allowed; }
+
+        /* ── Lightbox ── */
+        .lightbox-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+        }
+        .lightbox-overlay.active { display: flex; }
+        .lightbox-content {
+            max-width: 90vw;
+            max-height: 90vh;
+            position: relative;
+            cursor: default;
+        }
+        .lightbox-content img {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: -0.5rem;
+            right: -0.5rem;
+            background: #1a1a24;
+            border: 1px solid #333;
+            color: #888;
+            font-size: 1.3rem;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1001;
+        }
+        .lightbox-close:hover { color: #fff; }
+        .lightbox-label {
+            text-align: center;
+            color: #aaa;
+            font-size: 0.85rem;
+            margin-top: 0.75rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Background Removal Review</h1>
+        <p>Select which images should have their backgrounds removed. Click to zoom.</p>
+        <div class="stats">
+            <div class="stat">
+                <div class="num">3</div>
+                <div class="label">Total Candidates</div>
+            </div>
+            <div class="stat">
+                <div class="num" id="selected-count">3</div>
+                <div class="label">Selected</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <button class="ctrl-btn" onclick="selectAllCandidates()">Select All Recommended</button>
+        <button class="ctrl-btn" onclick="deselectAllCandidates()">Deselect All Recommended</button>
+    </div>
+
+    <h2 class="section-heading">Recommended for Background Removal <span class="count">(3)</span></h2>
+    <div class="image-grid" id="candidates-grid">
+        
+            <div class="img-card" data-idx="0" data-filename="scene_001_Opening_Hook:_Zomato_and_Blinkit_Orders.png">
+                <div class="img-wrapper">
+                    <img src="http://127.0.0.1:8888/images/scene_001_Opening_Hook%3A_Zomato_and_Blinkit_Orders.png" alt="scene_001_Opening_Hook:_Zomato_and_Blinkit_Orders.png" onclick="openLightbox(this, 'scene_001_Opening_Hook:_Zomato_and_Blinkit_Orders.png')">
+                </div>
+                <div class="img-info">
+                    <div class="img-name" title="scene_001_Opening_Hook:_Zomato_and_Blinkit_Orders.png">scene_001_Opening_Hook:_Zomato_and_Blinkit_Orders.png</div>
+                    <div class="img-meta">109 KB &middot; scene_001</div>
+                </div>
+                <label class="checkbox-wrap">
+                    <input type="checkbox" checked onchange="updateCount()">
+                    <span class="checkmark"></span>
+                    Remove Background
+                </label>
+            </div>
+            
+            <div class="img-card" data-idx="1" data-filename="scene_004_Meituan&#x27;s_Scale_vs_Zomato.jpg">
+                <div class="img-wrapper">
+                    <img src="http://127.0.0.1:8888/images/scene_004_Meituan%27s_Scale_vs_Zomato.jpg" alt="scene_004_Meituan&#x27;s_Scale_vs_Zomato.jpg" onclick="openLightbox(this, 'scene_004_Meituan\'s_Scale_vs_Zomato.jpg')">
+                </div>
+                <div class="img-info">
+                    <div class="img-name" title="scene_004_Meituan&#x27;s_Scale_vs_Zomato.jpg">scene_004_Meituan&#x27;s_Scale_vs_Zomato.jpg</div>
+                    <div class="img-meta">33 KB &middot; scene_004</div>
+                </div>
+                <label class="checkbox-wrap">
+                    <input type="checkbox" checked onchange="updateCount()">
+                    <span class="checkmark"></span>
+                    Remove Background
+                </label>
+            </div>
+            
+            <div class="img-card" data-idx="2" data-filename="scene_004_Meituan_vs_Zomato:_Orders,_Revenue,_Profit.jpg">
+                <div class="img-wrapper">
+                    <img src="http://127.0.0.1:8888/images/scene_004_Meituan_vs_Zomato%3A_Orders%2C_Revenue%2C_Profit.jpg" alt="scene_004_Meituan_vs_Zomato:_Orders,_Revenue,_Profit.jpg" onclick="openLightbox(this, 'scene_004_Meituan_vs_Zomato:_Orders,_Revenue,_Profit.jpg')">
+                </div>
+                <div class="img-info">
+                    <div class="img-name" title="scene_004_Meituan_vs_Zomato:_Orders,_Revenue,_Profit.jpg">scene_004_Meituan_vs_Zomato:_Orders,_Revenue,_Profit.jpg</div>
+                    <div class="img-meta">33 KB &middot; scene_004</div>
+                </div>
+                <label class="checkbox-wrap">
+                    <input type="checkbox" checked onchange="updateCount()">
+                    <span class="checkmark"></span>
+                    Remove Background
+                </label>
+            </div>
+            
+    </div>
+
+    <div class="collapsible">
+        <button class="collapsible-toggle" id="other-toggle" onclick="toggleOther()">
+            <span class="arrow">&#9654;</span>
+            Other Images
+            <span class="toggle-meta">0 images &middot; already transparent, processed, or non-standard format</span>
+        </button>
+        <div class="collapsible-body" id="other-body">
+            <p class="empty-msg">No other images in output folder.</p>
+        </div>
+    </div>
+
+    <div class="finalize-bar">
+        <span id="finalize-status">3 image(s) selected for background removal</span>
+        <button class="finalize-btn" id="apply-btn" onclick="applyRemoval()">
+            Remove Backgrounds
+        </button>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox(event)">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+            <img id="lightbox-img" src="" alt="">
+            <div class="lightbox-label" id="lightbox-label"></div>
+        </div>
+    </div>
+
+    <script>
+        const REGEN_PORT = 8888;
+
+        function getSelectedFiles() {
+            const selected = [];
+            document.querySelectorAll('.img-card').forEach(card => {
+                const cb = card.querySelector('input[type=checkbox]');
+                if (cb && cb.checked) {
+                    selected.push(card.dataset.filename);
+                }
+            });
+            return selected;
+        }
+
+        function updateCount() {
+            const selected = getSelectedFiles();
+            document.getElementById('selected-count').textContent = selected.length;
+            document.getElementById('finalize-status').textContent =
+                selected.length + ' image(s) selected for background removal';
+            document.getElementById('apply-btn').disabled = selected.length === 0;
+
+            // Visual feedback on deselected cards
+            document.querySelectorAll('.img-card').forEach(card => {
+                const cb = card.querySelector('input[type=checkbox]');
+                card.classList.toggle('deselected', !cb.checked);
+            });
+        }
+
+        function selectAllCandidates() {
+            document.querySelectorAll('#candidates-grid .img-card input[type=checkbox]').forEach(cb => cb.checked = true);
+            updateCount();
+        }
+
+        function deselectAllCandidates() {
+            document.querySelectorAll('#candidates-grid .img-card input[type=checkbox]').forEach(cb => cb.checked = false);
+            updateCount();
+        }
+
+        /* ── Collapsible toggle ── */
+        function toggleOther() {
+            const toggle = document.getElementById('other-toggle');
+            const body = document.getElementById('other-body');
+            if (!toggle || !body) return;
+            const isOpen = toggle.classList.toggle('open');
+            body.classList.toggle('open', isOpen);
+        }
+
+        async function applyRemoval() {
+            const selected = getSelectedFiles();
+            if (selected.length === 0) {
+                alert('No images selected.');
+                return;
+            }
+
+            const payload = { images: selected };
+
+            if (REGEN_PORT > 0) {
+                try {
+                    document.getElementById('apply-btn').disabled = true;
+                    document.getElementById('apply-btn').textContent = 'Processing...';
+                    document.getElementById('finalize-status').textContent = 'Sending to AssetFlow server...';
+
+                    const resp = await fetch(`http://127.0.0.1:${REGEN_PORT}/save-rembg-selections`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload),
+                    });
+                    const data = await resp.json();
+                    if (resp.ok) {
+                        document.getElementById('finalize-status').textContent =
+                            `Saved! ${data.count} image(s). Now run: python -m AssetFlow rembg-apply`;
+                        document.getElementById('apply-btn').textContent = 'Saved ✓';
+                        alert(`Selection saved! ${data.count} image(s).\n\nNow run:\n  python -m AssetFlow rembg-apply`);
+                        return;
+                    }
+                } catch (e) {
+                    console.warn('Server unavailable, falling back to download:', e);
+                }
+            }
+
+            // Fallback: download the selections JSON
+            const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'rembg_selections.json';
+            a.click();
+
+            document.getElementById('finalize-status').textContent =
+                'Selections downloaded. Move to hitl_queue/ then run: python -m AssetFlow rembg-apply';
+            alert('Selections downloaded.\nMove rembg_selections.json to hitl_queue/ folder,\nthen run:\n  python -m AssetFlow rembg-apply');
+        }
+
+        /* ── Lightbox ── */
+        function openLightbox(el, label) {
+            document.getElementById('lightbox-img').src = el.src;
+            document.getElementById('lightbox-label').textContent = label || '';
+            document.getElementById('lightbox').classList.add('active');
+        }
+        function closeLightbox(e) {
+            if (e && e.target !== document.getElementById('lightbox')) return;
+            document.getElementById('lightbox').classList.remove('active');
+        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('active');
+        });
+    </script>
+</body>
+</html>

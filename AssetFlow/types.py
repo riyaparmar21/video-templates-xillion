@@ -7,23 +7,24 @@ All dataclasses used across pipeline phases.
 from dataclasses import dataclass, field
 from enum import Enum
 from pathlib import Path
-from typing import Any, Optional
+from typing import Optional
 
 
 class AssetType(str, Enum):
     PHOTO = "photo"
     VIDEO = "video"
-    VECTOR = "vector"
-    ICON = "icon"
-    SVG = "svg"
+    GIF = "gif"
 
 
 class AssetSource(str, Enum):
-    PEXELS = "pexels"
-    PIXABAY = "pixabay"
-    ICONIFY = "iconify"
-    SVG_GENERATED = "svg_generated"
+    GOOGLE = "google"           # Google Image/Video Search via Serper.dev
     USER_UPLOAD = "user_upload"
+
+
+class AssetDestination(str, Enum):
+    """Routing destination for a scene."""
+    GOOGLE_SEARCH = "Google_Search"
+    REMOTION = "Remotion"
 
 
 class SceneStatus(str, Enum):
@@ -36,28 +37,45 @@ class SceneStatus(str, Enum):
     FAILED = "failed"
 
 
-# ── Phase 1: Script Parsing ──
+# ── Phase 1: Script Parsing (Director's Framework output) ──
+
+@dataclass
+class QuerySlot:
+    """A single query from the Director's Framework.
+
+    Each query carries its own role, source, media_type, and search text.
+    """
+    role: str                                     # hero | support | identity | context | proof | backup
+    source: str = "Google_Search"                 # Google_Search (primary)
+    media_type: str = "photo"                     # video | photo | either
+    text: str = ""                                # search phrase
+    negative_terms: list[str] = field(default_factory=list)
+
 
 @dataclass
 class Scene:
-    """A single scene extracted from the script."""
+    """A single scene from the Director's Framework analysis."""
     scene_id: int
     title: str
     description: str
-    duration_hint: Optional[float] = None  # seconds
-    visual_style: Optional[str] = None
-    raw_text: str = ""
+    raw_text: str = ""                                              # text_script from framework
+    duration_hint: Optional[float] = None                           # seconds
+    visual_style: Optional[str] = None                              # style_modifier from framework
 
+    # ── Director's Framework fields ──
+    scene_function: str = ""                                        # hook | proof | comparison | explanation | ...
+    visual_intent: str = ""                                         # face | brand | ui | broll | proof | ...
+    asset_roles: list[str] = field(default_factory=list)            # ["hook", "identity", "context", ...]
+    queries: list[QuerySlot] = field(default_factory=list)          # primary queries
+    fallback_queries: list[QuerySlot] = field(default_factory=list) # broader backup queries
+    remotion_overlay: dict = field(default_factory=dict)            # {"needed": bool, "description": str}
 
-@dataclass
-class SceneQuery:
-    """Search queries generated for a scene."""
-    scene_id: int
-    primary_query: str                          # Main search term
-    alternate_queries: list[str] = field(default_factory=list)  # Fallback queries
-    asset_type: AssetType = AssetType.PHOTO
-    style_hints: list[str] = field(default_factory=list)        # e.g. ["transparent bg", "isolated"]
-    requires_transparency: bool = False
+    # ── Derived fields ──
+    destination: AssetDestination = AssetDestination.GOOGLE_SEARCH
+    api_queries: list[str] = field(default_factory=list)            # flattened query texts
+    fallback_stock_query: Optional[str] = None                      # first fallback_queries text
+    flag_for_remotion: bool = False                                 # remotion_overlay.needed
+    remotion_description: Optional[str] = None                      # remotion_overlay.description
 
 
 # ── Phase 2: Fetching ──
@@ -90,23 +108,10 @@ class ScoredAsset:
     framing_score: float = 0.0          # 1-10
     overall_score: float = 0.0          # Weighted average
     vision_feedback: str = ""           # LLM's text reasoning
-    bg_removed_path: Optional[Path] = None  # Path after rembg (if applicable)
     passed_threshold: bool = False
 
 
-# ── Phase 4: SVG Fallback ──
-
-@dataclass
-class SVGVariant:
-    """One SVG variant generated as fallback."""
-    variant_id: str             # "A", "B", "C"
-    scene_id: int
-    svg_code: str               # Raw SVG XML
-    rendered_path: Optional[Path] = None  # PNG preview after rendering
-    description: str = ""
-
-
-# ── Phase 5: HITL ──
+# ── HITL ──
 
 @dataclass
 class HITLItem:
@@ -115,8 +120,7 @@ class HITLItem:
     scene_title: str
     scene_description: str
     failed_assets: list[ScoredAsset] = field(default_factory=list)
-    svg_variants: list[SVGVariant] = field(default_factory=list)
-    selected_variant: Optional[str] = None      # "A"/"B"/"C" or "upload"
+    selected_variant: Optional[str] = None
     user_upload_path: Optional[Path] = None
     resolved: bool = False
 
@@ -143,11 +147,11 @@ class PipelineResult:
     approved_assets: list[ApprovedAsset] = field(default_factory=list)
     hitl_pending: list[HITLItem] = field(default_factory=list)
     hitl_resolved: list[HITLItem] = field(default_factory=list)
+    remotion_suggestions: list[dict] = field(default_factory=list)
     errors: list[str] = field(default_factory=list)
 
     @property
     def is_complete(self) -> bool:
-        """True if all scenes have approved assets."""
         return (
             len(self.approved_assets) == self.total_scenes
             and not self.hitl_pending
@@ -161,6 +165,7 @@ class PipelineResult:
             f"  Auto-approved: {len(self.approved_assets)}",
             f"  HITL pending:  {len(self.hitl_pending)}",
             f"  HITL resolved: {len(self.hitl_resolved)}",
+            f"  Remotion upgrades: {len(self.remotion_suggestions)}",
             f"  Errors:        {len(self.errors)}",
         ]
         return "\n".join(lines)
